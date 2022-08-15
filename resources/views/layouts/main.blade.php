@@ -7,8 +7,10 @@
     <title>BK SMKN 6 Bandung | {{ $title }}</title>
     </head>
     <body>
-        <div class="container">
+        <div class="container-xl">
             @yield('container')
         </div>
+
+        <script src="../path/to/flowbite/dist/flowbite.js"></script>
     </body>
 </html>

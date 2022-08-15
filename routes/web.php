@@ -1,7 +1,9 @@
 <?php
 
-use App\Http\Controllers\SignupController;
+use App\Http\Controllers\RegistrationController;
+use App\Http\Controllers\DashboardController;
 use Illuminate\Support\Facades\Route;
+use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,11 +17,15 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('login-page/index',[
+    return view('/auth/login',[
         'title' => 'Login Page'
     ]);
 });
 
 
 /* Signup Page */
-Route::get('/signup-page', [SignupController::class,'index']);
+Route::get('/auth/registration', [RegistrationController::class,'index']);
+
+/* Dashboard Page */
+
+Route::get('/admin/dashboard/layouts/main', [DashboardController::class, 'index' ]);
