@@ -9,7 +9,7 @@
     </div>
     <div class="menu">
         <ul class="mt-20 font-medium text-white text-sm overflow-hidden">
-            <li class="hover:bg-tosca-200 h-16 duration-200 ">
+            <li class="hover:bg-tosca-200 h-16 duration-200">
                 <a href="#" class="flex place-items-center py-4 mx-12 w-44 ">
                     <img src="../../../../home.png" class="w-8 h-8 "/>
                     <span class="description ml-12">

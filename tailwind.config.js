@@ -17,6 +17,7 @@ module.exports = {
         'tosca-400': '#1E3031',
         'orange-100': '#E9AE8C',
         'orange-200': '#E78953',
+        'orange-300': '#DA9D7B',
         'peach-100': '#FF9376',
         'cream-100': '#F6D5B6',
       },
@@ -24,7 +25,11 @@ module.exports = {
         '4xl': '32px'
       },
       margin: {
-        '30': '120px'
+        '13': '52px',
+        '23': '92px',
+        '30': '120px',
+        '84': '336px',
+        
       },
       zIndex: {
         '1': 1
@@ -33,7 +38,11 @@ module.exports = {
         '6-1/2xl': '64px'
       },
       width: {
-        '68': '272px'
+        '68': '272px',
+        '116': '464px'
+      },
+      height: {
+        'sidebar': '940px'
       }
     },
   },

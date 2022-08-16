@@ -6,18 +6,18 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="https://unpkg.com/flowbite@1.5.2/dist/flowbite.min.css" />
     @vite('resources/css/app.css')
+    <link rel=”icon” href="../../../../bk.png">
     <title>{{$title}}</title>
 </head>
 <body>
-    <div class="container-xl bg-white h-screen flex">
+    <div class="container flex">
+        @yield('container')
         <div class="sidebar-content">
             @include('admin.dashboard.layouts.sidebar')
         </div>
         <div class="main-content ml-52">
             @include('admin.dashboard.base')
         </div>
-        
-        @yield('container')
     </div>
 
 
