@@ -1,10 +1,10 @@
-<!doctype html>
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <meta charset="utf-8">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    @vite('resources/css/app.css')
-    <link rel="icon" href="../../../../bk.png">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://unpkg.com/flowbite@1.5.2/dist/flowbite.min.css" />
     <script src="http://code.jquery.com/jquery-2.2.1.min.js"></script>
     <style type="text/css">
         .preloader {
@@ -24,10 +24,15 @@
             font: 14px arial;
         }
         </style>
-    <title>BK SMKN 6 Bandung | {{ $title }}</title>
-    </head>
-    <body>
-        @yield('content')
+    @vite('resources/css/app.css')
+
+    
+    <link rel="icon" href="../../../../bk.png">
+    <title>{{$title}} - BK SMKN 6 Bandung</title>
+</head>
+<body>
+    <div class="container my-10 ml-42">
+        @yield('container')
         <div class="preloader">
             <div class="text-center loading">
                 <img src="../../../../Spinner.svg" width="80">
@@ -35,13 +40,15 @@
                 </div>
             </div>
         </div>
-        
-        <script src="../path/to/flowbite/dist/flowbite.js"></script>
-        <script src="../path/to/flowbite/dist/flowbite.js"></script>
-        <script>
-            $(document).ready(function(){
-            $(".preloader").fadeOut(2000);
-            })
-        </script>
-    </body>
+    </div>
+    
+    <script src="../path/to/flowbite/dist/flowbite.js"></script>
+    <script src="https://unpkg.com/flowbite@1.5.2/dist/flowbite.js"></script>
+    <script src="../path/to/flowbite/dist/flowbite.js"></script>
+    <script>
+        $(document).ready(function(){
+        $(".preloader").fadeOut(1500);
+        })
+    </script>
+</body>
 </html>

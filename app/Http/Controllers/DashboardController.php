@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 class DashboardController extends Controller
 {
     public function index(){
-        return view('/admin/dashboard/layouts.main',[
+        return view('/admin/features/dashboard.base',[
             'title' => 'Dashboard'
         ]);
     }
