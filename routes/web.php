@@ -2,7 +2,9 @@
 
 use App\Http\Controllers\RegistrationController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\EvaluationController;
 use App\Http\Controllers\SiswaController;
+use App\Http\Controllers\ReportController;
 use Faker\Provider\Base;
 use Illuminate\Support\Facades\Route;
 use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
@@ -35,3 +37,13 @@ Route::get('/admin/features/dashboard/base', [DashboardController::class, 'index
 /* Daftar Siswa Page */
 
 Route::get('/admin/features/siswa/base', [SiswaController::class, 'index']);
+Route::get('/admin/features/siswa/detail', [SiswaController::class, 'detail']);
+
+/*  Report Page */
+
+Route::get('/admin/features/report/jurnal', [ReportController::class, 'index']);
+Route::get('/admin/features/report/kunjungan', [ReportController::class, 'visit']);
+
+/* Evaluation Page */
+
+Route::get('/admin/features/evaluation/individual', [EvaluationController::class, 'index']);

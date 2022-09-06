@@ -30,7 +30,7 @@
         @yield('content')
         <div class="preloader">
             <div class="text-center loading">
-                <img src="../../../../Spinner.svg" width="80">
+                <img src="../../../../DRing.svg" width="80">
                 <p>Loading...</p>
                 </div>
             </div>

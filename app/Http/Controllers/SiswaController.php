@@ -9,4 +9,10 @@ class SiswaController extends Controller
             'title' => 'Daftar Siswa'
         ]);
     }
+
+    public function detail(){
+        return view('/admin/features/siswa.detail',[
+            'title' => 'Informasi Siswa'
+        ]);
+    }
 }

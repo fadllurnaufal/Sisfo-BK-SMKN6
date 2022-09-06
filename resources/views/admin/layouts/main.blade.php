@@ -5,10 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="https://unpkg.com/flowbite@1.5.2/dist/flowbite.min.css" />
+    <link rel="stylesheet"href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
     <script src="http://code.jquery.com/jquery-2.2.1.min.js"></script>
     <style type="text/css">
         .preloader {
-            position: fixed;
+            position: absolute;
             top: 0;
             left: 0;
             width: 100%;
@@ -16,13 +17,22 @@
             z-index: 9999;
             background-color: #fff;
         }
-            .preloader .loading {
+        .preloader .loading {
             position: absolute;
             left: 50%;
             top: 50%;
             transform: translate(-50%,-50%);
             font: 14px arial;
         }
+        .active{
+            background-color: #ffffff;
+            width: 320px;
+            color: #4A797C;
+        }
+        .input{
+            resize: none;
+        }
+        
         </style>
     @vite('resources/css/app.css')
 
@@ -31,24 +41,42 @@
     <title>{{$title}} - BK SMKN 6 Bandung</title>
 </head>
 <body>
-    <div class="container my-10 ml-42">
+    <div class="my-10 ml-34 px-10 h-full bg-slate-100">
         @yield('container')
-        <div class="preloader">
-            <div class="text-center loading">
-                <img src="../../../../Spinner.svg" width="80">
-                <p>Loading...</p>
-                </div>
-            </div>
+        @yield('content-detail')
+    </div>
+    <div class="preloader">
+        <div class="text-center loading">
+            <img src="../../../../DRing.svg" width="80">
+            <p>Loading...</p>
         </div>
     </div>
     
     <script src="../path/to/flowbite/dist/flowbite.js"></script>
+    <!-- Preloader Script -->
     <script src="https://unpkg.com/flowbite@1.5.2/dist/flowbite.js"></script>
     <script src="../path/to/flowbite/dist/flowbite.js"></script>
+    <!-- Preloader JS-->
     <script>
         $(document).ready(function(){
-        $(".preloader").fadeOut(1500);
+        $(".preloader").fadeOut(2000);
         })
+    </script>
+    <!-- Dropdown -->
+    <script src="//unpkg.com/alpinejs" defer></script>
+    <!-- Date Picker -->
+    <script src="../path/to/flowbite/dist/datepicker.js"></script>
+    <script src="https://unpkg.com/flowbite@1.5.2/dist/datepicker.js"></script>
+    <!-- Live Date -->
+    <script>
+        const zeroFill = n => {
+            return ('0' + n).slice(-2);
+        }
+            const interval = setInterval(() => {
+            const now = new Date();
+            const dateTime = zeroFill(now.getUTCDate()) + '-' + zeroFill((now.getMonth() + 1)) + '-' + now.getFullYear();
+            document.getElementById('date-time').innerHTML = dateTime;
+        }, 1000);
     </script>
 </body>
 </html>

@@ -8,14 +8,6 @@ module.exports = {
   ],
   theme: {
     extend: {
-      container: {
-        width: '1440px',
-        height: '1024px',
-        padding: '0px',
-        margin: '0px',
-        
-
-      },
       colors: {
         transparent: 'transparent',
         current: 'currentColor',
@@ -30,7 +22,13 @@ module.exports = {
         'cream-100': '#F6D5B6',
         'gray-350': '#808080',
         'black-50': '#4c4c4c',
-        'black-100': '#100F0F'
+        'black-100': '#100F0F',
+        'yellow-200': '#FCD900',
+        'yellow-400': '#CAAE00',
+        'green-200': '#B8F1B0',
+        'green-400': '#93C18D',
+        'red-200': '#EB5353',
+        'red-400': '#BC4242',
       },
       borderRadius: {
         '4xl': '32px'
@@ -39,11 +37,19 @@ module.exports = {
         '13': '52px',
         '23': '92px',
         '30': '120px',
+        '34': '136px',
+        '41': '164px',
         '42': '168px',
         '47': '188px',
         '84': '336px',
+        '93': '372px',
         '100': '400px',
+        '111': '444px',
+        '116': '464px',
+        '121': '484px',
         '135': '540px',
+        '140': '560px',
+        '155': '620px',
         '160': '639px',
         
       },
@@ -54,7 +60,9 @@ module.exports = {
         '6-1/2xl': '64px'
       },
       width: {
+        '15': '60px',
         '18': '72px',
+        '33': '132px',
         '38': '152px',
         '50': '200px',
         '67': '268px',
@@ -63,17 +71,28 @@ module.exports = {
         '116': '464px',
         '121': '484px',
         '157': '628px',
+        '200': '800px',
         
       },
       height: {
+        '15': '60px',
         '18': '72px',
+        '35': '140px',
         '39': '156px',
         '121': '484px',
+        '150': '600px',
+        '200': '800px',
         '235': '940px',
         
       }
     },
   },
+  variants: {
+    extend: {
+       backgroundColor: ['active'],
+       textColor: ['active']
+    }
+ },
   plugins: [
     require('flowbite/plugin')
   ],

@@ -8,4 +8,10 @@ class ReportController extends Controller{
             'title' => 'Jurnal Harian'
         ]);
     }
+
+    public function visit(){
+        return view('/admin/features/report.kunjungan',[
+            'title' => 'Kunjungan Rumah'
+        ]);
+    }
 }
