@@ -5,7 +5,7 @@
 <div class="w-full">
     <!-- Top Content-->
         <div class="flex justify-between">
-            <div class="header">
+            <div class="mb-5">
                 <!-- Header -->
                 <h1 class=" relative font-semibold tracking-normal cursor-default text-6-1/2xl text-tosca-300">
                     {{ $title }}

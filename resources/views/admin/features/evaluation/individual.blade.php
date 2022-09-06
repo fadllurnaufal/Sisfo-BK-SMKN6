@@ -4,14 +4,14 @@
 <!-- Content Wrapper -->
 <div class="w-full">
     <!-- Top Content-->
-        <div class="">
+        <div class="mb-5">
             <!-- Header -->
             <h1 class=" relative font-semibold tracking-normal cursor-default text-6-1/2xl text-tosca-300 w-157">
                 {{ $title }}
             </h1>
             <!-- Sub-header -->
             <h3 class="mb-2 font-semibold tracking-wider cursor-default text-gray-350">
-                Bimbingan Konseling SMK Negeri 6 Bandung
+                {{ $subtitle }}
             </h3>
         </div>
         <hr>

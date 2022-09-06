@@ -41,6 +41,7 @@
     <title>{{$title}} - BK SMKN 6 Bandung</title>
 </head>
 <body>
+    @yield('profile')
     <div class="my-10 ml-34 px-10 h-full bg-slate-100">
         @yield('container')
         @yield('content-detail')

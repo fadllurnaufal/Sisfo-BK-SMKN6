@@ -4,7 +4,7 @@
 <!-- Content Wrapper -->
 <div class="w-full">
     <!-- Top Content-->
-        <div class="">
+        <div class="mb-5">
             <!-- Header -->
             <h1 class=" relative font-semibold tracking-normal cursor-default text-6-1/2xl text-tosca-300 w-157">
                 {{ $title }}

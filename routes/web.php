@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\RegistrationController;
+use App\Http\Controllers\LoginController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\EvaluationController;
 use App\Http\Controllers\SiswaController;
@@ -30,6 +31,9 @@ Route::get('/', function () {
 /* Signup Page */
 Route::get('/auth/registration', [RegistrationController::class,'index']);
 
+/*  Profile */
+Route::get('/admin/profile', [LoginController::class, 'profile']);
+
 /* Dashboard Page */
 
 Route::get('/admin/features/dashboard/base', [DashboardController::class, 'index' ]);
@@ -42,8 +46,10 @@ Route::get('/admin/features/siswa/detail', [SiswaController::class, 'detail']);
 /*  Report Page */
 
 Route::get('/admin/features/report/jurnal', [ReportController::class, 'index']);
-Route::get('/admin/features/report/kunjungan', [ReportController::class, 'visit']);
+Route::get('/admin/features/report/visit', [ReportController::class, 'visit']);
 
 /* Evaluation Page */
 
 Route::get('/admin/features/evaluation/individual', [EvaluationController::class, 'index']);
+Route::get('/admin/features/evaluation/group', [EvaluationController::class, 'group'])->name('group');
+Route::get('/admin/features/evaluation/cases', [EvaluationController::class, 'cases'])->name('cases');

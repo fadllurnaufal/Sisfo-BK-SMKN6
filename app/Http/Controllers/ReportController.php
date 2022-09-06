@@ -10,7 +10,7 @@ class ReportController extends Controller{
     }
 
     public function visit(){
-        return view('/admin/features/report.kunjungan',[
+        return view('/admin/features/report.visit',[
             'title' => 'Kunjungan Rumah'
         ]);
     }

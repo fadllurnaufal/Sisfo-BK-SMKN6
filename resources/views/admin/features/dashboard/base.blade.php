@@ -3,7 +3,7 @@
     <div class="w-full">
         <!-- Top Content -->
         <div class="flex justify-between">
-            <div class= "top-left-content">
+            <div class= "mb-5">
                 <div class="font-semibold tracking-wide cursor-default text-6-1/2xl header text-tosca-300">
                     {{ $title }}
                 </div>
@@ -62,28 +62,28 @@
                         </a>
                     </li>
                     <li>
-                        <a href="#" class="box-border inline-flex h-24 mt-5 duration-200 bg-white border border-gray-300 shadow-md cursor-pointer w-116 rounded-2xl hover:bg-gray-100">
+                        <a href="../report/kunjungan" class="box-border inline-flex h-24 mt-5 duration-200 bg-white border border-gray-300 shadow-md cursor-pointer w-116 rounded-2xl hover:bg-gray-100">
                             <img src="../../../../Home-page.svg" class="my-auto ml-4 w-14 h-14">
                             <span class="absolute my-5 text-xl font-bold tracking-wide ml-23 text-black-50">Kunjungan Rumah</span>
                             <span class="absolute text-sm ml-23 my-13 text-gray-350">Siswa SMKN 6 Bandung</span>
                         </a>
                     </li>
                     <li>
-                        <a href="#" class="box-border inline-flex h-24 mt-5 duration-200 bg-white border border-gray-300 shadow-md cursor-pointer w-116 rounded-2xl hover:bg-gray-100">
+                        <a href="../evaluation/individual" class="box-border inline-flex h-24 mt-5 duration-200 bg-white border border-gray-300 shadow-md cursor-pointer w-116 rounded-2xl hover:bg-gray-100">
                             <img src="../../../../Confusion.svg" class="my-auto ml-4 w-14 h-14">
                             <span class="absolute my-5 text-xl font-bold tracking-wide ml-23 text-black-50">Konseling Individu</span>
                             <span class="absolute text-sm ml-23 my-13 text-gray-350">Siswa SMKN 6 Bandung</span>
                         </a>
                     </li>
                     <li>
-                        <a chref="#" class="box-border inline-flex h-24 mt-5 duration-200 bg-white border border-gray-300 shadow-md cursor-pointer w-116 rounded-2xl hover:bg-gray-100">
+                        <a chref="../evaluation/group" class="box-border inline-flex h-24 mt-5 duration-200 bg-white border border-gray-300 shadow-md cursor-pointer w-116 rounded-2xl hover:bg-gray-100">
                             <img src="../../../../Management.svg" class="my-auto ml-4 w-14 h-14">
                             <span class="absolute my-5 text-xl font-bold tracking-wide ml-23 text-black-50">Konseling Kelompok</span>
                             <span class="absolute text-sm ml-23 my-13 text-gray-350">Siswa SMKN 6 Bandung</span>
                         </a>
                     </li>
                     <li>
-                        <a href="#" class="box-border inline-flex h-24 mt-5 duration-200 bg-white border border-gray-300 shadow-md cursor-pointer w-116 rounded-2xl hover:bg-gray-100">
+                        <a href="../evaluation/cases" class="box-border inline-flex h-24 mt-5 duration-200 bg-white border border-gray-300 shadow-md cursor-pointer w-116 rounded-2xl hover:bg-gray-100">
                             <img src="../../../../No-entry.svg" class="my-auto ml-4 w-14 h-14">
                             <span class="absolute my-5 text-xl font-bold tracking-wide ml-23 text-black-50">Daftar Kasus</span>
                             <span class="absolute text-sm ml-23 my-13 text-gray-350">Siswa SMKN 6 Bandung</span>

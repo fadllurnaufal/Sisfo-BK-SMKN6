@@ -5,7 +5,7 @@
 <div class="w-full">
     <!-- Top Content-->
         <div class="flex justify-between">
-            <div class="header w-1/2">
+            <div class="mb-5">
                 <!-- Header -->
                 <div class=" relative font-semibold tracking-normal cursor-default text-6-1/2xl text-tosca-300">
                     {{ $title }}
@@ -31,39 +31,22 @@
                 <table class="table-fixed border-collapse border border-slate-500">
                     <thead>
                         <tr class="">
-                            <th class="border-2 border-orange-100 bg-orange-100 w-20 h-10 text-white cursor-default">No</th>
-                            <th class="border-2 border-orange-100 bg-orange-100 w-40 h-10 text-white cursor-default">Tanggal Kegiatan</th>
-                            <th class="border-2 border-orange-100 bg-orange-100 w-80 h-10 text-white cursor-default">Sasaran Kegiatan</th>
-                            <th class="border-2 border-orange-100 bg-orange-100 w-100 h-10 text-white cursor-default">Kegiatan Layanan</th>
-                            <th class="border-2 border-orange-100 bg-orange-100 w-100 h-10 text-white cursor-default">Hasil yang Dicapai</th>
-                            <th class="border-2 border-orange-100 bg-orange-100 w-24 h-10 text-white cursor-default">Aksi</th>
+                            <th class="border-2 border-orange-100 bg-orange-100 w-20 h-10 text-white cursor-default px-2">No</th>
+                            <th class="border-2 border-orange-100 bg-orange-100 w-40 h-10 text-white cursor-default px-2">Tanggal Kegiatan</th>
+                            <th class="border-2 border-orange-100 bg-orange-100 w-80 h-10 text-white cursor-default px-2">Sasaran Kegiatan</th>
+                            <th class="border-2 border-orange-100 bg-orange-100 w-100 h-10 text-white cursor-default px-2">Kegiatan Layanan</th>
+                            <th class="border-2 border-orange-100 bg-orange-100 w-100 h-10 text-white cursor-default px-2">Hasil yang Dicapai</th>
+                            <th class="border-2 border-orange-100 bg-orange-100 w-24 h-10 text-white cursor-default px-2">Aksi</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td class="border-2 border-gray-50 bg-gray-50 py-2 text-center">1</td>
-                            <td class="border-2 border-gray-50 bg-gray-50 py-2 text-center">22/01/2022</td>
-                            <td class="border-2 border-gray-50 bg-gray-50 py-2">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Beatae, ab? Sit atque delectus quae veritatis voluptates at aspernatur, deserunt impedit! Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis iure modi neque, fugit a ullam!</td>
-                            <td class="border-2 border-gray-50 bg-gray-50 py-2">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique, magnam vel sint provident necessitatibus suscipit!</td>
-                            <td class="border-2 border-gray-50 bg-gray-50 py-2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati, iusto.</td>
-                            <td class="border-2 border-gray-50 bg-gray-50 py-2">
-                                <div class="flex justify-center ">
-                                    <button class="w-7 h-7 bg-yellow-200 border-yellow-400 border p-1 rounded-md mx-1 hover:bg-yellow-300 duration-200" type="button" data-modal-toggle="edit-modal">
-                                        <img src="../../../../Edit.svg" alt="">
-                                    </button>
-                                    <button class="w-7 h-7 bg-red-200 border-red-400 border p-1 rounded-md mx-1 hover:bg-red-600 duration-200" type="button" data-modal-toggle="delete-modal">
-                                        <img src="../../../../Trash.svg" alt="">
-                                    </button>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="border-2 border-gray-50 bg-gray-50 py-2 text-center">1</td>
-                            <td class="border-2 border-gray-50 bg-gray-50 py-2 text-center">22/01/2022</td>
-                            <td class="border-2 border-gray-50 bg-gray-50 py-2">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Beatae, ab? Sit atque delectus quae veritatis voluptates at aspernatur, deserunt impedit! Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis iure modi neque, fugit a ullam!</td>
-                            <td class="border-2 border-gray-50 bg-gray-50 py-2">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique, magnam vel sint provident necessitatibus suscipit!</td>
-                            <td class="border-2 border-gray-50 bg-gray-50 py-2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati, iusto.</td>
-                            <td class="border-2 border-gray-50 bg-gray-50 py-2">
+                            <td class="border-2 border-gray-50 bg-gray-50 py-2 text-center px-2">1</td>
+                            <td class="border-2 border-gray-50 bg-gray-50 py-2 text-center px-2">22/01/2022</td>
+                            <td class="border-2 border-gray-50 bg-gray-50 py-2 px-2">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Beatae, ab? Sit atque delectus quae veritatis voluptates at aspernatur, deserunt impedit! Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis iure modi neque, fugit a ullam!</td>
+                            <td class="border-2 border-gray-50 bg-gray-50 py-2 px-2">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique, magnam vel sint provident necessitatibus suscipit!</td>
+                            <td class="border-2 border-gray-50 bg-gray-50 py-2 px-2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati, iusto. Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis, omnis assumenda eaque rerum maiores placeat quia nulla pariatur vel dolorum.</td>
+                            <td class="border-2 border-gray-50 bg-gray-50 py-2 px-2">
                                 <div class="flex justify-center ">
                                     <button class="w-7 h-7 bg-yellow-200 border-yellow-400 border p-1 rounded-md mx-1 hover:bg-yellow-300 duration-200" type="button" data-modal-toggle="edit-modal">
                                         <img src="../../../../Edit.svg" alt="">
