@@ -13,4 +13,18 @@ class RegistrationController extends Controller
             'title' => 'Sign Up'
         ]);
     }
+
+    public function save(Request $request){
+        $validatedData = $request -> validate([
+            'username' => 'required|max:24|unique:users|min:10',
+            'email' => 'required|email|unique:users',
+            'password' => 'required|min:8',
+        ]);
+
+        $validatedData['password'] = Hash::make($validatedData['password']);
+
+        User::create($validatedData);
+
+        return redirect('/');
+    }
 }

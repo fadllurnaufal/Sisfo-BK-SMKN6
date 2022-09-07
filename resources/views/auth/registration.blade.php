@@ -8,7 +8,8 @@
         </div>
     </div>
     <div class="w-1/2 h-screen">
-        <form action="">
+        <form action="/auth/registration" method="POST">
+            @csrf
             <div class="header-wrapper">
                 <div class="text-center mx-auto" id="wrapper">
                     <header class="text text-tosca-300 text-5xl antialiased font-sans font-bold mt-20">
@@ -28,7 +29,7 @@
                         <input type="password" name="password" id="password" class="w-1/2 h-12 p-6 border-none bg-gray-100 rounded-full tracking-wider text-xs text-gray-400 font-light focus:outline-none focus:ring focus:ring-tosca-300 focus:border-tosca-300 transition duration-500 placeholder:text-gray-400 hover:bg-gray-200 duration-500" placeholder="PASSWORD">
                     </div>
                     <div class="mt-14 ">
-                        <button class="w-1/2 h-12 p-6 bg-gray-100 rounded-full tracking-wide py-2 text-white bg-orange-100 font-sans font-semibold hover:bg-orange-200 duration-500">
+                        <button class="w-1/2 h-12 p-6 rounded-full tracking-wide py-2 text-white bg-orange-100 font-sans font-semibold hover:bg-orange-200 duration-500">
                             Sign Up
                         </button>
                     </div>

@@ -6,8 +6,9 @@
         <img src="../../../self.svg" alt="" class="mx-auto my-38.5">
     </div>
     <div class="bg-white w-1/2">
-        <form action="">
-            <div class="header-wrapper">
+        <form action="../admin/features/dashboard/base" method="POST">
+            @csrf
+            <div class="pt-10">
                 <div class="text-center mx-auto" id="wrapper">
                     <h1 class="text text-tosca-300 text-5xl antialiased font-sans font-bold mt-20">
                         Login
@@ -17,10 +18,10 @@
                         You can trust everything, Let’s get in touch!
                     </div>
                     <div class="mt-14">
-                        <input type="text" name="username" id="username" class="w-1/2 h-12 p-6 border-none bg-gray-100 rounded-full tracking-wider text-xs text-gray-400 font-light focus:outline-none focus:ring focus:ring-tosca-300 focus:border-tosca-300 transition duration-500 placeholder:text-gray-400 hover:bg-gray-200 duration-500" placeholder="USERNAME">
+                        <input type="email" name="email" id="email" class="w-1/2 h-12 p-6 border-none bg-gray-100 rounded-full tracking-wider text-xs text-gray-400 font-light focus:outline-none focus:ring focus:ring-tosca-300 focus:border-tosca-300 transition duration-500 placeholder:text-gray-400 hover:bg-gray-200" placeholder="EMAIL">
                     </div>
                     <div class="mt-6">
-                        <input type="email" name="email" id="email" class="w-1/2 h-12 p-6 border-none bg-gray-100 rounded-full tracking-wider text-xs text-gray-400 font-light focus:outline-none focus:ring focus:ring-tosca-300 focus:border-tosca-300 transition duration-500 placeholder:text-gray-400 hover:bg-gray-200 duration-500" placeholder="EMAIL">
+                        <input type="password" name="password" id="password" class="w-1/2 h-12 p-6 border-none bg-gray-100 rounded-full tracking-wider text-xs text-gray-400 font-light focus:outline-none focus:ring focus:ring-tosca-300 focus:border-tosca-300 transition duration-500 placeholder:text-gray-400 hover:bg-gray-200" placeholder="PASSWORD">
                     </div>
                     <div class="mt-14 ">
                         <button class="w-1/2 h-12 p-6 rounded-full tracking-wide py-2 text-white bg-orange-100 font-sans font-semibold hover:bg-orange-200 duration-500">

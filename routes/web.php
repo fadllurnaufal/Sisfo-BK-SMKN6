@@ -25,31 +25,36 @@ Route::get('/', function () {
     return view('/auth/login',[
         'title' => 'Login Page'
     ]);
-});
+} )->name('login');
 
 
-/* Signup Page */
+/* auth group */
 Route::get('/auth/registration', [RegistrationController::class,'index']);
+Route::post('/auth/registration', [RegistrationController::class, 'save']);
 
-/*  Profile */
-Route::get('/admin/profile', [LoginController::class, 'profile']);
+Route::post('/admin/features/dashboard/base', [LoginController::class, 'authenticate']);
+Route::get('logout', [LoginController::class, 'logout'])->name('logout');
 
-/* Dashboard Page */
 
-Route::get('/admin/features/dashboard/base', [DashboardController::class, 'index' ]);
+Route::middleware(['auth'])->group(function () {
 
-/* Daftar Siswa Page */
+    //  route group dashboard
+    Route::get('/admin/features/dashboard/base', [DashboardController::class, 'index']);
 
-Route::get('/admin/features/siswa/base', [SiswaController::class, 'index']);
-Route::get('/admin/features/siswa/detail', [SiswaController::class, 'detail']);
+    /* Route Profile */
+    Route::get('/admin/profile', [LoginController::class, 'profile']);
+    
+    /* Route Report Page */
+    Route::get('/admin/features/report/jurnal', [ReportController::class, 'index']);
+    Route::get('/admin/features/report/visit', [ReportController::class, 'visit']);
 
-/*  Report Page */
+    /* Route Daftar Siswa */
+    Route::get('/admin/features/siswa/base', [SiswaController::class, 'index']);
+    Route::get('/admin/features/siswa/detail', [SiswaController::class, 'detail']);
 
-Route::get('/admin/features/report/jurnal', [ReportController::class, 'index']);
-Route::get('/admin/features/report/visit', [ReportController::class, 'visit']);
+    /* Route Evaluation*/
+    Route::get('/admin/features/evaluation/individual', [EvaluationController::class, 'index']);
+    Route::get('/admin/features/evaluation/group', [EvaluationController::class, 'group'])->name('group');
+    Route::get('/admin/features/evaluation/cases', [EvaluationController::class, 'cases'])->name('cases');
 
-/* Evaluation Page */
-
-Route::get('/admin/features/evaluation/individual', [EvaluationController::class, 'index']);
-Route::get('/admin/features/evaluation/group', [EvaluationController::class, 'group'])->name('group');
-Route::get('/admin/features/evaluation/cases', [EvaluationController::class, 'cases'])->name('cases');
+});

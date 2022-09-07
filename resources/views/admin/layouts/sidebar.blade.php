@@ -101,7 +101,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="/" class="flex h-16 px-8 py-4 duration-200 w-80 place-items-center hover:bg-tosca-200 ">
+                        <a href="{{ url('logout') }}" class="flex h-16 px-8 py-4 duration-200 w-80 place-items-center hover:bg-tosca-200 ">
                             <img src="../../../logout.png" class="w-8 h-8"/>
                             <span class="ml-8 tracking-wider font-semibold">
                                 Logout
