@@ -3,7 +3,7 @@
     <div class="w-full">
         <!-- Top Content -->
         <div class="flex justify-between">
-            <div class= "mb-5">
+            <div class= "">
                 <div class="font-semibold tracking-wide cursor-default text-6-1/2xl header text-tosca-300">
                     {{ $title }}
                 </div>
@@ -13,7 +13,7 @@
                 </div>
             </div>
             <!-- Button Top -->
-            <div class="flex mt-10">
+            <div class="flex">
                 <!-- Calendar -->
                 <div class="h-11 w-40 bg-orange-100 box-border border-orange-300 border text-center py-2 text-white font-semibold text-md rounded-xl hover:cursor-default">
                     <div id="date-time">
@@ -62,7 +62,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="../report/kunjungan" class="box-border inline-flex h-24 mt-5 duration-200 bg-white border border-gray-300 shadow-md cursor-pointer w-116 rounded-2xl hover:bg-gray-100">
+                        <a href="../report/visit" class="box-border inline-flex h-24 mt-5 duration-200 bg-white border border-gray-300 shadow-md cursor-pointer w-116 rounded-2xl hover:bg-gray-100">
                             <img src="../../../../Home-page.svg" class="my-auto ml-4 w-14 h-14">
                             <span class="absolute my-5 text-xl font-bold tracking-wide ml-23 text-black-50">Kunjungan Rumah</span>
                             <span class="absolute text-sm ml-23 my-13 text-gray-350">Siswa SMKN 6 Bandung</span>
@@ -76,7 +76,7 @@
                         </a>
                     </li>
                     <li>
-                        <a chref="../evaluation/group" class="box-border inline-flex h-24 mt-5 duration-200 bg-white border border-gray-300 shadow-md cursor-pointer w-116 rounded-2xl hover:bg-gray-100">
+                        <a href="../evaluation/group" class="box-border inline-flex h-24 mt-5 duration-200 bg-white border border-gray-300 shadow-md cursor-pointer w-116 rounded-2xl hover:bg-gray-100">
                             <img src="../../../../Management.svg" class="my-auto ml-4 w-14 h-14">
                             <span class="absolute my-5 text-xl font-bold tracking-wide ml-23 text-black-50">Konseling Kelompok</span>
                             <span class="absolute text-sm ml-23 my-13 text-gray-350">Siswa SMKN 6 Bandung</span>
@@ -116,7 +116,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="float-right mt-8 border-2 border-gray-300 rounded-lg chart w-157 h-121 bg-white">
+                <div class="float-right mt-8 border-2 border-gray-300 rounded-lg chart w-157 h-121 bg-white mb-10">
                     <div class="flex justify-between px-5 pt-8">
                         <span class="text-3xl font-semibold tracking-wider cursor-default text-black-50">Counseling Chart</span>
                         <button id="filterChart" data-dropdown-toggle="filter" class="inline-flex items-center px-4 text-center duration-200 bg-white border-2 border-gray-300 h-9 w-38 text-tosca-300 rounded-xl hover:bg-gray-100" type="button">

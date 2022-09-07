@@ -42,13 +42,13 @@
 </head>
 <body>
     @yield('profile')
-    <div class="my-10 ml-34 px-10 h-full bg-slate-100">
+    <div class="my-10 ml-34 px-10">
         @yield('container')
         @yield('content-detail')
     </div>
-    <div class="preloader">
+    <div class="preloader fixed">
         <div class="text-center loading">
-            <img src="../../../../DRing.svg" width="80">
+            <img src="../../../../DRing.svg" width="100">
             <p>Loading...</p>
         </div>
     </div>
