@@ -6,7 +6,7 @@
         <img src="../../../self.svg" alt="" class="mx-auto my-38.5">
     </div>
     <div class="bg-white w-1/2">
-        <form action="../admin/features/dashboard/base" method="POST">
+        <form action="/auth/login" method="POST">
             @csrf
             <div class="pt-10">
                 <div class="text-center mx-auto" id="wrapper">

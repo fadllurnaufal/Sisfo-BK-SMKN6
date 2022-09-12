@@ -27,19 +27,27 @@ Route::get('/', function () {
     ]);
 } )->name('login');
 
+Route::post('/auth/login', [LoginController::class, 'authenticate']);
+Route::get('logout', [LoginController::class, 'logout'])->name('logout');
 
-/* auth group */
 Route::get('/auth/registration', [RegistrationController::class,'index']);
 Route::post('/auth/registration', [RegistrationController::class, 'save']);
 
-Route::post('/admin/features/dashboard/base', [LoginController::class, 'authenticate']);
-Route::get('logout', [LoginController::class, 'logout'])->name('logout');
-
-
+/* auth group */
 Route::middleware(['auth'])->group(function () {
 
+    
     //  route group dashboard
     Route::get('/admin/features/dashboard/base', [DashboardController::class, 'index']);
+
+    /* Route Daftar Siswa */
+    Route::get('/admin/features/siswa/base', [SiswaController::class, 'index']);
+    Route::post('/add', [SiswaController::class, 'add'])->name('siswa.add');
+    Route::post('/save', [SiswaController::class, 'store'])->name('siswa.save');
+    Route::get('/edit/{id}', [SiswaController::class, 'edit']);
+    Route::patch('/edit/{id}', [SiswaController::class, 'update']);
+    Route::delete('/destroy/{id}', [SiswaController::class, 'destroy']);
+
 
     /* Route Profile */
     Route::get('/admin/profile', [LoginController::class, 'profile']);
@@ -48,9 +56,6 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/admin/features/report/jurnal', [ReportController::class, 'index']);
     Route::get('/admin/features/report/visit', [ReportController::class, 'visit']);
 
-    /* Route Daftar Siswa */
-    Route::get('/admin/features/siswa/base', [SiswaController::class, 'index']);
-    Route::get('/admin/features/siswa/detail', [SiswaController::class, 'detail']);
 
     /* Route Evaluation*/
     Route::get('/admin/features/evaluation/individual', [EvaluationController::class, 'index']);

@@ -5,8 +5,8 @@
             <div class="w-16 h-16 mx-auto bg-gray-200 rounded-full">
                 <img src="../../../../user.png">
             </div>
-            <div class="mt-5 font-light tracking-wider text-center text-gray-200 text-sm hover:text-white cursor-default">
-                Username
+            <div class="mt-5 font-semibold font-sans tracking-wider text-center text-gray-200 text-sm hover:text-white cursor-default capitalize">
+                {{ auth()->user()->username }}
             </div>
         </div>
         <div class="mt-28 overflow-hidden text-sm font-medium text-white menu">

@@ -33,128 +33,87 @@
                     <img src="../../../../Search.svg" alt="" class="mx-auto">
                 </button>
             </div>
-            <!-- Filter Content -->
-            <div class="flex">
-                <!-- Filter Kelas -->
-                <div class="filter-class">
-                    <button id="dropdownDefault" data-dropdown-toggle="dropdown" class="inline-flex items-center h-11 ml-3 text-lg font-medium text-gray-400 duration-200 bg-white border-2 border-gray-300 shadow-sm justify-evenly w-33 rounded-2xl hover:bg-gray-100 place-content-center" type="button">
-                        <span class="ml-2 mr-6">
-                            Kelas
-                        </span>
-                        <svg class="w-5 h-5" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-                        </svg>
-                    </button>
-                    <!-- Filter menu class -->
-                    <div id="dropdown" class="z-10 hidden" style="position: absolute; inset: 0px auto auto 0px; margin: 0px; transform: translate3d(327px, 70px, 0px);" data-popper-reference-hidden="" data-popper-escaped="" data-popper-placement="bottom">
-                        <ul aria-labelledby="dropdownDefault">
-                            <li>
-                                <a href="#" class="flex px-4 py-1 text-gray-400 border-2 border-gray-300 h-10 w-33 rounded-xl font-medium place-content-center text-lg hover:bg-gray-100 duration-200">
-                                    Kelas 10
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" class="flex px-4 py-1 text-gray-400 border-2 border-gray-300 h-10 w-33 rounded-xl font-medium place-content-center text-lg hover:bg-gray-100 duration-200">
-                                    Kelas 11
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" class="flex px-4 py-1 text-gray-400 border-2 border-gray-300 h-10 w-33 rounded-xl font-medium place-content-center text-lg hover:bg-gray-100 duration-200">
-                                    Kelas 12
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" class="flex px-4 py-1 text-gray-400 border-2 border-gray-300 h-10 w-33 rounded-xl font-medium place-content-center text-lg hover:bg-gray-100 duration-200">
-                                    Semua
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="">
-                    <button id="dropdownMajor" data-dropdown-toggle="dropdown-major" class="inline-flex items-center h-11 ml-3 text-lg font-medium text-gray-400 duration-200 bg-white border-2 border-gray-300 shadow-sm justify-evenly w-40 rounded-2xl hover:bg-gray-100 place-content-center" type="button">
-                        <span class="ml-2 mr-6">
-                            Jurusan
-                        </span>
-                        <svg class="w-5 h-5" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-                        </svg>
-                    </button>
-                    <!-- Filter menu major -->
-                    <div id="dropdown-major" class="z-10 hidden" style="position: absolute; inset: 0px auto auto 0px; margin: 0px; transform: translate3d(327px, 70px, 0px);" data-popper-reference-hidden="" data-popper-escaped="" data-popper-placement="bottom">
-                        <ul aria-labelledby="dropdownMajor">
-                            <li>
-                                <a href="#" class="flex px-4 py-1 text-gray-400 border-2 border-gray-300 h-10 w-40 rounded-xl font-medium place-content-center text-lg hover:bg-gray-100 duration-200">
-                                    DPIB
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" class="flex px-4 py-1 text-gray-400 border-2 border-gray-300 h-10 w-40 rounded-xl font-medium place-content-center text-lg hover:bg-gray-100 duration-200">
-                                    Pengelasan
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" class="flex px-4 py-1 text-gray-400 border-2 border-gray-300 h-10 w-40 rounded-xl font-medium place-content-center text-lg hover:bg-gray-100 duration-200">
-                                    TAV
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" class="flex px-4 py-1 text-gray-400 border-2 border-gray-300 h-10 w-40 rounded-xl font-medium place-content-center text-lg hover:bg-gray-100 duration-200">
-                                    TITL
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" class="flex px-4 py-1 text-gray-400 border-2 border-gray-300 h-10 w-40 rounded-xl font-medium place-content-center text-lg hover:bg-gray-100 duration-200">
-                                    TKRO
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" class="flex px-4 py-1 text-gray-400 border-2 border-gray-300 h-10 w-40 rounded-xl font-medium place-content-center text-lg hover:bg-gray-100 duration-200">
-                                    TPM
-                                </a>
-                            </li>
-                        </ul>
+        </div>   
+        <!-- Table content -->
+        <section class="container mx-auto font-sans">
+            <div class="w-full mb-8 overflow-hidden rounded-lg shadow-lg">
+                <div class="w-full overflow-x-auto">
+                    <table class="w-full">
+                    <thead>
+                        <tr class="text-md font-semibold tracking-wide text-left text-gray-900 bg-gray-100 uppercase border-b border-gray-600">
+                            <th class="px-4 py-3 text-center">No</th>
+                            <th class="px-4 py-3 text-center">NIS</th>
+                            <th class="px-4 py-3 text-center">
+                                <div class="flex items-center justify-center">
+                                    @sortablelink('Nama Siswa')
+                                    <a href="#"><svg xmlns="http://www.w3.org/2000/svg" class="ml-1 w-3 h-3" aria-hidden="true" fill="currentColor" viewBox="0 0 320 512"><path d="M27.66 224h264.7c24.6 0 36.89-29.78 19.54-47.12l-132.3-136.8c-5.406-5.406-12.47-8.107-19.53-8.107c-7.055 0-14.09 2.701-19.45 8.107L8.119 176.9C-9.229 194.2 3.055 224 27.66 224zM292.3 288H27.66c-24.6 0-36.89 29.77-19.54 47.12l132.5 136.8C145.9 477.3 152.1 480 160 480c7.053 0 14.12-2.703 19.53-8.109l132.3-136.8C329.2 317.8 316.9 288 292.3 288z"/></svg></a>
+                                </div>
+                            </th>
+                            <th class="px-4 py-3 text-center">
+                                <div class="flex items-center justify-center">
+                                    Kelas
+                                    <a href="#"><svg xmlns="http://www.w3.org/2000/svg" class="ml-1 w-3 h-3" aria-hidden="true" fill="currentColor" viewBox="0 0 320 512"><path d="M27.66 224h264.7c24.6 0 36.89-29.78 19.54-47.12l-132.3-136.8c-5.406-5.406-12.47-8.107-19.53-8.107c-7.055 0-14.09 2.701-19.45 8.107L8.119 176.9C-9.229 194.2 3.055 224 27.66 224zM292.3 288H27.66c-24.6 0-36.89 29.77-19.54 47.12l132.5 136.8C145.9 477.3 152.1 480 160 480c7.053 0 14.12-2.703 19.53-8.109l132.3-136.8C329.2 317.8 316.9 288 292.3 288z"/></svg></a>
+                                </div>
+                            </th>
+                            <th class="px-4 py-3 text-center">
+                                <div class="flex items-center justify-center">
+                                    Jurusan
+                                <a href="#"><svg xmlns="http://www.w3.org/2000/svg" class="ml-1 w-3 h-3" aria-hidden="true" fill="currentColor" viewBox="0 0 320 512"><path d="M27.66 224h264.7c24.6 0 36.89-29.78 19.54-47.12l-132.3-136.8c-5.406-5.406-12.47-8.107-19.53-8.107c-7.055 0-14.09 2.701-19.45 8.107L8.119 176.9C-9.229 194.2 3.055 224 27.66 224zM292.3 288H27.66c-24.6 0-36.89 29.77-19.54 47.12l132.5 136.8C145.9 477.3 152.1 480 160 480c7.053 0 14.12-2.703 19.53-8.109l132.3-136.8C329.2 317.8 316.9 288 292.3 288z"/></svg></a>
+                            </div></th>
+                            <th class="px-4 py-3 text-center">Aksi</th>
+                        </tr>
+                    </thead>
+                    <tbody class="bg-white">
+                        @php
+                            $id = 1;
+                        @endphp
+                        @if ($dtsiswa->count())
+                            @foreach ($dtsiswa as $siswa)
+                            <tr class="text-gray-700">
+                                <td class="px-4 py-3 border text-center">
+                                    {{ $id++ }}
+                                </td>
+                                <td class="px-4 py-3 text-ms font-semibold border text-center">
+                                    {{ $siswa->nis }}
+                                </td>
+                                <td class="px-4 py-3 text-xs border">
+                                    <div class="flex items-center text-sm">
+                                        <div class="relative w-8 h-8 mr-3 rounded-full md:block">
+                                            <img class="object-cover w-full h-full rounded-full" src="https://images.pexels.com/photos/5212324/pexels-photo-5212324.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260" alt="" loading="lazy" />
+                                            <div class="absolute inset-0 rounded-full shadow-inner" aria-hidden="true"></div>
+                                        </div>
+                                        <div>
+                                            <p class="font-semibold text-black capitalize">{{ $siswa->nama }}</p>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="px-4 py-3 text-sm border text-center">{{ $siswa->kelas }}</td>
+                                <td class="px-4 py-3 text-sm border text-center">{{ $siswa->jurusan }}</td>
+                                <td class="px-4 py-3 text-sm border">
+                                    <div class="flex justify-center ">
+                                        <button class="w-7 h-7 bg-yellow-200 border-yellow-400 border p-1 rounded-md mx-1 hover:bg-yellow-300 duration-200 cursor-pointer" type="button" data-modal-toggle="edit-modal">
+                                            <img src="../../../../Edit.svg" alt="">
+                                        </button>
+                                        <a href="../siswa/detail" class="w-7 h-7 bg-green-200 border-green-400 border p-1 rounded-md mx-1 hover:bg-green-500 duration-200" >
+                                            <img src="../../../../About.svg" alt="">
+                                        </a>
+                                        <button class="w-7 h-7 bg-red-200 border-red-400 border p-1 rounded-md mx-1 hover:bg-red-600 duration-200" type="button" data-modal-toggle="delete-modal">
+                                            <img src="../../../../Trash.svg" alt="">
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+                            @endforeach
+                        @endif
+                    </tbody>
+                    </table>
+                        <div class="my-5 mx-5">
+                            {{ $dtsiswa->links('pagination::tailwind') }}
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <!-- Table content -->
-        <div class="table-container">
-            <table class="table-fixed border-collapse border border-slate-500">
-                <thead>
-                    <tr class="">
-                        <th class="border-2 border-orange-100 bg-orange-100 w-20 h-10 text-white cursor-default">No</th>
-                        <th class="border-2 border-orange-100 bg-orange-100 w-60 h-10 text-white cursor-default">NIS</th>
-                        <th class="border-2 border-orange-100 bg-orange-100 w-100 h-10 text-white cursor-default">Nama Siswa</th>
-                        <th class="border-2 border-orange-100 bg-orange-100 w-24 h-10 text-white cursor-default">Kelas</th>
-                        <th class="border-2 border-orange-100 bg-orange-100 w-40 h-10 text-white cursor-default">Jurusan</th>
-                        <th class="border-2 border-orange-100 bg-orange-100 w-80 h-10 text-white cursor-default">Aksi</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td class="border-2 border-gray-50 bg-gray-50 py-2 text-center">1</td>
-                        <td class="border-2 border-gray-50 bg-gray-50 py-2 text-center">001122334455</td>
-                        <td class="border-2 border-gray-50 bg-gray-50 py-2 text-center">Muhammas Naufal Fadllur Rohman</td>
-                        <td class="border-2 border-gray-50 bg-gray-50 py-2 text-center">12</td>
-                        <td class="border-2 border-gray-50 bg-gray-50 py-2 text-center">Pengelasan</td>
-                        <td class="border-2 border-gray-50 bg-gray-50 py-2 text-center">
-                            <div class="flex justify-center ">
-                                <button class="w-7 h-7 bg-yellow-200 border-yellow-400 border p-1 rounded-md mx-1 hover:bg-yellow-300 duration-200" type="button" data-modal-toggle="edit-modal">
-                                    <img src="../../../../Edit.svg" alt="">
-                                </button>
-                                <a href="../siswa/detail" class="w-7 h-7 bg-green-200 border-green-400 border p-1 rounded-md mx-1 hover:bg-green-500 duration-200" >
-                                    <img src="../../../../About.svg" alt="">
-                                </a>
-                                <button class="w-7 h-7 bg-red-200 border-red-400 border p-1 rounded-md mx-1 hover:bg-red-600 duration-200" type="button" data-modal-toggle="delete-modal">
-                                    <img src="../../../../Trash.svg" alt="">
-                                </button>
-                            </div>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+        </section>
         <!-- Modal content -->
         <!-- Main modal tambah -->
         <div id="tambah-modal" tabindex="-1" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 w-full md:inset-0 h-modal md:h-full justify-center items-center " aria-modal="true" role="dialog">
@@ -169,12 +128,30 @@
                         <h3 class="mb-1 mt-5 text-center text-4xl font-medium text-tosca-300 dark:text-white">Tambah Data</h3>
                         <h6 class="mb-4 text-center text-sm font-medium text-tosca-300 dark:text-white">SMK Negeri 6 Bandung</h6>
                         <hr>
-                        <form class="space-y-6 my-10" action="#">
+                        <form class="space-y-6 my-10" action="{{ route('siswa.save') }}" method="POST">
+                            @csrf
                             <div class="mx-4 mb-5">
-                                <input type="text" name="nis" id="nis" class="bg-white border border-gray-300 text-gray-500 text-sm rounded-xl focus:ring-tosca-300 focus:border-tosca-300 block w-80 py-2.5 px-4 my-3 font-light drop-shadow-sm placeholder:text-gray-300 hover:bg-gray-50 duration-200" placeholder="NIS" required="">
-                                <input type="text" name="nama" id="nama" class="bg-white border border-gray-300 text-gray-500 text-sm rounded-xl focus:ring-tosca-300 focus:border-tosca-300 block w-80 py-2.5 px-4 my-3 font-light drop-shadow-sm placeholder:text-gray-300 hover:bg-gray-50 duration-200" placeholder="Nama" required="">
-                                <input type="text" name="kelas" id="kelas" class="bg-white border border-gray-300 text-gray-500 text-sm rounded-xl focus:ring-tosca-300 focus:border-tosca-300 block w-80 py-2.5 px-4 my-3 font-light drop-shadow-sm placeholder:text-gray-300 hover:bg-gray-50 duration-200" placeholder="Kelas" required="">
-                                <input type="text" name="jurusan" id="jurusan" class="bg-white border border-gray-300 text-gray-500 text-sm rounded-xl focus:ring-tosca-300 focus:border-tosca-300 block w-80 py-2.5 px-4 my-3 font-light drop-shadow-sm placeholder:text-gray-300 hover:bg-gray-50 duration-200" placeholder="Jurusan" required="">
+                                <label for="nis" class="text-xs text-gray-400">NIS :</label>
+                                <input type="text" name="nis" id="nis" onfocus="this.value=''" class="bg-white border border-gray-300 text-sm rounded-xl focus:ring-tosca-300 focus:border-tosca-300 block w-80 py-2.5 px-4 mt-1 mb-2 font-light drop-shadow-sm  text-gray-400 hover:bg-gray-50 duration-200" required="">
+                                <label for="nama" class="text-xs text-gray-400">Nama :</label>
+                                <input type="text" name="nama" id="nama" onfocus="this.value=''" class="bg-white border border-gray-300 text-sm rounded-xl focus:ring-tosca-300 focus:border-tosca-300 block w-80 py-2.5 px-4 mt-1 mb-2 font-light drop-shadow-sm text-gray-400 hover:bg-gray-50 duration-200" required="">
+                                <label for="kelas" class="text-xs text-gray-400">Kelas :</label>
+                                <select type="text" name="kelas" id="kelas" onfocus="this.value=''" class="bg-white border border-gray-300 text-sm rounded-xl focus:ring-tosca-300 focus:border-tosca-300 block w-80 py-2.5 mt-1 mb-2 font-light drop-shadow-sm text-gray-400 hover:bg-gray-50 duration-200" required="">
+                                        <option selected>Pilih kelas</option>
+                                        <option value="10">10</option>
+                                        <option value="11">11</option>
+                                        <option value="12">12</option>
+                                </select>
+                                <label for="jurusan" class="text-xs text-gray-400">Jurusan :</label>
+                                <select type="text" name="jurusan" id="jurusan" onfocus="this.value=''" class="bg-white border border-gray-300 text-gray-400 text-sm rounded-xl focus:ring-tosca-300 focus:border-tosca-300 block w-80 py-2.5 mt-1 mb-2 font-light drop-shadow-sm placeholder:text-gray-300 hover:bg-gray-50 duration-200" required="">
+                                    <option selected>Pilih jurusan</option>
+                                    <option value="Pengelasan">Pengelasan</option>
+                                    <option value="DPIB">DPIB</option>
+                                    <option value="TKRO">TKRO</option>
+                                    <option value="TITL">TITL</option>
+                                    <option value="TPM">TPM</option>
+                                    <option value="TAV">TAV</option>
+                                </select>
                             </div>
                             <button type="submit" class="w-80 mx-4 text-white bg-tosca-300 hover:bg-tosca-200 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-xl text-md px-5 py-2.5 text-center">Simpan Data</button>
                         </form>
@@ -194,14 +171,33 @@
                             <h3 class="mb-1 mt-5 text-center text-4xl font-medium text-tosca-300 dark:text-white">Edit Data</h3>
                             <h6 class="mb-4 text-center text-sm font-medium text-tosca-300 dark:text-white">SMK Negeri 6 Bandung</h6>
                             <hr>
-                            <form class="space-y-6 my-10" action="#">
+                            <form class="space-y-6 my-10" action="{{ url('edit', $siswa->id) }}" method="POST">
+                                @method('patch')
+                                @csrf
                                 <div class="mx-4 mb-5">
-                                    <input type="text" name="nis" id="nis" class="bg-white border border-gray-300 text-gray-500 text-sm rounded-xl focus:ring-tosca-300 focus:border-tosca-300 block w-80 py-2.5 px-4 my-3 font-light drop-shadow-sm placeholder:text-gray-300 hover:bg-gray-50 duration-200" placeholder="NIS" required="">
-                                    <input type="text" name="nama" id="nama" class="bg-white border border-gray-300 text-gray-500 text-sm rounded-xl focus:ring-tosca-300 focus:border-tosca-300 block w-80 py-2.5 px-4 my-3 font-light drop-shadow-sm placeholder:text-gray-300 hover:bg-gray-50 duration-200" placeholder="Nama" required="">
-                                    <input type="text" name="kelas" id="kelas" class="bg-white border border-gray-300 text-gray-500 text-sm rounded-xl focus:ring-tosca-300 focus:border-tosca-300 block w-80 py-2.5 px-4 my-3 font-light drop-shadow-sm placeholder:text-gray-300 hover:bg-gray-50 duration-200" placeholder="Kelas" required="">
-                                    <input type="text" name="jurusan" id="jurusan" class="bg-white border border-gray-300 text-gray-500 text-sm rounded-xl focus:ring-tosca-300 focus:border-tosca-300 block w-80 py-2.5 px-4 my-3 font-light drop-shadow-sm placeholder:text-gray-300 hover:bg-gray-50 duration-200" placeholder="Jurusan" required="">
+                                    <label for="nis" class="text-xs text-gray-400">NIS :</label>
+                                    <input type="text" name="nis" id="nis" onfocus="this.value=''" value="{{ $siswa->nis}}" class="bg-white border border-gray-300 text-sm rounded-xl focus:ring-tosca-300 focus:border-tosca-300 block w-80 py-2.5 px-4 mt-1 mb-2 font-light drop-shadow-sm  text-gray-400 hover:bg-gray-50 duration-200" required="">
+                                    <label for="nama" class="text-xs text-gray-400">Nama :</label>
+                                    <input type="text" name="nama" id="nama" onfocus="this.value=''" value="{{ $siswa->nama}}" class="bg-white border border-gray-300 text-sm rounded-xl focus:ring-tosca-300 focus:border-tosca-300 block w-80 py-2.5 px-4 mt-1 mb-2 font-light drop-shadow-sm text-gray-400 hover:bg-gray-50 duration-200" required="">
+                                    <label for="kelas" class="text-xs text-gray-400">Kelas :</label>
+                                    <select type="text" name="kelas" id="kelas" value="{{ $siswa->kelas}}" class="bg-white border border-gray-300 text-sm rounded-xl focus:ring-tosca-300 focus:border-tosca-300 block w-80 py-2.5 mt-1 mb-2 font-light drop-shadow-sm text-gray-400 hover:bg-gray-50 duration-200" required="">
+                                            <option selected>{{ $siswa->kelas}}</option>
+                                            <option value="10">10</option>
+                                            <option value="11">11</option>
+                                            <option value="12">12</option>
+                                    </select>
+                                    <label for="jurusan" class="text-xs text-gray-400">Jurusan :</label>
+                                    <select type="text" name="jurusan" id="jurusan" value="{{ $siswa->jurusan}}" class="bg-white border border-gray-300 text-gray-400 text-sm rounded-xl focus:ring-tosca-300 focus:border-tosca-300 block w-80 py-2.5 mt-1 mb-2 font-light drop-shadow-sm placeholder:text-gray-300 hover:bg-gray-50 duration-200" required="">
+                                        <option selected >{{ $siswa->jurusan}}</option>
+                                        <option value="Pengelasan">Pengelasan</option>
+                                        <option value="DPIB">DPIB</option>
+                                        <option value="TKRO">TKRO</option>
+                                        <option value="TITL">TITL</option>
+                                        <option value="TPM">TPM</option>
+                                        <option value="TAV">TAV</option>
+                                    </select>
                                 </div>
-                                <button type="submit" class="w-80 mx-4 text-white bg-tosca-300 hover:bg-tosca-200 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-xl text-md px-5 py-2.5 text-center">Update Data</button>
+                                <button type="submit" class="w-80 mx-4 text-white bg-tosca-300 hover:bg-tosca-200 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-xl text-md px-5 py-2.5 text-center">Simpan Data</button>
                             </form>
                         </div>
                     </div>
@@ -219,10 +215,14 @@
                         <div class="p-6 text-center">
                             <svg aria-hidden="true" class="mx-auto mb-4 w-14 h-14 text-gray-400 dark:text-gray-200" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
                             <h3 class="mb-5 text-lg font-normal text-gray-500 dark:text-gray-400">Apakah anda yakin ingin menghapus nya?</h3>
-                            <button data-modal-toggle="delete-modal" type="button" class="text-white bg-tosca-300 hover:bg-tosca-200 focus:ring-4 focus:outline-none focus:ring-tosca-300 font-medium rounded-3xl text-sm inline-flex items-center px-5 py-2.5 text-center mr-2">
-                                Ya, saya yakin
-                            </button>
-                            <button data-modal-toggle="delete-modal" type="button" class="text-gray-500 bg-white hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-gray-200 rounded-3xl border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-500 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-600">Tidak, batalkan</button>
+                            <form action="{{ url('destroy', $siswa->id) }}" method="POST">
+                                <button data-modal-toggle="delete-modal" type="button" class="text-gray-500 bg-white hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-gray-200 rounded-3xl border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 mx-2">Tidak, batalkan</button>
+                                @csrf
+                                @method('delete')
+                                <button data-modal-toggle="delete-modal" type="submit" class="text-white bg-tosca-300 hover:bg-tosca-200 focus:ring-4 focus:outline-none focus:ring-tosca-300 font-medium rounded-3xl text-sm inline-flex items-center px-5 py-2.5 text-center mx-2">
+                                    Ya, saya yakin
+                                </button>
+                            </form>
                         </div>
                     </div>
                 </div>

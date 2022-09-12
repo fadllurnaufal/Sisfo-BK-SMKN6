@@ -94,11 +94,11 @@ module.exports = {
   },
   variants: {
     extend: {
-       backgroundColor: ['active'],
-       textColor: ['active']
+        backgroundColor: ['active'],
+        textColor: ['active']
     }
  },
   plugins: [
-    require('flowbite/plugin')
+    require('flowbite/plugin'),
   ],
 }

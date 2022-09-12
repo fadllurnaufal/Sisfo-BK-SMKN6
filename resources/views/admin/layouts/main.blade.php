@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="https://unpkg.com/flowbite@1.5.2/dist/flowbite.min.css" />
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
     <link rel="stylesheet"href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
     <script src="http://code.jquery.com/jquery-2.2.1.min.js"></script>
     <style type="text/css">
@@ -56,6 +57,7 @@
     <script src="../path/to/flowbite/dist/flowbite.js"></script>
     <!-- Preloader Script -->
     <script src="https://unpkg.com/flowbite@1.5.2/dist/flowbite.js"></script>
+    
     <script src="../path/to/flowbite/dist/flowbite.js"></script>
     <!-- Preloader JS-->
     <script>
