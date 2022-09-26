@@ -21,20 +21,20 @@ class LoginController extends Controller{
 
     public function authenticate(Request $request){
         $credentials = $request -> validate([
-            'email' => 'required',
+            'username' => 'required',
             'password' => 'required'
         ]);
         if(Auth::attempt($credentials)){
             $request->session()->regenerate();
-            return redirect()->intended('/admin/features/dashboard/base');
+            return redirect()->intended('/admin/features/dashboard');
         }
-        return back()->with('loginError', 'Login failed!');
+        return back()->with('error', 'Login gagal!, Periksa kembali username atau password');
     }
 
     public function logout(Request $request){
         Session::flush();
         $request->session()->invalidate();
         $request->session()->regenerateToken();
-        return redirect('/');
+        return redirect('/')->with('success', 'Anda telah logout');
     }
 }

@@ -16,15 +16,15 @@ class RegistrationController extends Controller
 
     public function save(Request $request){
         $validatedData = $request -> validate([
-            'username' => 'required|max:24|unique:users|min:10',
+            'username' => 'required|unique:users|min:5',
             'email' => 'required|email|unique:users',
-            'password' => 'required|min:8',
+            'password' => 'required|min:5',
         ]);
-
         $validatedData['password'] = Hash::make($validatedData['password']);
 
-        User::create($validatedData);
-
-        return redirect('/');
+        if(User::create($validatedData)){
+            return redirect()->route('login')->with('success', 'Selamat, Akun berhasil dibuat!');
+        }
+        return back()->with('error', 'Gagal membuat akun');
     }
 }

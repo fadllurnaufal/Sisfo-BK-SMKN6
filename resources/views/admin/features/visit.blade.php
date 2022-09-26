@@ -18,12 +18,17 @@
         <!-- Bottom Content -->
         <div class="flex justify-between my-8">
             <!-- Search Content -->
-            <div class= "search-container">
-                <input type="text" class="h-12 text-lg font-medium border-2 border-gray-300 shadow-sm rounded-2xl w-100 focus:ring-0 focus:ring-orange-100 focus:border-orange-100 placeholder:text-gray-300" placeholder="Cari siswa">
-                <button class="absolute w-16 h-12 -ml-16 duration-200 bg-orange-100 rounded-r-2xl hover:bg-orange-200">
-                    <img src="../../../../Search.svg" alt="" class="mx-auto">
-                </button>
-            </div>
+            <div class="flex mt-8 mb-4 justify-between">
+                <!-- Search Content -->
+                <form action="{{ route('visit.index') }}" method="GET">
+                    <div class= "">
+                        <input type="search" name="search" id="search" value="{{ request('search') }}" onclick="this.value=''" class="h-12 text-lg font-medium border-2 border-gray-300 shadow-sm rounded-2xl w-100 focus:ring-0 focus:ring-orange-100 focus:border-orange-100 placeholder:text-gray-300" placeholder="Cari siswa">
+                        <button class="absolute w-16 h-12 -ml-16 duration-200 bg-orange-100 rounded-r-2xl hover:bg-orange-200">
+                            <img src="../../../../Search.svg" alt="" class="mx-auto">
+                        </button>
+                    </div>
+                </form>
+            </div>   
             <!-- Filter Content -->
             <div class="filter-container flex">
                 <!-- Filter Kelas -->
@@ -110,47 +115,90 @@
             </div>
         </div>
         <!-- Table content -->
-        <div class="table-container">
-            <table class="table-fixed border-collapse border border-slate-500">
-                <thead>
-                    <tr class="">
-                        <th class="border-2 border-orange-100 bg-orange-100 w-10 h-10 text-white cursor-default">No</th>
-                        <th class="border-2 border-orange-100 bg-orange-100 w-40 h-10 text-white cursor-default">Tanggal</th>
-                        <th class="border-2 border-orange-100 bg-orange-100 w-40 h-10 text-white cursor-default">NIS</th>
-                        <th class="border-2 border-orange-100 bg-orange-100 w-100 h-10 text-white cursor-default">Nama Siswa</th>
-                        <th class="border-2 border-orange-100 bg-orange-100 w-20 h-10 text-white cursor-default">Kelas</th>
-                        <th class="border-2 border-orange-100 bg-orange-100 w-40 h-10 text-white cursor-default">Jurusan</th>
-                        <th class="border-2 border-orange-100 bg-orange-100 w-80 h-10 text-white cursor-default">Aksi</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td class="border-2 border-gray-50 bg-gray-50 py-2 text-center">1</td>
-                        <td class="border-2 border-gray-50 bg-gray-50 py-2 text-center">22/08/2022</td>
-                        <td class="border-2 border-gray-50 bg-gray-50 py-2 text-center">1234567891011</td>
-                        <td class="border-2 border-gray-50 bg-gray-50 py-2 text-center">Muhammad Naufal Fadllur Rohman</td>
-                        <td class="border-2 border-gray-50 bg-gray-50 py-2 text-center">12</td>
-                        <td class="border-2 border-gray-50 bg-gray-50 py-2 text-center">Pengelasan</td>
-                        <td class="border-2 border-gray-50 bg-gray-50 py-2 text-center">
-                            <div class="flex justify-center ">
-                                <button class="w-7 h-7 bg-yellow-200 border-yellow-400 border p-1 rounded-md mx-1 hover:bg-yellow-300 duration-200" type="button" data-modal-toggle="tambah-modal">
-                                    <img src="../../../../PlusBlack.svg" alt="">
-                                </button>
-                                <a href="../siswa/detail" class="w-7 h-7 bg-green-200 border-green-400 border p-1 rounded-md mx-1 hover:bg-green-500 duration-200" >
-                                    <img src="../../../../About.svg" alt="">
-                                </a>
-                                <button class="w-7 h-7 bg-red-200 border-red-400 border p-1 rounded-md mx-1 hover:bg-red-600 duration-200" type="button" data-modal-toggle="delete-modal">
-                                    <img src="../../../../Trash.svg" alt="">
-                                </button>
+        <div class="">
+            <section class="container mx-auto font-sans">
+                <div class="w-full mb-8 overflow-hidden rounded-lg shadow-lg">
+                    <div class="w-full overflow-x-auto">
+                        <table class="w-full">
+                        <thead>
+                            <tr class="text-sm font-semibold tracking-wide text-left text-gray-900 bg-gray-100 uppercase border-b border-gray-600">
+                                <th class="px-4 py-3 text-center">No</th>
+                                <th class="px-4 py-3 text-center">NIS</th>
+                                <th class="px-4 py-3 text-center">
+                                    <div class="flex items-center justify-center">
+                                        @sortablelink('Nama Siswa')
+                                        <a href="#"><svg xmlns="http://www.w3.org/2000/svg" class="ml-1 w-3 h-3" aria-hidden="true" fill="currentColor" viewBox="0 0 320 512"><path d="M27.66 224h264.7c24.6 0 36.89-29.78 19.54-47.12l-132.3-136.8c-5.406-5.406-12.47-8.107-19.53-8.107c-7.055 0-14.09 2.701-19.45 8.107L8.119 176.9C-9.229 194.2 3.055 224 27.66 224zM292.3 288H27.66c-24.6 0-36.89 29.77-19.54 47.12l132.5 136.8C145.9 477.3 152.1 480 160 480c7.053 0 14.12-2.703 19.53-8.109l132.3-136.8C329.2 317.8 316.9 288 292.3 288z"/></svg></a>
+                                    </div>
+                                </th>
+                                <th class="px-4 py-3 text-center">
+                                    <div class="flex items-center justify-center">
+                                        Kelas
+                                        <a href="#"><svg xmlns="http://www.w3.org/2000/svg" class="ml-1 w-3 h-3" aria-hidden="true" fill="currentColor" viewBox="0 0 320 512"><path d="M27.66 224h264.7c24.6 0 36.89-29.78 19.54-47.12l-132.3-136.8c-5.406-5.406-12.47-8.107-19.53-8.107c-7.055 0-14.09 2.701-19.45 8.107L8.119 176.9C-9.229 194.2 3.055 224 27.66 224zM292.3 288H27.66c-24.6 0-36.89 29.77-19.54 47.12l132.5 136.8C145.9 477.3 152.1 480 160 480c7.053 0 14.12-2.703 19.53-8.109l132.3-136.8C329.2 317.8 316.9 288 292.3 288z"/></svg></a>
+                                    </div>
+                                </th>
+                                <th class="px-4 py-3 text-center">
+                                    <div class="flex items-center justify-center">
+                                        Jurusan
+                                    <a href="#"><svg xmlns="http://www.w3.org/2000/svg" class="ml-1 w-3 h-3" aria-hidden="true" fill="currentColor" viewBox="0 0 320 512"><path d="M27.66 224h264.7c24.6 0 36.89-29.78 19.54-47.12l-132.3-136.8c-5.406-5.406-12.47-8.107-19.53-8.107c-7.055 0-14.09 2.701-19.45 8.107L8.119 176.9C-9.229 194.2 3.055 224 27.66 224zM292.3 288H27.66c-24.6 0-36.89 29.77-19.54 47.12l132.5 136.8C145.9 477.3 152.1 480 160 480c7.053 0 14.12-2.703 19.53-8.109l132.3-136.8C329.2 317.8 316.9 288 292.3 288z"/></svg></a>
+                                </div></th>
+                                <th class="px-4 py-3 text-center">Aksi</th>
+                            </tr>
+                        </thead>
+                        <tbody class="bg-white">
+                            @php
+                                $id = 1;
+                            @endphp
+                            @if ($dtsiswa->count())
+                                @foreach ($dtsiswa as $siswa)
+                                <tr class="text-gray-700">
+                                    <td class="px-4 py-3 border text-center">
+                                        {{ $id++ }}
+                                    </td>
+                                    <td class="px-4 py-3 text-ms font-semibold border text-center">
+                                        {{ $siswa->nis }}
+                                    </td>
+                                    <td class="px-4 py-3 text-xs border">
+                                        <div class="flex items-center text-sm">
+                                            <div class="relative w-8 h-8 mr-3 rounded-full md:block">
+                                                <img class="object-cover w-full h-full rounded-full" src="https://images.pexels.com/photos/5212324/pexels-photo-5212324.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260" alt="" loading="lazy" />
+                                                <div class="absolute inset-0 rounded-full shadow-inner" aria-hidden="true"></div>
+                                            </div>
+                                            <div>
+                                                <p class="font-semibold text-black capitalize">{{ $siswa->nama }}</p>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="px-4 py-3 text-sm border text-center">{{ $siswa->kelas }}</td>
+                                    <td class="px-4 py-3 text-sm border text-center">{{ $siswa->jurusan }}</td>
+                                    <td class="px-4 py-3 text-sm border text-center">
+                                        <div class="flex justify-center ">
+                                            <button class="w-7 h-7 bg-yellow-200 border-yellow-400 border p-1 rounded-md mx-1 hover:bg-yellow-300 duration-200" type="button" data-modal-toggle="tambah-modal">
+                                                <img src="../../../../PlusBlack.svg" alt="">
+                                            </button>
+                                            <a href="../siswa/detail" class="w-7 h-7 bg-green-200 border-green-400 border p-1 rounded-md mx-1 hover:bg-green-500 duration-200" >
+                                                <img src="../../../../About.svg" alt="">
+                                            </a>
+                                            <button class="w-7 h-7 bg-red-200 border-red-400 border p-1 rounded-md mx-1 hover:bg-red-600 duration-200" type="button" data-modal-toggle="delete-modal">
+                                                <img src="../../../../Trash.svg" alt="">
+                                            </button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                @endforeach
+                            @endif
+                        </tbody>
+                        </table>
+                            <div class="my-5 mx-5">
+                                {{ $dtsiswa->links('pagination::tailwind') }}
                             </div>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
+                        </div>
+                    </div>
+                </div>
+            </section>
         </div>
         <!-- Modal content -->
             <!-- Main modal tambah -->
-            <div id="tambah-modal" tabindex="-1" class="hidden overflow-y-scroll overflow-x-hidden fixed top-0 right-0 left-0 z-50 w-full md:inset-0 h-modal md:h-full justify-center items-center " aria-modal="true" role="dialog">
+            <div id="tambah-modal" tabindex="-1" class="hidden overflow-y-scroll overflow-x-hidden fixed top-0 right-0 left-0 z-50 w-full md:inset-0 h-modal md:h-full justify-center items-center mt-10" aria-modal="true" role="dialog">
                 <div class="relative p-4 w-full max-w-fit h-full overflow-y-scroll mt-20 mb-20  md:h-auto">
                     <!-- Modal content -->
                     <div class="relative bg-white rounded-2xl h-200 shadow w-200 overflow-y-scroll">
@@ -238,3 +286,4 @@
 
 </div>
 @endsection
+

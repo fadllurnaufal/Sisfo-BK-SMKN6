@@ -5,7 +5,8 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\EvaluationController;
 use App\Http\Controllers\SiswaController;
-use App\Http\Controllers\ReportController;
+use App\Http\Controllers\JurnalController;
+use App\Http\Controllers\VisitController;
 use Faker\Provider\Base;
 use Illuminate\Support\Facades\Route;
 use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
@@ -36,30 +37,41 @@ Route::post('/auth/registration', [RegistrationController::class, 'save']);
 /* auth group */
 Route::middleware(['auth'])->group(function () {
 
-    
-    //  route group dashboard
-    Route::get('/admin/features/dashboard/base', [DashboardController::class, 'index']);
-
-    /* Route Daftar Siswa */
-    Route::get('/admin/features/siswa/base', [SiswaController::class, 'index']);
-    Route::post('/add', [SiswaController::class, 'add'])->name('siswa.add');
-    Route::post('/save', [SiswaController::class, 'store'])->name('siswa.save');
-    Route::get('/edit/{id}', [SiswaController::class, 'edit']);
-    Route::patch('/edit/{id}', [SiswaController::class, 'update']);
-    Route::delete('/destroy/{id}', [SiswaController::class, 'destroy']);
-
-
     /* Route Profile */
     Route::get('/admin/profile', [LoginController::class, 'profile']);
     
-    /* Route Report Page */
-    Route::get('/admin/features/report/jurnal', [ReportController::class, 'index']);
-    Route::get('/admin/features/report/visit', [ReportController::class, 'visit']);
+    /* Route Dashboard */
+    Route::get('/admin/features/dashboard', [DashboardController::class, 'index']);
 
+    /* Route Daftar Siswa */
+
+    Route::name('siswa.')->group(function () {
+        Route::get('/admin/features/siswa',[SiswaController::class, 'index'])->name('index');
+        Route::post('create', [SiswaController::class, 'store'])->name('store.siswa');
+        Route::get('/edit/{id}', [SiswaController::class, 'edit']);
+        Route::patch('/edit/{id}', [SiswaController::class, 'update']);
+        Route::delete('/destroy/{id}', [SiswaController::class, 'destroy']);
+    });
+    
+    /* Route Jurnal Page */
+    Route::get('/admin/features/jurnal', [JurnalController::class, 'index'])->name('index');
+    Route::prefix('jurnal')->group(function () {
+        Route::name('jurnal.')->group(function () {
+            Route::post('create', [JurnalController::class, 'store'])->name('store.jurnal');
+        });
+    });
+
+    /* Route Visit Page */
+    Route::get('/admin/features/visit', [VisitController::class, 'index'])->name('visit.index');
+    Route::prefix('visit')->group(function() {
+        Route::name('visit.')->group(function () {
+            Route::post('create', [VisitController::class, 'store'])->name('store.visit');
+        });
+    });
 
     /* Route Evaluation*/
-    Route::get('/admin/features/evaluation/individual', [EvaluationController::class, 'index']);
-    Route::get('/admin/features/evaluation/group', [EvaluationController::class, 'group'])->name('group');
-    Route::get('/admin/features/evaluation/cases', [EvaluationController::class, 'cases'])->name('cases');
+    Route::get('/admin/features/individual', [EvaluationController::class, 'index']);
+    Route::get('/admin/features/group', [EvaluationController::class, 'group'])->name('group');
+    Route::get('/admin/features/cases', [EvaluationController::class, 'cases'])->name('cases');
 
 });

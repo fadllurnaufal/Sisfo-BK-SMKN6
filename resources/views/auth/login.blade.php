@@ -18,7 +18,7 @@
                         You can trust everything, Let’s get in touch!
                     </div>
                     <div class="mt-14">
-                        <input type="email" name="email" id="email" class="w-1/2 h-12 p-6 border-none bg-gray-100 rounded-full tracking-wider text-xs text-gray-400 font-light focus:outline-none focus:ring focus:ring-tosca-300 focus:border-tosca-300 transition duration-500 placeholder:text-gray-400 hover:bg-gray-200" placeholder="EMAIL">
+                        <input type="text" name="username" id="username" class="w-1/2 h-12 p-6 border-none bg-gray-100 rounded-full tracking-wider text-xs text-gray-400 font-light focus:outline-none focus:ring focus:ring-tosca-300 focus:border-tosca-300 transition duration-500 placeholder:text-gray-400 hover:bg-gray-200" placeholder="USERNAME">
                     </div>
                     <div class="mt-6">
                         <input type="password" name="password" id="password" class="w-1/2 h-12 p-6 border-none bg-gray-100 rounded-full tracking-wider text-xs text-gray-400 font-light focus:outline-none focus:ring focus:ring-tosca-300 focus:border-tosca-300 transition duration-500 placeholder:text-gray-400 hover:bg-gray-200" placeholder="PASSWORD">

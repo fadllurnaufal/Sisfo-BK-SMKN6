@@ -18,5 +18,12 @@ class Siswa extends Model
 
     public $sortable = ['nis', 'nama', 'kelas', 'jurusan' ,'created_at', 'updated_at'];
 
+    // public function scopeFilter($query){
+    //     if(request('search')){
+    //         return $query->where('nis', 'like', '%' . request('search') . '%')
+    //         ->orWhere->where('nama', 'like', '%' . request('search') . '%');
+    //     }
+    // }
+
 }
 

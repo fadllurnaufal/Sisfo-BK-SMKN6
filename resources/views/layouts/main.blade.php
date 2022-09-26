@@ -4,8 +4,9 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     @vite('resources/css/app.css')
+    <link href="../../css/app.css" rel="stylesheet">
     <link rel="icon" href="../../../../bk.png">
-    <script src="http://code.jquery.com/jquery-2.2.1.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css" integrity="sha512-3pIirOrwegjM6erE5gPSwkUzO+3cTjpnV9lexlNZqvupR64iZBnOOTiiLPb9M36zpMScbmUNIcHUqKD47M719g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <style type="text/css">
         .preloader {
             position: fixed;
@@ -36,12 +37,24 @@
             </div>
         </div>
         
-        <script src="../path/to/flowbite/dist/flowbite.js"></script>
+        <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js" integrity="sha512-VEd+nq25CkR676O+pLBnDW09R7VQX9Mdiij052gVCp5yVH3jGtH70Ho/UUv4mJDsEdTvqRCFZg0NKGiojGnUCw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
         <script src="../path/to/flowbite/dist/flowbite.js"></script>
         <script>
             $(document).ready(function(){
             $(".preloader").fadeOut(2000);
             })
+        </script>
+        <script>
+            @if (Session::has('success'))
+                toastr.success('{{ Session::get('success') }}')
+            @endif
+            @if (Session::has('warning'))
+                toastr.warning('{{ Session::get('warning') }}')
+            @endif
+            @if (Session::has('error'))
+                toastr.error('{{ Session::get('error') }}')
+            @endif
         </script>
     </body>
 </html>

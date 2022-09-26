@@ -4,10 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="csrf-token" content={{ csrf_token() }}>
+    <link href="/css/app.css" rel="stylesheet">
     <link rel="stylesheet" href="https://unpkg.com/flowbite@1.5.2/dist/flowbite.min.css" />
     <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
     <link rel="stylesheet"href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
-    <script src="http://code.jquery.com/jquery-2.2.1.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css" integrity="sha512-3pIirOrwegjM6erE5gPSwkUzO+3cTjpnV9lexlNZqvupR64iZBnOOTiiLPb9M36zpMScbmUNIcHUqKD47M719g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <style type="text/css">
         .preloader {
             position: absolute;
@@ -54,11 +56,14 @@
         </div>
     </div>
     
+    <!-- Toastr Script -->
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js" integrity="sha512-VEd+nq25CkR676O+pLBnDW09R7VQX9Mdiij052gVCp5yVH3jGtH70Ho/UUv4mJDsEdTvqRCFZg0NKGiojGnUCw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <!-- Flowbite Script -->
     <script src="../path/to/flowbite/dist/flowbite.js"></script>
     <!-- Preloader Script -->
     <script src="https://unpkg.com/flowbite@1.5.2/dist/flowbite.js"></script>
-    
-    <script src="../path/to/flowbite/dist/flowbite.js"></script>
+    <script src=" {{ asset('/sisfo/src/app.js') }}"></script>
     <!-- Preloader JS-->
     <script>
         $(document).ready(function(){
@@ -80,6 +85,18 @@
             const dateTime = zeroFill(now.getUTCDate()) + '-' + zeroFill((now.getMonth() + 1)) + '-' + now.getFullYear();
             document.getElementById('date-time').innerHTML = dateTime;
         }, 1000);
+    </script>
+    <!-- Toastr Script -->
+    <script>
+        @if (Session::has('success'))
+            toastr.success('{{ Session::get('success') }}')
+        @endif
+        @if (Session::has('warning'))
+            toastr.warning('{{ Session::get('warning') }}')
+        @endif
+        @if (Session::has('error'))
+            toastr.error('{{ Session::get('error') }}')
+        @endif
     </script>
 </body>
 </html>

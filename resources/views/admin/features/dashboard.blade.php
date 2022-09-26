@@ -13,7 +13,7 @@
                 </div>
             </div>
             <!-- Button Top -->
-            <div class="flex">
+            <div class="flex items-center">
                 <!-- Calendar -->
                 <div class="h-11 w-40 bg-orange-100 box-border border-orange-300 border text-center py-2 text-white font-semibold text-md rounded-xl hover:cursor-default">
                     <div id="date-time">
@@ -42,48 +42,50 @@
                 </div>
             </div>
         </div>
+        <!-- /Top Content -->
+
         <!-- Bottom Content Wrapper -->
         <div class="flex justify-between">
             <!-- Bottom Left Content -->
-            <div class="">
+            <div class="w-full">
                 <ul class="mt-10 ">
                     <li>
-                        <a href="../siswa/base" class="box-border inline-flex h-24 duration-200 bg-white border border-gray-300 shadow-md cursor-pointer w-116 rounded-2xl hover:bg-gray-100">
+                        <a href="../features/siswa" class="box-border inline-flex h-24 duration-200 bg-white border border-gray-300 shadow-md cursor-pointer w-full lg:w-116 rounded-2xl hover:bg-gray-100">
                             <img src="../../../../Name.svg" class="my-auto ml-4 w-14 h-14">
                             <span class="absolute my-5 text-xl font-bold tracking-wide ml-23 text-black-50">Daftar Siswa</span>
                             <span class="absolute text-sm ml-23 my-13 text-gray-350">SMKN 6 Bandung</span>
                         </a>
                     </li>
                     <li>
-                        <a href="../report/jurnal" class="box-border inline-flex h-24 mt-5 duration-200 bg-white border border-gray-300 shadow-md cursor-pointer w-116 rounded-2xl hover:bg-gray-100">
+                        <a href="../features/jurnal" class="box-border inline-flex h-24 mt-5 duration-200 bg-white border border-gray-300 shadow-md cursor-pointer w-116 rounded-2xl hover:bg-gray-100">
                             <img src="../../../../Book.svg" class="my-auto ml-4 w-14 h-14">
                             <span class="absolute my-5 text-xl font-bold tracking-wide ml-23 text-black-50">Jurnal Harian</span>
                             <span class="absolute text-sm ml-23 my-13 text-gray-350">Bimbingan Konseling</span>
                         </a>
                     </li>
                     <li>
-                        <a href="../report/visit" class="box-border inline-flex h-24 mt-5 duration-200 bg-white border border-gray-300 shadow-md cursor-pointer w-116 rounded-2xl hover:bg-gray-100">
+                        <a href="../features/visit" class="box-border inline-flex h-24 mt-5 duration-200 bg-white border border-gray-300 shadow-md cursor-pointer w-116 rounded-2xl hover:bg-gray-100">
                             <img src="../../../../Home-page.svg" class="my-auto ml-4 w-14 h-14">
                             <span class="absolute my-5 text-xl font-bold tracking-wide ml-23 text-black-50">Kunjungan Rumah</span>
                             <span class="absolute text-sm ml-23 my-13 text-gray-350">Siswa SMKN 6 Bandung</span>
                         </a>
                     </li>
                     <li>
-                        <a href="../evaluation/individual" class="box-border inline-flex h-24 mt-5 duration-200 bg-white border border-gray-300 shadow-md cursor-pointer w-116 rounded-2xl hover:bg-gray-100">
+                        <a href="../features/individual" class="box-border inline-flex h-24 mt-5 duration-200 bg-white border border-gray-300 shadow-md cursor-pointer w-116 rounded-2xl hover:bg-gray-100">
                             <img src="../../../../Confusion.svg" class="my-auto ml-4 w-14 h-14">
                             <span class="absolute my-5 text-xl font-bold tracking-wide ml-23 text-black-50">Konseling Individu</span>
                             <span class="absolute text-sm ml-23 my-13 text-gray-350">Siswa SMKN 6 Bandung</span>
                         </a>
                     </li>
                     <li>
-                        <a href="../evaluation/group" class="box-border inline-flex h-24 mt-5 duration-200 bg-white border border-gray-300 shadow-md cursor-pointer w-116 rounded-2xl hover:bg-gray-100">
+                        <a href="../features/group" class="box-border inline-flex h-24 mt-5 duration-200 bg-white border border-gray-300 shadow-md cursor-pointer w-116 rounded-2xl hover:bg-gray-100">
                             <img src="../../../../Management.svg" class="my-auto ml-4 w-14 h-14">
                             <span class="absolute my-5 text-xl font-bold tracking-wide ml-23 text-black-50">Konseling Kelompok</span>
                             <span class="absolute text-sm ml-23 my-13 text-gray-350">Siswa SMKN 6 Bandung</span>
                         </a>
                     </li>
                     <li>
-                        <a href="../evaluation/cases" class="box-border inline-flex h-24 mt-5 duration-200 bg-white border border-gray-300 shadow-md cursor-pointer w-116 rounded-2xl hover:bg-gray-100">
+                        <a href="../features/cases" class="box-border inline-flex h-24 mt-5 duration-200 bg-white border border-gray-300 shadow-md cursor-pointer w-116 rounded-2xl hover:bg-gray-100">
                             <img src="../../../../No-entry.svg" class="my-auto ml-4 w-14 h-14">
                             <span class="absolute my-5 text-xl font-bold tracking-wide ml-23 text-black-50">Daftar Kasus</span>
                             <span class="absolute text-sm ml-23 my-13 text-gray-350">Siswa SMKN 6 Bandung</span>
@@ -91,6 +93,7 @@
                     </li>
                 </ul>
             </div>
+
             <!-- Bottom Right Content -->
             <div class="">
                 <!-- Report Box -->
@@ -104,7 +107,7 @@
                             <div class="mt-4 text-xl font-bold tracking-wide text-white">Jumlah Siswa</div>
                             <span class="text-sm font-medium text-white">SMKN 6 Bandung</span>
                             <div class="float-right mt-5 mr-5 text-center bg-white rounded-full cursor-default w-18 h-18">
-                                <div class="py-5 font-sans text-2xl font-semibold text-black-50">72%</div> 
+                                <div class="py-5 font-sans text-2xl font-semibold text-black-50">{{ $jml_siswa }}</div> 
                             </div>
                         </div>
                         <div class="pl-4 text-white border rounded-lg shadow-md right-box w-68 h-39 bg-tosca-300 border-tosca-400">

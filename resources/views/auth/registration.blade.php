@@ -20,13 +20,13 @@
                         Let’s create new account
                     </div>
                     <div class="mt-14">
-                        <input type="text" name="username" id="username" class="w-1/2 h-12 p-6 border-none bg-gray-100 rounded-full tracking-wider text-xs text-gray-400 font-light focus:outline-none focus:ring focus:ring-tosca-300 focus:border-tosca-300 transition duration-500 placeholder:text-gray-400 hover:bg-gray-200 duration-500" placeholder="USERNAME">
+                        <input type="text" name="username" id="username" class="w-1/2 h-12 p-6 border-none bg-gray-100 rounded-full tracking-wider text-xs text-gray-400 font-light focus:outline-none focus:ring focus:ring-tosca-300 focus:border-tosca-300 transition  placeholder:text-gray-400 hover:bg-gray-200 duration-500" placeholder="USERNAME">
                     </div>
                     <div class="mt-6">
-                        <input type="email" name="email" id="email" class="w-1/2 h-12 p-6 border-none bg-gray-100 rounded-full tracking-wider text-xs text-gray-400 font-light focus:outline-none focus:ring focus:ring-tosca-300 focus:border-tosca-300 transition duration-500 placeholder:text-gray-400 hover:bg-gray-200 duration-500" placeholder="EMAIL">
+                        <input type="email" name="email" id="email" class="w-1/2 h-12 p-6 border-none bg-gray-100 rounded-full tracking-wider text-xs text-gray-400 font-light focus:outline-none focus:ring focus:ring-tosca-300 focus:border-tosca-300 transition  placeholder:text-gray-400 hover:bg-gray-200 duration-500" placeholder="EMAIL">
                     </div>
                     <div class="mt-6">
-                        <input type="password" name="password" id="password" class="w-1/2 h-12 p-6 border-none bg-gray-100 rounded-full tracking-wider text-xs text-gray-400 font-light focus:outline-none focus:ring focus:ring-tosca-300 focus:border-tosca-300 transition duration-500 placeholder:text-gray-400 hover:bg-gray-200 duration-500" placeholder="PASSWORD">
+                        <input type="password" name="password" id="password" class="w-1/2 h-12 p-6 border-none bg-gray-100 rounded-full tracking-wider text-xs text-gray-400 font-light focus:outline-none focus:ring focus:ring-tosca-300 focus:border-tosca-300 transition  placeholder:text-gray-400 hover:bg-gray-200 duration-500" placeholder="PASSWORD">
                     </div>
                     <div class="mt-14 ">
                         <button class="w-1/2 h-12 p-6 rounded-full tracking-wide py-2 text-white bg-orange-100 font-sans font-semibold hover:bg-orange-200 duration-500">

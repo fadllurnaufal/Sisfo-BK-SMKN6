@@ -25,14 +25,16 @@
         </div>
         <hr>
         <!-- Bottom Content -->
-        <div class="flex my-8 justify-between">
+        <div class="flex mt-8 mb-4 justify-between">
             <!-- Search Content -->
-            <div class= "">
-                <input type="text" class="h-12 text-lg font-medium border-2 border-gray-300 shadow-sm rounded-2xl w-100 focus:ring-0 focus:ring-orange-100 focus:border-orange-100 placeholder:text-gray-300" placeholder="Cari siswa">
-                <button class="absolute w-16 h-12 -ml-16 duration-200 bg-orange-100 rounded-r-2xl hover:bg-orange-200">
-                    <img src="../../../../Search.svg" alt="" class="mx-auto">
-                </button>
-            </div>
+            <form action="{{ route('siswa.index') }}" method="GET">
+                <div class= "">
+                    <input type="search" name="search" id="search" value="{{ request('search') }}" onclick="this.value=''" class="h-12 text-lg font-medium border-2 border-gray-300 shadow-sm rounded-2xl w-100 focus:ring-0 focus:ring-orange-100 focus:border-orange-100 placeholder:text-gray-300" placeholder="Cari siswa">
+                    <button class="absolute w-16 h-12 -ml-16 duration-200 bg-orange-100 rounded-r-2xl hover:bg-orange-200">
+                        <img src="../../../../Search.svg" alt="" class="mx-auto">
+                    </button>
+                </div>
+            </form>
         </div>   
         <!-- Table content -->
         <section class="container mx-auto font-sans">
@@ -40,7 +42,7 @@
                 <div class="w-full overflow-x-auto">
                     <table class="w-full">
                     <thead>
-                        <tr class="text-md font-semibold tracking-wide text-left text-gray-900 bg-gray-100 uppercase border-b border-gray-600">
+                        <tr class="text-sm font-semibold tracking-wide text-left text-gray-900 bg-gray-100 uppercase border-b border-gray-600">
                             <th class="px-4 py-3 text-center">No</th>
                             <th class="px-4 py-3 text-center">NIS</th>
                             <th class="px-4 py-3 text-center">
@@ -91,12 +93,12 @@
                                 <td class="px-4 py-3 text-sm border text-center">{{ $siswa->jurusan }}</td>
                                 <td class="px-4 py-3 text-sm border">
                                     <div class="flex justify-center ">
-                                        <button class="w-7 h-7 bg-yellow-200 border-yellow-400 border p-1 rounded-md mx-1 hover:bg-yellow-300 duration-200 cursor-pointer" type="button" data-modal-toggle="edit-modal">
+                                        <button onclick="forEdit(this, event)"  value="{{ $siswa->id }}'" class="w-7 h-7 bg-yellow-200 border-yellow-400 border p-1 rounded-md mx-1 hover:bg-yellow-300 duration-200 cursor-pointer" type="button" data-modal-toggle="edit-modal">
                                             <img src="../../../../Edit.svg" alt="">
                                         </button>
-                                        <a href="../siswa/detail" class="w-7 h-7 bg-green-200 border-green-400 border p-1 rounded-md mx-1 hover:bg-green-500 duration-200" >
+                                        <button class="w-7 h-7 bg-green-200 border-green-400 border p-1 rounded-md mx-1 hover:bg-green-500 duration-200 " type="button" data-modal-toggle="detail-modal" >
                                             <img src="../../../../About.svg" alt="">
-                                        </a>
+                                        </button>
                                         <button class="w-7 h-7 bg-red-200 border-red-400 border p-1 rounded-md mx-1 hover:bg-red-600 duration-200" type="button" data-modal-toggle="delete-modal">
                                             <img src="../../../../Trash.svg" alt="">
                                         </button>
@@ -128,7 +130,7 @@
                         <h3 class="mb-1 mt-5 text-center text-4xl font-medium text-tosca-300 dark:text-white">Tambah Data</h3>
                         <h6 class="mb-4 text-center text-sm font-medium text-tosca-300 dark:text-white">SMK Negeri 6 Bandung</h6>
                         <hr>
-                        <form class="space-y-6 my-10" action="{{ route('siswa.save') }}" method="POST">
+                        <form class="space-y-6 my-10" action="{{ route('siswa.store.siswa') }}" method="POST">
                             @csrf
                             <div class="mx-4 mb-5">
                                 <label for="nis" class="text-xs text-gray-400">NIS :</label>
@@ -159,7 +161,7 @@
                 </div>
             </div>
         </div> 
-            <!-- Main modal edit -->
+            {{-- <!-- Main modal edit -->
             <div id="edit-modal" tabindex="-1" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 w-full md:inset-0 h-modal md:h-full justify-center items-center " aria-modal="true" role="dialog">
                 <div class="relative p-4 w-full max-w-md h-full md:h-auto">
                     <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
@@ -171,34 +173,39 @@
                             <h3 class="mb-1 mt-5 text-center text-4xl font-medium text-tosca-300 dark:text-white">Edit Data</h3>
                             <h6 class="mb-4 text-center text-sm font-medium text-tosca-300 dark:text-white">SMK Negeri 6 Bandung</h6>
                             <hr>
-                            <form class="space-y-6 my-10" action="{{ url('edit', $siswa->id) }}" method="POST">
-                                @method('patch')
-                                @csrf
+                        
+                            <div id ="result-edit">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div> 
+
+            <!-- Main modal detail -->
+            <div id="detail-modal" tabindex="-1" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 w-full md:inset-0 h-modal md:h-full justify-center items-center " aria-modal="true" role="dialog">
+                <div class="relative p-4 w-full max-w-md h-full md:h-auto">
+                    <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
+                        <button type="button" class="absolute top-3 right-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-800 dark:hover:text-white" data-modal-toggle="detail-modal">
+                            <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+                            <span class="sr-only">Close modal</span>
+                        </button>
+                        <div class="py-6 px-6 lg:px-8">
+                            <h3 class="mb-1 mt-5 text-center text-4xl font-medium text-tosca-300 dark:text-white">Detail Data</h3>
+                            <h6 class="mb-4 text-center text-sm font-medium text-tosca-300 dark:text-white">SMK Negeri 6 Bandung</h6>
+                            <hr>
+                            <div class="space-y-6 my-10">
                                 <div class="mx-4 mb-5">
                                     <label for="nis" class="text-xs text-gray-400">NIS :</label>
-                                    <input type="text" name="nis" id="nis" onfocus="this.value=''" value="{{ $siswa->nis}}" class="bg-white border border-gray-300 text-sm rounded-xl focus:ring-tosca-300 focus:border-tosca-300 block w-80 py-2.5 px-4 mt-1 mb-2 font-light drop-shadow-sm  text-gray-400 hover:bg-gray-50 duration-200" required="">
+                                    <input type="text" name="nis" id="nis" onfocus="this.value=''" value="{{ $siswa->nis}}" disabled class="bg-white border border-gray-300 text-sm rounded-xl focus:ring-tosca-300 focus:border-tosca-300 block w-80 py-2.5 px-4 mt-1 mb-2 font-light drop-shadow-sm  text-gray-400 hover:bg-gray-50 duration-200" required="">
                                     <label for="nama" class="text-xs text-gray-400">Nama :</label>
-                                    <input type="text" name="nama" id="nama" onfocus="this.value=''" value="{{ $siswa->nama}}" class="bg-white border border-gray-300 text-sm rounded-xl focus:ring-tosca-300 focus:border-tosca-300 block w-80 py-2.5 px-4 mt-1 mb-2 font-light drop-shadow-sm text-gray-400 hover:bg-gray-50 duration-200" required="">
+                                    <input type="text" name="nama" id="nama" onfocus="this.value=''" value="{{ $siswa->nama}}" disabled class="bg-white border border-gray-300 text-sm rounded-xl focus:ring-tosca-300 focus:border-tosca-300 block w-80 py-2.5 px-4 mt-1 mb-2 font-light drop-shadow-sm text-gray-400 hover:bg-gray-50 duration-200" required="">
                                     <label for="kelas" class="text-xs text-gray-400">Kelas :</label>
-                                    <select type="text" name="kelas" id="kelas" value="{{ $siswa->kelas}}" class="bg-white border border-gray-300 text-sm rounded-xl focus:ring-tosca-300 focus:border-tosca-300 block w-80 py-2.5 mt-1 mb-2 font-light drop-shadow-sm text-gray-400 hover:bg-gray-50 duration-200" required="">
-                                            <option selected>{{ $siswa->kelas}}</option>
-                                            <option value="10">10</option>
-                                            <option value="11">11</option>
-                                            <option value="12">12</option>
-                                    </select>
+                                    <input type="text" name="kelas" id="kelas" value="{{ $siswa->kelas}}" disabled class="bg-white border border-gray-300 text-sm rounded-xl focus:ring-tosca-300 focus:border-tosca-300 block w-80 py-2.5 mt-1 mb-2 font-light drop-shadow-sm text-gray-400 hover:bg-gray-50 duration-200" required="">        
                                     <label for="jurusan" class="text-xs text-gray-400">Jurusan :</label>
-                                    <select type="text" name="jurusan" id="jurusan" value="{{ $siswa->jurusan}}" class="bg-white border border-gray-300 text-gray-400 text-sm rounded-xl focus:ring-tosca-300 focus:border-tosca-300 block w-80 py-2.5 mt-1 mb-2 font-light drop-shadow-sm placeholder:text-gray-300 hover:bg-gray-50 duration-200" required="">
-                                        <option selected >{{ $siswa->jurusan}}</option>
-                                        <option value="Pengelasan">Pengelasan</option>
-                                        <option value="DPIB">DPIB</option>
-                                        <option value="TKRO">TKRO</option>
-                                        <option value="TITL">TITL</option>
-                                        <option value="TPM">TPM</option>
-                                        <option value="TAV">TAV</option>
-                                    </select>
+                                    <input type="text" name="jurusan" id="jurusan" value="{{ $siswa->jurusan}}" disabled class="bg-white border border-gray-300 text-gray-400 text-sm rounded-xl focus:ring-tosca-300 focus:border-tosca-300 block w-80 py-2.5 mt-1 mb-2 font-light drop-shadow-sm placeholder:text-gray-300 hover:bg-gray-50 duration-200" required="">
                                 </div>
-                                <button type="submit" class="w-80 mx-4 text-white bg-tosca-300 hover:bg-tosca-200 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-xl text-md px-5 py-2.5 text-center">Simpan Data</button>
-                            </form>
+                                <button type="button" data-modal-toggle="edit-modal" class="w-80 mx-4 text-white bg-tosca-300 hover:bg-tosca-200 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-xl text-md px-5 py-2.5 text-center">Edit Data</button>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -226,7 +233,8 @@
                         </div>
                     </div>
                 </div>
-            </div>
-
+            </div> --}}
 </div>
+
+<script src=" {{ asset('/sisfo/src/app.js') }}"></script>
 @endsection

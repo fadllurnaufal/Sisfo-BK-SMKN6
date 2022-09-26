@@ -10,20 +10,18 @@ use Illuminate\Support\Facades\Storage;
 
 class SiswaController extends Controller
 {
-    public function index(){
-    $dtsiswa = Siswa::orderBy('id', 'desc')->paginate(10);
-        return view('/admin/features/siswa.base', compact('dtsiswa'), [
+    public function index(Request $request){
+        if($request->has('search')){
+            $dtsiswa = Siswa::where('nama', 'LIKE', '%' .$request->search. '%')
+            ->orWhere('nis', 'LIKE', '%' .$request->search. '%')->paginate(10);
+        }else{
+            $dtsiswa = Siswa::orderBy('id', 'desc')->paginate(10);
+        }
+        return view('/admin/features/siswa', compact('dtsiswa'), [
             'title' => 'Daftar Siswa',
         ]);
     }
-
     
-    public function add(){
-        return view('/admin/features/siswa.base',[
-            'title' => 'Tambah Data Siswa'
-            ]);
-    }
-
     public function store(Request $request)
     {
         $this->validate($request, [
@@ -40,13 +38,18 @@ class SiswaController extends Controller
             'jurusan'   => $request->jurusan
         ]);
 
-        return redirect('/admin/features/siswa/base');
+        return redirect('/admin/features/siswa')->with('success', 'Anda berhasil menambahkan data siswa!');
     }
 
     public function edit($id)
     {
-        DB::table('siswa')->where('id', $id)->all();
-        return view('/admin/features/siswa.base', compact('dtsiswa'));
+        $siswa = DB::table('siswa')->where('id', $id)->first();
+
+        // $folder = 'admin.features.inc.result_siswa';
+
+        // $html =  view($folder, compact('siswa'))->renderSections();
+
+        return view('/admin/features/siswa');
     }
 
     public function update(Request $request, $id)
@@ -57,13 +60,12 @@ class SiswaController extends Controller
             'kelas'     => $request->kelas,
             'jurusan'   => $request->jurusan
         ]);
-
-        return redirect('/admin/features/siswa/base');
+        return redirect('/admin/features/siswa')->with('success', 'Anda berhasil merubah data siswa!');
     }
 
     public function destroy($id)
     {
         DB::table('siswa')->where('id', $id)->delete();
-        return redirect('/admin/features/siswa/base');
+        return redirect('/admin/features/siswa')->with('success', 'Anda berhasil menghapus data siswa!');
     }
 }
