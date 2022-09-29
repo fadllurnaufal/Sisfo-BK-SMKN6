@@ -46,7 +46,7 @@ class VisitController extends Controller
             'tujuan_kegiatan'    => $request->tujuan_kegiatan,
             'gambaran'    => $request->gambaran,
             'alamat'    => $request->alamat,
-            'tanggal'    => $request->alamat,
+            'tanggal'    => $request->tanggal,
             'anggota_keluarga'    => $request->anggota_keluarga,
             'evaluasi'    => $request->evaluasi,
             'tindak_lanjut'    => $request->tindak_lanjut,

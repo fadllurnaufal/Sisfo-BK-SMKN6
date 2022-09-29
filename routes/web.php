@@ -1,9 +1,11 @@
 <?php
 
+use App\Http\Controllers\CasesController;
 use App\Http\Controllers\RegistrationController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\EvaluationController;
+use App\Http\Controllers\IndividualController;
 use App\Http\Controllers\SiswaController;
 use App\Http\Controllers\JurnalController;
 use App\Http\Controllers\VisitController;
@@ -31,14 +33,14 @@ Route::get('/', function () {
 Route::post('/auth/login', [LoginController::class, 'authenticate']);
 Route::get('logout', [LoginController::class, 'logout'])->name('logout');
 
-Route::get('/auth/registration', [RegistrationController::class,'index']);
+Route::get('/auth/registration', [RegistrationController::class,'index'])->name('registration');
 Route::post('/auth/registration', [RegistrationController::class, 'save']);
 
 /* auth group */
 Route::middleware(['auth'])->group(function () {
 
     /* Route Profile */
-    Route::get('/admin/profile', [LoginController::class, 'profile']);
+    Route::get('/admin/features/profile', [DashboardController::class, 'profile']);
     
     /* Route Dashboard */
     Route::get('/admin/features/dashboard', [DashboardController::class, 'index']);
@@ -69,9 +71,21 @@ Route::middleware(['auth'])->group(function () {
         });
     });
 
-    /* Route Evaluation*/
-    Route::get('/admin/features/individual', [EvaluationController::class, 'index']);
-    Route::get('/admin/features/group', [EvaluationController::class, 'group'])->name('group');
-    Route::get('/admin/features/cases', [EvaluationController::class, 'cases'])->name('cases');
+    /* Route Individual Page*/
+    Route::get('/admin/features/individual', [IndividualController::class, 'index'])->name('individual.index');
+    Route::prefix('individual')->group(function () {
+        Route::name('individual.')->group(function () {
+            Route::post('create', [IndividualController::class, 'store'])->name('store.individual');
+        });
+    });
 
+    Route::get('/admin/features/group', [EvaluationController::class, 'group'])->name('group');
+
+    /* Route Cases Page */
+    Route::get('/admin/features/cases', [CasesController::class, 'index'])->name('cases.index');
+    Route::prefix('cases')->group(function () {
+        Route::name('cases.')->group(function () {
+            Route::post('create', [CasesController::class, 'store'])->name('store.cases');
+        });
+    });
 });

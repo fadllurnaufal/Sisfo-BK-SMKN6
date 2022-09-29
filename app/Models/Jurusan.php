@@ -5,13 +5,17 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Jurnal extends Model
-{
+class Jurusan extends Model{
     use HasFactory;
 
-    protected $table = "jurnal";
+    protected $table = "jurusan";
     protected $primaryKey = "id";
     protected $fillable = [
-        'id', 'tanggal', 'sasaran_kegiatan', 'layanan_kegiatan', 'hasil_kegiatan', 'guru'
+       'id', 'jurusan'
     ];
+
+
+    public function siswa(){
+        return $this->hasMany(Siswa::class);
+    }
 }

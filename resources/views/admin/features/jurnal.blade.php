@@ -70,7 +70,7 @@
                                         <td class="px-4 py-3 border text-center">
                                             {{ $id++ }}
                                         </td>
-                                        <td class="px-4 py-3 text-ms font-semibold border text-center">
+                                        <td class="px-4 py-3 text-sm border text-center">
                                             {{ $jurnal->tanggal }}
                                         </td>
                                         <td class="px-4 py-3 text-sm border">{{ $jurnal->sasaran_kegiatan }}</td>
@@ -82,9 +82,6 @@
                                                 <button class="w-7 h-7 bg-yellow-200 border-yellow-400 border p-1 rounded-md mx-1 hover:bg-yellow-300 duration-200 cursor-pointer" type="button" data-modal-toggle="edit-modal">
                                                     <img src="../../../../Edit.svg" alt="">
                                                 </button>
-                                                <a href="../siswa/detail" class="w-7 h-7 bg-green-200 border-green-400 border p-1 rounded-md mx-1 hover:bg-green-500 duration-200" >
-                                                    <img src="../../../../About.svg" alt="">
-                                                </a>
                                                 <button class="w-7 h-7 bg-red-200 border-red-400 border p-1 rounded-md mx-1 hover:bg-red-600 duration-200" type="button" data-modal-toggle="delete-modal">
                                                     <img src="../../../../Trash.svg" alt="">
                                                 </button>
@@ -158,7 +155,7 @@
                     <span class="sr-only">Close modal</span>
                 </button>
                 <div class="py-6 px-6 lg:px-8">
-                    <h3 class="mb-1 mt-5 text-center text-4xl font-medium text-tosca-300 dark:text-white">Jurnal Harian</h3>
+                    <h3 class="mb-1 mt-5 text-center text-3xl font-medium text-tosca-300 dark:text-white">Edit Data Jurnal Harian</h3>
                     <h6 class="mb-4 text-center text-xs font-medium text-gray-400 dark:text-white">Bimbingan Konseling SMK Negeri 6 Bandung</h6>
                     <hr>
                     <form class="space-y-6 my-5" action="#">

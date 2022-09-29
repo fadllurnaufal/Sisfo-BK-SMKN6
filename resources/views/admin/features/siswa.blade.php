@@ -4,28 +4,28 @@
 <!-- Content Wrapper -->
 <div class="w-full">
     <!-- Top Content-->
-        <div class="flex justify-between">
-            <div class="mb-5">
-                <!-- Header -->
-                <h1 class=" relative font-semibold tracking-normal cursor-default text-6-1/2xl text-tosca-300">
-                    {{ $title }}
-                </h1>
-                <!-- Sub-header -->
-                <h3 class="mb-2 font-semibold tracking-wider cursor-default text-gray-350">
-                    SMK Negeri 6 Bandung
-                </h3>
+    <div class="flex justify-between">
+        <div class="mb-5">
+            <!-- Header -->
+            <div class=" relative font-semibold tracking-normal cursor-default text-6-1/2xl text-tosca-300">
+                {{ $title }}
             </div>
-            <!-- Button tambah-->
-            <div class="mt-10">
-                <button class="box-border flex items-center h-11 font-semibold text-white duration-200 bg-orange-100 border border-orange-300 calendar w-50 rounded-4xl place-content-center shadow-sm hover:bg-orange-200" type="button" data-modal-toggle="tambah-modal">
-                    <img src="../../../../Plus.svg" class="w-5 h-5 mr-2"/>
-                    <span>Tambah Siswa</span>
-                </button>
+            <!-- Sub-header -->
+            <div class="mb-2 font-semibold tracking-wider cursor-default text-gray-350">
+                SMK Negeri 6 Bandung
             </div>
         </div>
-        <hr>
+        <!-- Modal toggle tambah-->
+        <div class="mt-10">
+            <button class="box-border flex items-center h-11 font-semibold text-white duration-200 bg-orange-100 border border-orange-300 calendar w-50 rounded-4xl place-content-center shadow-sm hover:bg-orange-200" type="button" data-modal-toggle="tambah-modal">
+                <img src="../../../../Plus.svg" class="w-5 h-5 mr-2"/>
+                <span>Tambah Data</span>
+            </button>
+        </div>
+    </div>
+    <hr>
         <!-- Bottom Content -->
-        <div class="flex mt-8 mb-4 justify-between">
+        <div class="flex mt-4 mb-4 justify-between">
             <!-- Search Content -->
             <form action="{{ route('siswa.index') }}" method="GET">
                 <div class= "">
@@ -75,7 +75,7 @@
                                 <td class="px-4 py-3 border text-center">
                                     {{ $id++ }}
                                 </td>
-                                <td class="px-4 py-3 text-ms font-semibold border text-center">
+                                <td class="px-4 py-3 text-sm font-semibold border text-center">
                                     {{ $siswa->nis }}
                                 </td>
                                 <td class="px-4 py-3 text-xs border">
@@ -118,7 +118,7 @@
         </section>
         <!-- Modal content -->
         <!-- Main modal tambah -->
-        <div id="tambah-modal" tabindex="-1" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 w-full md:inset-0 h-modal md:h-full justify-center items-center " aria-modal="true" role="dialog">
+        <div id="tambah-modal" name="tambah-modal" tabindex="-1" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 w-full md:inset-0 h-modal md:h-full justify-center items-center " aria-modal="true" role="dialog">
             <div class="relative p-4 w-full max-w-md h-full md:h-auto">
                 <!-- Modal content -->
                 <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
@@ -209,8 +209,7 @@
                         </div>
                     </div>
                 </div>
-            </div> 
-
+            </div> --}}
             <!-- Main modal delete -->
             <div id="delete-modal" tabindex="-1" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 md:inset-0 h-modal md:h-full">
                 <div class="relative p-4 w-full max-w-md h-full md:h-auto">
@@ -233,7 +232,7 @@
                         </div>
                     </div>
                 </div>
-            </div> --}}
+            </div> 
 </div>
 
 <script src=" {{ asset('/sisfo/src/app.js') }}"></script>

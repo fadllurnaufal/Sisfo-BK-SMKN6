@@ -13,7 +13,7 @@ class Siswa extends Model
     protected $table = "siswa";
     protected $primaryKey = "nis";
     protected $fillable = [
-        'nis', 'nama', 'kelas', 'jurusan'
+       'id', 'nis', 'nama', 'kelas', 'jurusan'
     ];
 
     public $sortable = ['nis', 'nama', 'kelas', 'jurusan' ,'created_at', 'updated_at'];

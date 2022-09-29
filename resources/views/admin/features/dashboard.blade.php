@@ -23,7 +23,7 @@
                 <button id="dropdownDefault" data-dropdown-toggle="dropdown" class="h-11 w-48 ml-3 text-tosca-300 bg-white border-2 border-gray-300 rounded-xl hover:bg-gray-100 font-medium px-4 py-2.5 text-center inline-flex items-center place-content-center duration-200" type="button">
                     <img src="../../../../user-tosca.png" class="w-8 h-8 p-1 mr-1 bg-gray-100 border border-gray-300 rounded-xl" alt="">
                     <span class="ml-2 font-medium">
-                        Username
+                        {{ auth()->user()->username }}
                     </span>
                     <svg class="w-4 h-4 ml-4" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
@@ -111,10 +111,10 @@
                             </div>
                         </div>
                         <div class="pl-4 text-white border rounded-lg shadow-md right-box w-68 h-39 bg-tosca-300 border-tosca-400">
-                            <div class="mt-4 text-xl font-bold tracking-wide text-white">Jumlah Kasus</div>
+                            <div class="mt-4 text-md font-bold tracking-wide text-white">Jumlah Siswa Dengan Kasus</div>
                             <span class="text-sm font-medium text-white">SMKN 6 Bandung</span>
-                            <div class="float-right mt-5 mr-5 text-center bg-white rounded-full cursor-default w-18 h-18">
-                                <div class="py-5 font-sans text-2xl font-semibold text-black-50">72%</div> 
+                            <div class="float-right mt-6 mr-5 text-center bg-white rounded-full cursor-default w-18 h-18">
+                                <div class="py-5 font-sans text-2xl font-semibold text-black-50">{{ $jml_cases }}</div> 
                             </div>
                         </div>
                     </div>

@@ -29,11 +29,8 @@ class JurnalController extends Controller{
             'guru'    => 'required',
         ]);
 
-
-        // dd($request->all());
-
         $date = date('Y-m-d',  strtotime($request->tanggal));
-  
+
         Jurnal::create([
             'tanggal'     => $date,
             'sasaran_kegiatan'     => $request->sasaran_kegiatan,

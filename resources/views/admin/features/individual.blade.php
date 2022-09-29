@@ -1,7 +1,6 @@
 @extends('admin.layouts.app')
 
 @section('content')
-<!-- Content Wrapper -->
 <div class="w-full">
     <!-- Top Content-->
         <div class="mb-5">
@@ -11,24 +10,29 @@
             </h1>
             <!-- Sub-header -->
             <h3 class="mb-2 font-semibold tracking-wider cursor-default text-gray-350">
-                {{ $subtitle }}
+                Bimbingan Konseling SMK Negeri 6 Bandung
             </h3>
         </div>
         <hr>
         <!-- Bottom Content -->
-        <div class="flex justify-between my-8">
+        <div class="flex justify-between my-4">
             <!-- Search Content -->
-            <div class= "search-container">
-                <input type="text" class="h-12 text-lg font-medium border-2 border-gray-300 shadow-sm rounded-2xl w-100 focus:ring-0 focus:ring-orange-100 focus:border-orange-100 placeholder:text-gray-300" placeholder="Cari siswa">
-                <button class="absolute w-16 h-12 -ml-16 duration-200 bg-orange-100 rounded-r-2xl hover:bg-orange-200">
-                    <img src="../../../../Search.svg" alt="" class="mx-auto">
-                </button>
-            </div>
+            <div class="">
+                <!-- Search Content -->
+                <form action="{{ route('individual.index') }}" method="GET">
+                    <div class= "">
+                        <input type="search" name="search" id="search" value="{{ request('search') }}" onclick="this.value=''" class="h-12 text-lg font-medium border-2 border-gray-300 shadow-sm rounded-2xl w-100 focus:ring-0 focus:ring-orange-100 focus:border-orange-100 placeholder:text-gray-300" placeholder="Cari siswa">
+                        <button class="absolute w-16 h-12 -ml-16 duration-200 bg-orange-100 rounded-r-2xl hover:bg-orange-200">
+                            <img src="../../../../Search.svg" alt="" class="mx-auto">
+                        </button>
+                    </div>
+                </form>
+            </div>   
             <!-- Filter Content -->
             <div class="filter-container flex">
                 <!-- Filter Kelas -->
                 <div class="filter-class">
-                    <button id="dropdownDefault" data-dropdown-toggle="dropdown" class="inline-flex items-center h-10 ml-3 text-lg font-medium text-gray-400 duration-200 bg-white border-2 border-gray-300 shadow-sm justify-evenly w-33 rounded-xl hover:bg-gray-100 place-content-center" type="button">
+                    <button id="dropdownDefault" data-dropdown-toggle="dropdown" class="inline-flex items-center h-10 ml-3 font-medium text-gray-400 duration-200 bg-white border-2 border-gray-300 shadow-sm justify-evenly w-33 rounded-xl hover:bg-gray-100 place-content-center" type="button">
                         <span class="ml-2 mr-6">
                             Kelas
                         </span>
@@ -40,22 +44,22 @@
                     <div id="dropdown" class="z-10 hidden" style="position: absolute; inset: 0px auto auto 0px; margin: 0px; transform: translate3d(327px, 70px, 0px);" data-popper-reference-hidden="" data-popper-escaped="" data-popper-placement="bottom">
                         <ul aria-labelledby="dropdownDefault">
                             <li>
-                                <a href="#" class="flex px-4 py-1.5 text-gray-400 border-2 bg-white border-gray-300 h-10 w-33 rounded-xl font-medium place-content-center hover:bg-gray-100 duration-200">
+                                <a href="#" class="flex px-4 py-1 text-gray-400 border-2 border-gray-300 h-10 w-33 rounded-xl font-medium place-content-center hover:bg-gray-100 duration-200">
                                     Kelas 10
                                 </a>
                             </li>
                             <li>
-                                <a href="#" class="flex px-4 py-1.5 text-gray-400 border-2 bg-white border-gray-300 h-10 w-33 rounded-xl font-medium place-content-center hover:bg-gray-100 duration-200">
+                                <a href="#" class="flex px-4 py-1 text-gray-400 border-2 border-gray-300 h-10 w-33 rounded-xl font-medium place-content-center hover:bg-gray-100 duration-200">
                                     Kelas 11
                                 </a>
                             </li>
                             <li>
-                                <a href="#" class="flex px-4 py-1.5 text-gray-400 border-2 bg-white border-gray-300 h-10 w-33 rounded-xl font-medium place-content-center hover:bg-gray-100 duration-200">
+                                <a href="#" class="flex px-4 py-1 text-gray-400 border-2 border-gray-300 h-10 w-33 rounded-xl font-medium place-content-center hover:bg-gray-100 duration-200">
                                     Kelas 12
                                 </a>
                             </li>
                             <li>
-                                <a href="#" class="flex px-4 py-1.5 text-gray-400 border-2 bg-white border-gray-300 h-10 w-33 rounded-xl font-medium place-content-center hover:bg-gray-100 duration-200">
+                                <a href="#" class="flex px-4 py-1 text-gray-400 border-2 border-gray-300 h-10 w-33 rounded-xl font-medium place-content-center hover:bg-gray-100 duration-200">
                                     Semua
                                 </a>
                             </li>
@@ -63,7 +67,7 @@
                     </div>
                 </div>
                 <div class="filter-major">
-                    <button id="dropdownMajor" data-dropdown-toggle="dropdown-major" class="inline-flex items-center h-10 ml-3 text-lg font-medium text-gray-400 duration-200 bg-white border-2 border-gray-300 shadow-sm justify-evenly w-40 rounded-xl hover:bg-gray-100 place-content-center" type="button">
+                    <button id="dropdownMajor" data-dropdown-toggle="dropdown-major" class="inline-flex items-center h-10 ml-3 font-medium text-gray-400 duration-200 bg-white border-2 border-gray-300 shadow-sm justify-evenly w-40 rounded-xl hover:bg-gray-100 place-content-center" type="button">
                         <span class="ml-2 mr-6">
                             Jurusan
                         </span>
@@ -75,32 +79,32 @@
                     <div id="dropdown-major" class="z-10 hidden" style="position: absolute; inset: 0px auto auto 0px; margin: 0px; transform: translate3d(327px, 70px, 0px);" data-popper-reference-hidden="" data-popper-escaped="" data-popper-placement="bottom">
                         <ul aria-labelledby="dropdownMajor">
                             <li>
-                                <a href="#" class="flex px-4 py-1.5 text-gray-400 border-2 bg-white border-gray-300 h-10 w-40 rounded-xl font-medium place-content-center hover:bg-gray-100 duration-200">
+                                <a href="#" class="flex px-4 py-1 text-gray-400 border-2 border-gray-300 h-10 w-40 rounded-xl font-medium place-content-center hover:bg-gray-100 duration-200">
                                     DPIB
                                 </a>
                             </li>
                             <li>
-                                <a href="#" class="flex px-4 py-1.5 text-gray-400 border-2 bg-white border-gray-300 h-10 w-40 rounded-xl font-medium place-content-center hover:bg-gray-100 duration-200">
+                                <a href="#" class="flex px-4 py-1 text-gray-400 border-2 border-gray-300 h-10 w-40 rounded-xl font-medium place-content-center hover:bg-gray-100 duration-200">
                                     Pengelasan
                                 </a>
                             </li>
                             <li>
-                                <a href="#" class="flex px-4 py-1.5 text-gray-400 border-2 bg-white border-gray-300 h-10 w-40 rounded-xl font-medium place-content-center hover:bg-gray-100 duration-200">
+                                <a href="#" class="flex px-4 py-1 text-gray-400 border-2 border-gray-300 h-10 w-40 rounded-xl font-medium place-content-center hover:bg-gray-100 duration-200">
                                     TAV
                                 </a>
                             </li>
                             <li>
-                                <a href="#" class="flex px-4 py-1.5 text-gray-400 border-2 bg-white border-gray-300 h-10 w-40 rounded-xl font-medium place-content-center hover:bg-gray-100 duration-200">
+                                <a href="#" class="flex px-4 py-1 text-gray-400 border-2 border-gray-300 h-10 w-40 rounded-xl font-medium place-content-center hover:bg-gray-100 duration-200">
                                     TITL
                                 </a>
                             </li>
                             <li>
-                                <a href="#" class="flex px-4 py-1.5 text-gray-400 border-2 bg-white border-gray-300 h-10 w-40 rounded-xl font-medium place-content-center hover:bg-gray-100 duration-200">
+                                <a href="#" class="flex px-4 py-1 text-gray-400 border-2 border-gray-300 h-10 w-40 rounded-xl font-medium place-content-center hover:bg-gray-100 duration-200">
                                     TKRO
                                 </a>
                             </li>
                             <li>
-                                <a href="#" class="flex px-4 py-1.5 text-gray-400 border-2 bg-white border-gray-300 h-10 w-40 rounded-xl font-medium place-content-center hover:bg-gray-100 duration-200">
+                                <a href="#" class="flex px-4 py-1 text-gray-400 border-2 border-gray-300 h-10 w-40 rounded-xl font-medium place-content-center hover:bg-gray-100 duration-200">
                                     TPM
                                 </a>
                             </li>
@@ -110,43 +114,93 @@
             </div>
         </div>
         <!-- Table content -->
-        <div class="table-container">
-            <table class="table-fixed border-collapse border border-slate-500">
-                <thead>
-                    <tr class="">
-                        <th class="border-2 border-orange-100 bg-orange-100 w-10 h-10 text-white cursor-default">No</th>
-                        <th class="border-2 border-orange-100 bg-orange-100 w-40 h-10 text-white cursor-default">Tanggal</th>
-                        <th class="border-2 border-orange-100 bg-orange-100 w-40 h-10 text-white cursor-default">NIS</th>
-                        <th class="border-2 border-orange-100 bg-orange-100 w-100 h-10 text-white cursor-default">Nama Siswa</th>
-                        <th class="border-2 border-orange-100 bg-orange-100 w-20 h-10 text-white cursor-default">Kelas</th>
-                        <th class="border-2 border-orange-100 bg-orange-100 w-40 h-10 text-white cursor-default">Jurusan</th>
-                        <th class="border-2 border-orange-100 bg-orange-100 w-80 h-10 text-white cursor-default">Aksi</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td class="border-2 border-gray-50 bg-gray-50 py-2 text-center">1</td>
-                        <td class="border-2 border-gray-50 bg-gray-50 py-2 text-center">22/08/2022</td>
-                        <td class="border-2 border-gray-50 bg-gray-50 py-2 text-center">1234567891011</td>
-                        <td class="border-2 border-gray-50 bg-gray-50 py-2 text-center">Muhammad Naufal Fadllur Rohman</td>
-                        <td class="border-2 border-gray-50 bg-gray-50 py-2 text-center">12</td>
-                        <td class="border-2 border-gray-50 bg-gray-50 py-2 text-center">Pengelasan</td>
-                        <td class="border-2 border-gray-50 bg-gray-50 py-2 text-center">
-                            <div class="flex justify-center ">
-                                <button class="w-7 h-7 bg-yellow-200 border-yellow-400 border p-1 rounded-md mx-1 hover:bg-yellow-300 duration-200" type="button" data-modal-toggle="tambah-modal">
-                                    <img src="../../../../PlusBlack.svg" alt="">
-                                </button>
-                                <button class="w-7 h-7 bg-green-200 border-green-400 border p-1 rounded-md mx-1 hover:bg-green-500 duration-200" type="button" data-modal-toggle="tambah-modal">
-                                    <img src="../../../../About.svg" alt="">
-                                </button>
-                                <button class="w-7 h-7 bg-red-200 border-red-400 border p-1 rounded-md mx-1 hover:bg-red-600 duration-200" type="button" data-modal-toggle="delete-modal">
-                                    <img src="../../../../Trash.svg" alt="">
-                                </button>
+        <div class="my-5">            
+            <!-- Table content -->
+            <div class="table-container">
+                <section class="container mx-auto font-sans">
+                    <div class="w-full mb-8 overflow-hidden rounded-lg shadow-lg">
+                        <div class="w-full overflow-x-auto">
+                            <table class="w-full">
+                            <thead>
+                                <tr class="text-sm font-semibold tracking-wide text-left text-gray-900 bg-gray-100 uppercase border-b border-gray-600">
+                                    <th class="px-2 py-3 text-center">No</th>
+                                    <th class="px-4 py-3 text-center">
+                                        <div class="flex items-center justify-center">
+                                            NIS
+                                        </div>
+                                    </th>
+                                    <th class="px-4 py-3 text-center">
+                                        <div class="flex items-center justify-center">
+                                            Nama Siswa
+                                            <a href="#"><svg xmlns="http://www.w3.org/2000/svg" class="ml-1 w-3 h-3" aria-hidden="true" fill="currentColor" viewBox="0 0 320 512"><path d="M27.66 224h264.7c24.6 0 36.89-29.78 19.54-47.12l-132.3-136.8c-5.406-5.406-12.47-8.107-19.53-8.107c-7.055 0-14.09 2.701-19.45 8.107L8.119 176.9C-9.229 194.2 3.055 224 27.66 224zM292.3 288H27.66c-24.6 0-36.89 29.77-19.54 47.12l132.5 136.8C145.9 477.3 152.1 480 160 480c7.053 0 14.12-2.703 19.53-8.109l132.3-136.8C329.2 317.8 316.9 288 292.3 288z"/></svg></a>
+                                        </div>
+                                    </th>
+                                    <th class="px-4 py-3 text-center">
+                                        <div class="flex items-center justify-center">
+                                            Kelas
+                                            <a href="#"><svg xmlns="http://www.w3.org/2000/svg" class="ml-1 w-3 h-3" aria-hidden="true" fill="currentColor" viewBox="0 0 320 512"><path d="M27.66 224h264.7c24.6 0 36.89-29.78 19.54-47.12l-132.3-136.8c-5.406-5.406-12.47-8.107-19.53-8.107c-7.055 0-14.09 2.701-19.45 8.107L8.119 176.9C-9.229 194.2 3.055 224 27.66 224zM292.3 288H27.66c-24.6 0-36.89 29.77-19.54 47.12l132.5 136.8C145.9 477.3 152.1 480 160 480c7.053 0 14.12-2.703 19.53-8.109l132.3-136.8C329.2 317.8 316.9 288 292.3 288z"/></svg></a>
+                                        </div>
+                                    </th>
+                                    <th class="px-4 py-3 text-center">
+                                        <div class="flex items-center justify-center">
+                                            Jurusan
+                                            <a href="#"><svg xmlns="http://www.w3.org/2000/svg" class="ml-1 w-3 h-3" aria-hidden="true" fill="currentColor" viewBox="0 0 320 512"><path d="M27.66 224h264.7c24.6 0 36.89-29.78 19.54-47.12l-132.3-136.8c-5.406-5.406-12.47-8.107-19.53-8.107c-7.055 0-14.09 2.701-19.45 8.107L8.119 176.9C-9.229 194.2 3.055 224 27.66 224zM292.3 288H27.66c-24.6 0-36.89 29.77-19.54 47.12l132.5 136.8C145.9 477.3 152.1 480 160 480c7.053 0 14.12-2.703 19.53-8.109l132.3-136.8C329.2 317.8 316.9 288 292.3 288z"/></svg></a>
+                                        </div>
+                                    </th>
+                                    <th class="px-4 py-3 text-center">Guru Pembimbing</th>
+                                    <th class="px-4 py-3 text-center">Aksi</th>
+                                </tr>
+                            </thead>
+                            <tbody class="bg-white">
+                                @php
+                                    $id = 1;
+                                @endphp
+                                {{-- @if ($dtsiswa->count()) --}}
+                                    @foreach ($dtsiswa as $siswa)
+                                        <tr class="text-gray-700">
+                                            <td class="px-4 py-3 border text-center">
+                                                {{ $id++ }}
+                                            </td>
+                                            <td class="px-4 py-3 text-sm border text-center font-semibold">{{ $siswa->nis }}</td><td class="px-4 py-3 text-xs border">
+                                                <div class="flex items-center text-sm">
+                                                    <div class="relative w-8 h-8 mr-3 rounded-full md:block">
+                                                        <img class="object-cover w-full h-full rounded-full" src="https://images.pexels.com/photos/5212324/pexels-photo-5212324.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260" alt="" loading="lazy" />
+                                                        <div class="absolute inset-0 rounded-full shadow-inner" aria-hidden="true"></div>
+                                                    </div>
+                                                    <div>
+                                                        <p class="font-semibold text-black capitalize">{{ $siswa->nama }}</p>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td class="px-4 py-3 text-sm border text-center">{{ $siswa->kelas }}</td>
+                                            <td class="px-4 py-3 text-sm border text-center">{{ $siswa->jurusan }}</td>
+                                            <td class="px-4 py-3 text-sm border text-center">{{ $siswa->guru }}</td>
+                                            <td class="px-4 py-3 text-sm border text-center">
+                                                <div class="flex justify-center ">
+                                                    <button class="w-7 h-7 bg-yellow-200 border-yellow-400 border p-1 rounded-md mx-1 hover:bg-yellow-300 duration-200" type="button" data-modal-toggle="tambah-modal">
+                                                        <img src="../../../../PlusBlack.svg" alt="">
+                                                    </button>
+                                                    <button class="w-7 h-7 bg-green-200 border-green-400 border p-1 rounded-md mx-1 hover:bg-green-500 duration-200" type="button" data-modal-toggle="tambah-modal">
+                                                        <img src="../../../../About.svg" alt="">
+                                                    </button>
+                                                    <button class="w-7 h-7 bg-red-200 border-red-400 border p-1 rounded-md mx-1 hover:bg-red-600 duration-200" type="button" data-modal-toggle="delete-modal">
+                                                        <img src="../../../../Trash.svg" alt="">
+                                                    </button>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    @endforeach
+                                {{-- @endif --}}
+                            </tbody>
+                            </table>
+                                <div class="my-5 mx-5">
+                                    
+                                </div>
                             </div>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
+                        </div>
+                    </div>
+                </section>
+            </div>
         </div>
         <!-- Modal content -->
             <!-- Main modal tambah -->
@@ -159,33 +213,29 @@
                             <span class="sr-only">Close modal</span>
                         </button>
                         <div class="py-6 px-6 lg:px-8">
-                            <h3 class="mb-1 mt-5 text-center text-4xl font-medium text-tosca-300 dark:text-white">Jurnal Harian</h3>
-                            <h6 class="mb-4 text-center text-xs font-medium text-gray-400 dark:text-white">Bimbingan Konseling SMK Negeri 6 Bandung</h6>
+                            <h3 class="mb-1 mt-5 text-center text-2xl font-medium text-tosca-300 dark:text-white">Laporan Konseling Individu</h3>
+                            <h6 class="mb-4 text-center text-xs font-medium text-gray-400 dark:text-white">SMK Negeri 6 Bandung</h6>
                             <hr>
-                            <form class="space-y-6 my-5" action="#">
+                            <form class="space-y-6 my-5" action="{{ route('individual.store.individual') }}" method="POST">
+                                @csrf
                                 <div class="mx-4 mb-5">
-                                    <label for="date" class="text-xs text-gray-400">Tanggal Kegiatan :</label>
-                                    <div class="relative">
-                                        <input datepicker type="text" class="border border-gray-300 text-gray-900 sm:text-sm focus:ring-tosca-300 focus:border-tosca-300 block w-full pl-3 p-2.5 px-4 my-3 rounded-xl hover:bg-gray-50 cursor-default">
-                                        <div class="flex absolute inset-y-0 right-0 items-center pr-3 pointer-events-none">
-                                            <svg aria-hidden="true" class="w-5 h-5 text-gray-500" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd"></path></svg>
-                                        </div>
-                                    </div>
-                                    <label for="sasaran" class="text-xs text-gray-400">Pertemuan ke- :</label>
-                                    <input type="text" name="sasaran" id="sasaran" class="bg-white border border-gray-300 text-gray-500 text-sm rounded-xl focus:ring-tosca-300 focus:border-tosca-300 block w-80 py-2.5 px-4 my-3 font-light drop-shadow-sm hover:bg-gray-50 duration-200" required="">
-                                    <label for="layanan" class="text-xs text-gray-400">Waktu :</label>
-                                    <input type="text" name="layanan" id="kelas" class="bg-white border border-gray-300 text-gray-500 text-sm rounded-xl focus:ring-tosca-300 focus:border-tosca-300 block w-80 py-2.5 px-4 my-3 font-light drop-shadow-sm hover:bg-gray-50 duration-200" required=""> </input>
-                                    <label for="hasil" class="text-xs text-gray-400">Tempat :</label>
-                                    <input type="text" name="hasil" id="jurusan" class="bg-white border border-gray-300 text-gray-500 text-sm rounded-xl focus:ring-tosca-300 focus:border-tosca-300 block w-80 py-2.5 px-4 my-3 font-light drop-shadow-sm hover:bg-gray-50 duration-200" required=""> </input>
-                                    <label for="hasil" class="text-xs text-gray-400">Pendekatan dan teknik konseling yang digunakan :</label>
-                                    <textarea type="text" name="hasil" id="jurusan" class="bg-white border border-gray-300 text-gray-500 text-sm rounded-xl focus:ring-tosca-300 focus:border-tosca-300 block w-80 h-20 py-2.5 px-4 my-3 font-light drop-shadow-sm hover:bg-gray-50 duration-200" required=""> </textarea>
+                                    <label for="tanggal" class="text-xs text-gray-400">Tanggal :</label>
+                                    <input type="date" name="tanggal" id="tanggal" class="border border-gray-300 text-gray-900 sm:text-sm focus:ring-tosca-300 focus:border-tosca-300 block w-full pl-3 p-2.5 px-4 my-3 rounded-xl hover:bg-gray-50 cursor-default">
+                                    <label for="pertemuan" class="text-xs text-gray-400">Pertemuan ke- :</label>
+                                    <input type="number" name="pertemuan" id="pertemuan" class="bg-white border border-gray-300 text-gray-500 text-sm rounded-xl focus:ring-tosca-300 focus:border-tosca-300 block w-80 py-2.5 px-4 my-3 font-light drop-shadow-sm hover:bg-gray-50 duration-200" required="">
+                                    <label for="waktu" class="text-xs text-gray-400">Waktu :</label>
+                                    <input type="time" name="waktu" id="waktu" class="bg-white border border-gray-300 text-gray-500 text-sm rounded-xl focus:ring-tosca-300 focus:border-tosca-300 block w-80 py-2.5 px-4 my-3 font-light drop-shadow-sm hover:bg-gray-50 duration-200" required=""> </input>
+                                    <label for="tempat" class="text-xs text-gray-400">Tempat :</label>
+                                    <input type="text" name="tempat" id="tempat" class="bg-white border border-gray-300 text-gray-500 text-sm rounded-xl focus:ring-tosca-300 focus:border-tosca-300 block w-80 py-2.5 px-4 my-3 font-light drop-shadow-sm hover:bg-gray-50 duration-200" required=""> </input>
+                                    <label for="pendekatan" class="text-xs text-gray-400">Pendekatan dan teknik konseling yang digunakan :</label>
+                                    <textarea type="text" name="pendekatan" id="pendekatan" class="bg-white border border-gray-300 text-gray-500 text-sm rounded-xl focus:ring-tosca-300 focus:border-tosca-300 block w-80 h-20 py-2.5 px-4 my-3 font-light drop-shadow-sm hover:bg-gray-50 duration-200" required=""> </textarea>
                                     <label for="hasil" class="text-xs text-gray-400">Hasil yang Dicapai :</label>
-                                    <textarea type="text" name="hasil" id="jurusan" class="bg-white border border-gray-300 text-gray-500 text-sm rounded-xl focus:ring-tosca-300 focus:border-tosca-300 block w-80 h-20 py-2.5 px-4 my-3 font-light drop-shadow-sm hover:bg-gray-50 duration-200" required=""> </textarea>
+                                    <textarea type="text" name="hasil" id="hasil" class="bg-white border border-gray-300 text-gray-500 text-sm rounded-xl focus:ring-tosca-300 focus:border-tosca-300 block w-80 h-20 py-2.5 px-4 my-3 font-light drop-shadow-sm hover:bg-gray-50 duration-200" required=""> </textarea>
                                 </div>
                                 <div class="flex mx-4 mb-5 justify-between">
                                     <div class="">
-                                        <label for="date" class="text-xs text-gray-400">Guru BK/ Konselor :</label>
-                                        <input type="text" name="date" id="date" class="bg-white border border-gray-300 text-gray-500 text-sm rounded-xl focus:ring-tosca-300 focus:border-tosca-300 block w-40 py-2.5 px-4 my-3 font-light drop-shadow-sm hover:bg-gray-50 duration-200" required="">
+                                        <label for="guru" class="text-xs text-gray-400">Guru BK/ Konselor :</label>
+                                        <input type="text" name="guru" id="guru" class="bg-white border border-gray-300 text-gray-500 text-sm rounded-xl focus:ring-tosca-300 focus:border-tosca-300 block w-40 py-2.5 px-4 my-3 font-light drop-shadow-sm hover:bg-gray-50 duration-200" required="">
                                     </div>
                                     <div class="pt-7">
                                         <button type="submit" class="w-36 h-10 text-white bg-orange-300 hover:bg-orange-200 focus:ring-1 focus:outline-none focus:ring-orange-300 font-medium rounded-xl text-sm p-auto text-center border border-orange-100 duration-200">Simpan Data</button>

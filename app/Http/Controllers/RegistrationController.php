@@ -25,6 +25,6 @@ class RegistrationController extends Controller
         if(User::create($validatedData)){
             return redirect()->route('login')->with('success', 'Selamat, Akun berhasil dibuat!');
         }
-        return back()->with('error', 'Gagal membuat akun');
+        return back()->route('registration')->with('error', 'Gagal membuat akun, silahkan periksa kembali!');
     }
 }

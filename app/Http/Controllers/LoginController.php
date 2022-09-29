@@ -13,12 +13,6 @@ class LoginController extends Controller{
         ]);
     }
 
-    public function profile(){
-        return view('/admin.profile',[
-            'title' => 'Profile'
-        ]);
-    }
-
     public function authenticate(Request $request){
         $credentials = $request -> validate([
             'username' => 'required',
@@ -26,7 +20,7 @@ class LoginController extends Controller{
         ]);
         if(Auth::attempt($credentials)){
             $request->session()->regenerate();
-            return redirect()->intended('/admin/features/dashboard');
+            return redirect('/admin/features/dashboard')->with('success', 'Login Berhasil');
         }
         return back()->with('error', 'Login gagal!, Periksa kembali username atau password');
     }

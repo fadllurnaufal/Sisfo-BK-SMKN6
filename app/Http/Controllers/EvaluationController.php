@@ -3,12 +3,6 @@
 namespace App\Http\Controllers;
 
 class EvaluationController extends Controller{
-    public function index(){
-        return view('/admin/features/individual', [
-            'title' => 'Konseling Individu',
-            'subtitle' => 'Bimbingan Konseling SMK Negeri 6 Bandung'
-        ]);
-    }
 
     public function group(){
         return view('/admin/features/group',[

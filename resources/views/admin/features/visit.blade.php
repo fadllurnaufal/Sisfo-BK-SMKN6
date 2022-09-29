@@ -16,9 +16,9 @@
         </div>
         <hr>
         <!-- Bottom Content -->
-        <div class="flex justify-between my-8">
+        <div class="flex justify-between my-4">
             <!-- Search Content -->
-            <div class="flex mt-8 mb-4 justify-between">
+            <div class="">
                 <!-- Search Content -->
                 <form action="{{ route('visit.index') }}" method="GET">
                     <div class= "">
@@ -154,7 +154,7 @@
                                     <td class="px-4 py-3 border text-center">
                                         {{ $id++ }}
                                     </td>
-                                    <td class="px-4 py-3 text-ms font-semibold border text-center">
+                                    <td class="px-4 py-3 text-sm font-semibold border text-center">
                                         {{ $siswa->nis }}
                                     </td>
                                     <td class="px-4 py-3 text-xs border">
@@ -210,49 +210,50 @@
                             <h3 class="mb-1 mt-5 text-center text-4xl font-semibold text-tosca-300 tracking-wider">Kunjungan Rumah</h3>
                             <h6 class="mb-4 text-center text-xs font-semibold text-gray-400 tracking-wider">Bimbingan Konseling SMK Negeri 6 Bandung</h6>
                             <hr>
-                            <form class="space-y-6 my-5" action="#">
+                            <form class="space-y-6 my-5" action="{{ route('visit.store.visit') }}" method="POST">
+                                @csrf
                                 <div class="mx-4 mb-5">
                                     <div class="flex justify-between">
                                         <div>
-                                            <label for="date" class="text-xs text-gray-400">Bidang Layanan :</label>
-                                            <input type="text" name="sasaran" id="sasaran" class="bg-white border border-gray-300 text-gray-500 text-sm rounded-xl focus:ring-tosca-300 focus:border-tosca-300 block w-80 h-10 py-2.5 px-4 my-3 font-light drop-shadow-sm hover:bg-gray-50 duration-200" required="">
+                                            <label for="bidang_layanan" class="text-xs text-gray-400">Bidang Layanan :</label>
+                                            <input type="text" name="bidang_layanan" id="bidang_layanan" class="bg-white border border-gray-300 text-gray-500 text-sm rounded-xl focus:ring-tosca-300 focus:border-tosca-300 block w-80 h-10 py-2.5 px-4 my-3 font-light drop-shadow-sm hover:bg-gray-50 duration-200" required="">
                                         </div>
                                         <div>
-                                            <label for="sasaran" class="text-xs text-gray-400">Fungsi Layanan :</label>
-                                            <input type="text" name="sasaran" id="sasaran" class="bg-white border border-gray-300 text-gray-500 text-sm rounded-xl focus:ring-tosca-300 focus:border-tosca-300 block w-80 h-10 py-2.5 px-4 my-3 font-light drop-shadow-sm hover:bg-gray-50 duration-200" required="">
+                                            <label for="fungsi_layanan" class="text-xs text-gray-400">Fungsi Layanan :</label>
+                                            <input type="text" name="fungsi_layanan" id="fungsi_layanan" class="bg-white border border-gray-300 text-gray-500 text-sm rounded-xl focus:ring-tosca-300 focus:border-tosca-300 block w-80 h-10 py-2.5 px-4 my-3 font-light drop-shadow-sm hover:bg-gray-50 duration-200" required="">
                                         </div>
                                     </div>
                                     <div class="flex justify-between">
                                         <div>
-                                            <label for="date" class="text-xs text-gray-400">Topik/ Permasalahan :</label>
-                                            <input type="text" name="sasaran" id="sasaran" class="bg-white border border-gray-300 text-gray-500 text-sm rounded-xl focus:ring-tosca-300 focus:border-tosca-300 block w-80 h-10 py-2.5 px-4 my-3 font-light drop-shadow-sm hover:bg-gray-50 duration-200" required="">
+                                            <label for="topik" class="text-xs text-gray-400">Topik/ Permasalahan :</label>
+                                            <input type="text" name="topik" id="topik" class="bg-white border border-gray-300 text-gray-500 text-sm rounded-xl focus:ring-tosca-300 focus:border-tosca-300 block w-80 h-10 py-2.5 px-4 my-3 font-light drop-shadow-sm hover:bg-gray-50 duration-200" required="">
                                         </div>
                                         <div>
-                                            <label for="sasaran" class="text-xs text-gray-400">Pihak yang Terlibat :</label>
-                                            <input type="text" name="sasaran" id="sasaran" class="bg-white border border-gray-300 text-gray-500 text-sm rounded-xl focus:ring-tosca-300 focus:border-tosca-300 block w-80 h-10 py-2.5 px-4 my-3 font-light drop-shadow-sm hover:bg-gray-50 duration-200" required="">
+                                            <label for="pihak_terlibat" class="text-xs text-gray-400">Pihak yang Terlibat :</label>
+                                            <input type="text" name="pihak_terlibat" id="pihak_terlibat" class="bg-white border border-gray-300 text-gray-500 text-sm rounded-xl focus:ring-tosca-300 focus:border-tosca-300 block w-80 h-10 py-2.5 px-4 my-3 font-light drop-shadow-sm hover:bg-gray-50 duration-200" required="">
                                         </div>
                                     </div>
-                                    <label for="layanan" class="text-xs text-gray-400">Tujuan Kegiatan :</label>
-                                    <textarea type="text" name="layanan" id="kelas" class="input bg-white border border-gray-300 text-gray-500 text-sm rounded-xl focus:ring-tosca-300 focus:border-tosca-300 block w-full h-10 py-2.5 px-4 my-3 font-light drop-shadow-sm hover:bg-gray-50 duration-200" required=""> </textarea>
-                                    <label for="hasil" class="text-xs text-gray-400">Gambaran Ringkasan Masalah :</label>
-                                    <textarea type="text" name="hasil" id="jurusan" class="input bg-white border border-gray-300 text-gray-500 text-sm rounded-xl focus:ring-tosca-300 focus:border-tosca-300 block w-full h-10 py-2.5 px-4 my-3 font-light drop-shadow-sm hover:bg-gray-50 duration-200" required=""> </textarea>
-                                    <label for="hasil" class="text-xs text-gray-400">Alamat Kunjungan :</label>
-                                    <input type="text" name="hasil" id="jurusan" class="bg-white border border-gray-300 text-gray-500 text-sm rounded-xl focus:ring-tosca-300 focus:border-tosca-300 block w-full h-10 py-2.5 px-4 my-3 font-light drop-shadow-sm hover:bg-gray-50 duration-200" required=""> </input>
-                                    <label for="hasil" class="text-xs text-gray-400">Hari/Tanggal dan lama kunjungan :</label>
-                                    <input type="text" name="hasil" id="jurusan" class="bg-white border border-gray-300 text-gray-500 text-sm rounded-xl focus:ring-tosca-300 focus:border-tosca-300 block w-full h-10 py-2.5 px-4 my-3 font-light drop-shadow-sm hover:bg-gray-50 duration-200" required=""> </input>
-                                    <label for="hasil" class="text-xs text-gray-400">Anggota keluarga yang dikunjungi :</label>
-                                    <input type="text" name="hasil" id="jurusan" class="bg-white border border-gray-300 text-gray-500 text-sm rounded-xl focus:ring-tosca-300 focus:border-tosca-300 block w-full h-10 py-2.5 px-4 my-3 font-light drop-shadow-sm hover:bg-gray-50 duration-200" required=""> </input>
-                                    <label for="hasil" class="text-xs text-gray-400">Rencana Evaluasi :</label>
-                                    <textarea type="text" name="hasil" id="jurusan" class="input bg-white border border-gray-300 text-gray-500 text-sm rounded-xl focus:ring-tosca-300 focus:border-tosca-300 block w-full h-10 py-2.5 px-4 my-3 font-light drop-shadow-sm hover:bg-gray-50 duration-200" required=""> </textarea>
-                                    <label for="hasil" class="text-xs text-gray-400">Tindak Lanjut :</label>
-                                    <textarea type="text" name="hasil" id="jurusan" class="input bg-white border border-gray-300 text-gray-500 text-sm rounded-xl focus:ring-tosca-300 focus:border-tosca-300 block w-full h-10 py-2.5 px-4 my-3 font-light drop-shadow-sm hover:bg-gray-50 duration-200" required=""> </textarea>
-                                    <label for="hasil" class="text-xs text-gray-400">Catatan Khusus :</label>
-                                    <textarea type="text" name="hasil" id="jurusan" class="input bg-white border border-gray-300 text-gray-500 text-sm rounded-xl focus:ring-tosca-300 focus:border-tosca-300 block w-full h-10 py-2.5 px-4 my-3 font-light drop-shadow-sm hover:bg-gray-50 duration-200" required=""> </textarea>
+                                    <label for="tujuan_kegiatan" class="text-xs text-gray-400">Tujuan Kegiatan :</label>
+                                    <textarea type="text" name="tujuan_kegiatan" id="tujuan_kegiatan" class="input bg-white border border-gray-300 text-gray-500 text-sm rounded-xl focus:ring-tosca-300 focus:border-tosca-300 block w-full h-10 py-2.5 px-4 my-3 font-light drop-shadow-sm hover:bg-gray-50 duration-200" required=""> </textarea>
+                                    <label for="gambaran" class="text-xs text-gray-400">Gambaran Ringkasan Masalah :</label>
+                                    <textarea type="text" name="gambaran" id="gambaran" class="input bg-white border border-gray-300 text-gray-500 text-sm rounded-xl focus:ring-tosca-300 focus:border-tosca-300 block w-full h-10 py-2.5 px-4 my-3 font-light drop-shadow-sm hover:bg-gray-50 duration-200" required=""> </textarea>
+                                    <label for="alamat" class="text-xs text-gray-400">Alamat Kunjungan :</label>
+                                    <input type="text" name="alamat" id="alamat" class="bg-white border border-gray-300 text-gray-500 text-sm rounded-xl focus:ring-tosca-300 focus:border-tosca-300 block w-full h-10 py-2.5 px-4 my-3 font-light drop-shadow-sm hover:bg-gray-50 duration-200" required=""> </input>
+                                    <label for="tanggal" class="text-xs text-gray-400">Hari/Tanggal dan lama kunjungan :</label>
+                                    <input type="text" name="tanggal" id="tanggal" class="bg-white border border-gray-300 text-gray-500 text-sm rounded-xl focus:ring-tosca-300 focus:border-tosca-300 block w-full h-10 py-2.5 px-4 my-3 font-light drop-shadow-sm hover:bg-gray-50 duration-200" required=""> </input>
+                                    <label for="anggota_keluarga" class="text-xs text-gray-400">Anggota keluarga yang dikunjungi :</label>
+                                    <input type="text" name="anggota_keluarga" id="anggota_keluarga" class="bg-white border border-gray-300 text-gray-500 text-sm rounded-xl focus:ring-tosca-300 focus:border-tosca-300 block w-full h-10 py-2.5 px-4 my-3 font-light drop-shadow-sm hover:bg-gray-50 duration-200" required=""> </input>
+                                    <label for="evaluasi" class="text-xs text-gray-400">Rencana Evaluasi :</label>
+                                    <textarea type="text" name="evaluasi" id="evaluasi" class="input bg-white border border-gray-300 text-gray-500 text-sm rounded-xl focus:ring-tosca-300 focus:border-tosca-300 block w-full h-10 py-2.5 px-4 my-3 font-light drop-shadow-sm hover:bg-gray-50 duration-200" required=""> </textarea>
+                                    <label for="tindak_lanjut" class="text-xs text-gray-400">Tindak Lanjut :</label>
+                                    <textarea type="text" name="tindak_lanjut" id="tindak_lanjut" class="input bg-white border border-gray-300 text-gray-500 text-sm rounded-xl focus:ring-tosca-300 focus:border-tosca-300 block w-full h-10 py-2.5 px-4 my-3 font-light drop-shadow-sm hover:bg-gray-50 duration-200" required=""> </textarea>
+                                    <label for="catatan" class="text-xs text-gray-400">Catatan Khusus :</label>
+                                    <textarea type="text" name="catatan" id="catatan" class="input bg-white border border-gray-300 text-gray-500 text-sm rounded-xl focus:ring-tosca-300 focus:border-tosca-300 block w-full h-10 py-2.5 px-4 my-3 font-light drop-shadow-sm hover:bg-gray-50 duration-200" required=""> </textarea>
                                 </div>
                                 <div class="flex mx-4 mb-5 justify-between">
                                     <div class="">
-                                        <label for="date" class="text-xs text-gray-400">Guru BK/ Konselor :</label>
-                                        <input type="text" name="date" id="date" class="bg-white border border-gray-300 text-gray-500 text-sm rounded-xl focus:ring-tosca-300 focus:border-tosca-300 block w-80 h-10 py-2.5 px-4 my-3 font-light drop-shadow-sm hover:bg-gray-50 duration-200" required="">
+                                        <label for="guru" class="text-xs text-gray-400">Guru BK/ Konselor :</label>
+                                        <input type="text" name="guru" id="guru" class="bg-white border border-gray-300 text-gray-500 text-sm rounded-xl focus:ring-tosca-300 focus:border-tosca-300 block w-80 h-10 py-2.5 px-4 my-3 font-light drop-shadow-sm hover:bg-gray-50 duration-200" required="">
                                     </div>
                                     <div class="pt-7">
                                         <button type="submit" class="w-32 h-10 text-white bg-orange-300 hover:bg-orange-200 focus:ring-1 focus:outline-none focus:ring-orange-300 font-medium rounded-xl text-sm px-5 py-2.5 text-center">Simpan Data</button>

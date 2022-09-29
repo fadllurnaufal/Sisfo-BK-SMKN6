@@ -5,13 +5,13 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Jurnal extends Model
+class Individual extends Model
 {
     use HasFactory;
 
-    protected $table = "jurnal";
+    protected $table = "konseling_indv";
     protected $primaryKey = "id";
     protected $fillable = [
-        'id', 'tanggal', 'sasaran_kegiatan', 'layanan_kegiatan', 'hasil_kegiatan', 'guru'
+        'id', 'tanggal', 'pertemuan', 'waktu', 'tempat', 'pendekatan', 'hasil', 'guru'
     ];
 }
