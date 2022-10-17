@@ -34,6 +34,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('lap_konseling_indv');
+        Schema::dropIfExists('konseling_indv');
     }
 };

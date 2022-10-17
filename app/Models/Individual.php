@@ -12,6 +12,10 @@ class Individual extends Model
     protected $table = "konseling_indv";
     protected $primaryKey = "id";
     protected $fillable = [
-        'id', 'tanggal', 'pertemuan', 'waktu', 'tempat', 'pendekatan', 'hasil', 'guru'
+        'id', 'tanggal', 'pertemuan', 'waktu', 'tempat', 'pendekatan', 'hasil', 'id_siswa', 'guru'
     ];
+
+    public  function siswa(){
+        return $this->belongsTo(Siswa::class, 'id_siswa', 'id', 'nama');
+    }
 }

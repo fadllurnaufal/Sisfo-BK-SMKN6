@@ -12,6 +12,10 @@ class Cases extends Model
     protected $table = "cases";
     protected $primarykey = "id";
     protected $fillable = [
-        'id', 'tanggal', 'nis', 'nama', 'kelas', 'jurusan', 'kasus', 'guru'
+        'id', 'tanggal', 'id_siswa', 'kasus', 'guru'
     ];
+
+    public function siswa(){
+        return $this->belongsTo(Siswa::class, 'id_siswa');
+    }
 }

@@ -18,7 +18,7 @@ return new class extends Migration
             $table->bigInteger('nis')->unique();
             $table->string('nama')->unique();
             $table->integer('kelas');
-            $table->string('jurusan');
+            $table->integer('id_jurusan');
             $table->timestamps();
         });
     }

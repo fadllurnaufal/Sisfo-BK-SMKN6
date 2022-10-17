@@ -16,12 +16,9 @@ return new class extends Migration
         Schema::create('cases', function (Blueprint $table) {
             $table->id();
             $table->date('tanggal');
-            $table->bigInteger('nis')->unique();
-            $table->string('nama')->unique();
-            $table->integer('kelas');
-            $table->string('jurusan');
+            $table->integer('id_siswa');
             $table->string('kasus');
-            $table->string('guru')->unique();
+            $table->string('guru');
             $table->timestamps();
         });
     }

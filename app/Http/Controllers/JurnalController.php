@@ -8,13 +8,9 @@ use App\Models\Jurnal;
 
 class JurnalController extends Controller{
     public function index(Request $request){
-        if($request->has('search')){
-            $dtjurnal = Jurnal::where('tanggal', 'LIKE', '%' .$request->search. '%')
-            ->orWhere('guru', 'LIKE', '%' .$request->search. '%')->paginate(10);
-        }else{
-            $dtjurnal = Jurnal::orderBy('id', 'desc')->paginate(10);
-        }
-        return view('/admin/features/jurnal', compact('dtjurnal'),[
+    $dtjurnal = Jurnal::orderBy('id', 'desc')->paginate(10);
+        
+    return view('/admin/features/jurnal', compact('dtjurnal'),[
             'title' => 'Jurnal Harian'
         ]);
     }
@@ -42,27 +38,37 @@ class JurnalController extends Controller{
         return redirect('/admin/features/jurnal')->with('success', 'Anda berhasil menambahkan data jurnal harian!');
     }
 
-    public function edit($id)
-    {
-        DB::table('jurnal')->where('id', $id)->all();
-        return view('/admin/features/jurnal', compact('dtsiswa'));
-    }
+    public function edit($id){
+        $jurnal = Jurnal::query()->where('id',$id)->first();
 
-    public function update(Request $request, $id)
-    {
-        DB::table('jurnal')->where('id', $id)->update([
-            'nis'     => $request->nis,
-            'nama'     => $request->nama,
-            'kelas'     => $request->kelas,
-            'jurusan'   => $request->jurusan
+        $folder = "admin.features.inc.result_jurnal";
+        $html = view($folder, compact('jurnal'))->renderSections();
+
+        return response()->json([
+            'html'=> $html,
         ]);
-        return redirect('/admin/features/jurnal')->with('success', 'Anda berhasil merubah data siswa!');
     }
 
-    public function destroy($id)
-    {
-        DB::table('jurnal')->where('id', $id)->delete();
-        return redirect('/admin/features/jurnal')->with('success', 'Anda berhasil menghapus data siswa!');
+    public function updateJurnal(Request $request){
+        $input = $request->all();
+        $dtjurnal = Jurnal::query()->where('id', $input['id'])->first();
+        $dtjurnal->tanggal = $request['tanggal'];
+        $dtjurnal->sasaran_kegiatan = $request['sasaran_kegiatan'];
+        $dtjurnal->layanan_kegiatan = $request['layanan_kegiatan'];
+        $dtjurnal->hasil_kegiatan = $request['hasil_kegiatan'];
+        $dtjurnal->guru = $request['guru'];
+        $dtjurnal->save();
+
+        return redirect('/admin/features/jurnal')->with('success', 'Anda berhasil merubah data jurnal');
     }
 
+    public function destroy($id){
+        $jurnal = Jurnal::query()->where('id', $id)->first();
+
+        if($jurnal){
+            $jurnal->delete();
+        }
+        return true;
+    }
+    
 }

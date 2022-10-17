@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Group;
+use App\Models\Siswa;
 use Illuminate\Http\Request;
 
 class GroupController extends Controller
@@ -14,7 +15,13 @@ class GroupController extends Controller
      */
     public function index()
     {
-        //
+        $siswas = Siswa::query()->get();
+        $dataJSON = Group::orderBy('id', 'desc')->paginate(10);
+
+        return view('/admin/features/group', compact('siswas', 'dataJSON'),[
+            'title' => 'Konseling Kelompok',
+            'subtitle' => 'Bimbingan Konseling SMK Negeri 6 Bandung'
+        ]);
     }
 
     /**
@@ -22,9 +29,9 @@ class GroupController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        //
+     //
     }
 
     /**
@@ -35,7 +42,21 @@ class GroupController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->validate([
+            'tanggal'   => 'required',
+            'pertemuan'  => 'required',
+            'waktu'  => 'required',
+            'tempat'  => 'required',
+            'pendekatan'    => 'required',
+            'hasil'    => 'required',
+            'id_siswa'    => 'required',
+            'guru'    => 'required',
+        ]);
+
+        $data['id_siswa'] = json_encode($request->id_siswa);
+        $dtgroup = Group::create($data);
+        
+        return redirect('/admin/features/group')->with('success', 'Anda berhasil menambahkan data konseling kelompok!');
     }
 
     /**

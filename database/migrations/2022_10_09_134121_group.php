@@ -13,7 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('konseling_indv', function (Blueprint $table) {
+        Schema::create('konseling_group', function (Blueprint $table) {
             $table->id();
             $table->date('tanggal');
             $table->integer('pertemuan');
@@ -34,6 +34,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('lap_konseling_indv');
+        Schema::dropIfExists('konseling_group');
     }
 };

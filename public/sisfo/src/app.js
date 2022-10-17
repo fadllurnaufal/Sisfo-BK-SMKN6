@@ -1,6 +1,4 @@
-const { default: axios } = require('axios');
 
-window.axios = require('axios')
 
 window.axios.defaults.header.common['X-Requested-With'] = 'XMLHttpRequest';
 
@@ -13,13 +11,17 @@ if(token){
 }
 
 
-window.forEdit = (input, evt) => {
-    evt.preventDefault();
-    console.log("masukk")
-    axios.get('/edit/' + $(input).val()).then(response => {
-      console.log(response)
-    })
-    .catch(error => {
-        console.log(error)
-    })
+function forEdit(this, evt) {
+    console.log("masdads")
 }
+
+// window.forEdit = (input, evt) => {
+//     evt.preventDefault();
+//     console.log("masukk")
+//     // axios.get('/edit/' + $(input).val()).then(response => {
+//     //   console.log(response)
+//     // })
+//     // .catch(error => {
+//     //     console.log(error)
+//     // })
+// }

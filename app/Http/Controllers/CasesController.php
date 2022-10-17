@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Cases;
+use App\Models\Siswa;
 use Illuminate\Http\Request;
 
 class CasesController extends Controller
@@ -14,13 +15,14 @@ class CasesController extends Controller
      */
     public function index(Request $request)
     {
+        $siswas = Siswa::query()->get();
         if($request->has('search')){
             $cases = Cases::where('nama', 'LIKE', '%' .$request->search. '%')
             ->orWhere('nis', 'LIKE', '%' .$request->search. '%')->paginate(10);
         }else{
             $cases = Cases::orderBy('id', 'desc')->paginate(10);
         }
-        return view('/admin/features/cases', compact('cases'), [
+        return view('/admin/features/cases', compact('cases', 'siswas'), [
             'title' => 'Daftar Kasus',
             'subtitle' => 'Siswa SMK Negeri 6 Bandung'
         ]);
@@ -46,10 +48,7 @@ class CasesController extends Controller
     {
         $this->validate($request, [
             'tanggal' => 'required',
-            'nis' => 'required',
-            'nama' => 'required',
-            'kelas' => 'required',
-            'jurusan' => 'required',
+            'id_siswa' => 'required',
             'kasus' => 'required',
             'guru' => 'required'
         ]);
@@ -58,10 +57,7 @@ class CasesController extends Controller
 
         Cases::create([
             'tanggal' => $date,
-            'nis' => $request->nis,
-            'nama' => $request->nama,
-            'kelas' => $request->kelas,
-            'jurusan' => $request->jurusan,
+            'id_siswa' => $request->id_siswa,
             'kasus' => $request->kasus,
             'guru' => $request->guru
         ]);
@@ -86,9 +82,17 @@ class CasesController extends Controller
      * @param  \App\Models\Cases  $cases
      * @return \Illuminate\Http\Response
      */
-    public function edit(Cases $cases)
+    public function edit($id)
     {
-        //
+        $siswas = Siswa::query()->get();
+        $cases = Cases::query()->where('id',$id)->first();
+
+        $folder = "admin.features.inc.result_cases";
+        $html = view($folder, compact('cases', 'siswas'))->renderSections();
+
+        return response()->json([
+            'html'=> $html,
+        ]);
     }
 
     /**
@@ -98,9 +102,15 @@ class CasesController extends Controller
      * @param  \App\Models\Cases  $cases
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Cases $cases)
+    public function updateCases(Request $request)
     {
-        //
+        $input = $request->all();
+        $dtcases = Cases::query()->where('id', $input['id'])->first();
+        $dtcases->kasus = $request['kasus'];
+        $dtcases->guru = $request['guru'];
+        $dtcases->save();
+
+        return redirect('/admin/features/cases')->with('success', 'Anda berhasil merubah data kasus');
     }
 
     /**
@@ -109,8 +119,13 @@ class CasesController extends Controller
      * @param  \App\Models\Cases  $cases
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Cases $cases)
+    public function destroy($id)
     {
-        //
+        $cases =  Cases::query()->where('id', $id)->first();
+
+        if ($cases) {
+            $cases->delete();
+        }
+        return true;
     }
 }

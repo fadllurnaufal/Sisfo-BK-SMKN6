@@ -15,19 +15,20 @@ return new class extends Migration
     {
         Schema::create('visit_report', function (Blueprint $table) {
             $table->id();
-            $table->longtext('bidang_layanan');
-            $table->longtext('fungsi_layanan');
-            $table->longtext('topik');
-            $table->longtext('pihak_terlibat');
-            $table->longtext('tujuan_kegiatan');
+            $table->string('bidang_layanan');
+            $table->string('fungsi_layanan');
+            $table->string('topik');
+            $table->longText('tujuan_kegiatan');
             $table->longtext('gambaran');
             $table->string('alamat');
-            $table->string('tanggal');
+            $table->date('tanggal');
+            $table->string('lama_kunjungan');
             $table->string('anggota_keluarga');
             $table->longtext('evaluasi');
             $table->longtext('tindak_lanjut');
             $table->longtext('catatan');
-            $table->string('guru')->unique();
+            $table->integer('id_siswa');
+            $table->string('guru');
             $table->timestamps();
         });
     }

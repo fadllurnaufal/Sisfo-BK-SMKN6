@@ -20,26 +20,12 @@
                     </div> 
                 </div>
                 <!-- Filter menu -->
-                <button id="dropdownDefault" data-dropdown-toggle="dropdown" class="h-11 w-48 ml-3 text-tosca-300 bg-white border-2 border-gray-300 rounded-xl hover:bg-gray-100 font-medium px-4 py-2.5 text-center inline-flex items-center place-content-center duration-200" type="button">
-                    <img src="../../../../user-tosca.png" class="w-8 h-8 p-1 mr-1 bg-gray-100 border border-gray-300 rounded-xl" alt="">
+                <button id="dropdownDefault" data-dropdown-toggle="dropdown" class="h-11 w-48 ml-3 text-tosca-300 bg-white border-2 border-gray-300 rounded-xl hover:bg-gray-100 font-medium px-3 py-2.5 text-center inline-flex items-center duration-200 capitalize" type="button">
+                    <img src="../../../../user-tosca.png" class="w-8 h-8 p-1 mr-3 bg-gray-100 border border-gray-300 rounded-xl" alt="">
                     <span class="ml-2 font-medium">
                         {{ auth()->user()->username }}
                     </span>
-                    <svg class="w-4 h-4 ml-4" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-                    </svg>
                 </button>
-                <!-- Dropdown menu -->
-                <div id="dropdown" class="z-10 hidden bg-white divide-gray-100 shadow w-48 h-11 rounded-xl hover:bg-gray-100" style="position: absolute; inset: 0px auto auto 0px; margin: 0px; transform: translate3d(327px, 70px, 0px);" data-popper-reference-hidden="" data-popper-escaped="" data-popper-placement="bottom">
-                    <ul class="py-1 text-lg duration-200 rounded-xl" aria-labelledby="dropdownDefault">
-                        <li>
-                            <a href="#" class="flex py-0.5 px-4 text-tosca-300">
-                                <img src="../../../../Gear.svg" class="mx-1">
-                                <span class="mx-2">Setting</span> 
-                            </a>
-                        </li>
-                    </ul>
-                </div>
             </div>
         </div>
         <!-- /Top Content -->
@@ -99,7 +85,7 @@
                 <!-- Report Box -->
                 <div class="border-2 border-gray-300 rounded-lg h-72 bg-white">
                     <div class="py-5 px-5">
-                        <span class="text-3xl font-semibold tracking-wider cursor-default text-black-50">Report Percentage</span>
+                        <span class="text-2xl font-semibold tracking-wider cursor-default text-black-50">Report Percentage</span>
                         <hr class="mt-3">
                     </div>
                     <div class="flex justify-around report-box-wrap place-content-center">
@@ -119,9 +105,10 @@
                         </div>
                     </div>
                 </div>
-                <div class="float-right mt-8 border-2 border-gray-300 rounded-lg chart w-157 h-121 bg-white mb-10">
-                    <div class="flex justify-between px-5 pt-8">
-                        <span class="text-3xl font-semibold tracking-wider cursor-default text-black-50">Counseling Chart</span>
+                <!-- Chart Container -->
+                <div class="float-right mt-8 px-5 border-2 border-gray-300 rounded-lg chart w-157 h-121 bg-white mb-10">
+                    <div class="flex justify-between pt-8">
+                        <span class="text-2xl font-semibold tracking-wider cursor-default text-black-50">Counseling Chart</span>
                         <button id="filterChart" data-dropdown-toggle="filter" class="inline-flex items-center px-4 text-center duration-200 bg-white border-2 border-gray-300 h-9 w-38 text-tosca-300 rounded-xl hover:bg-gray-100" type="button">
                             <span class="text-sm">
                                 1-6 Month
@@ -141,6 +128,13 @@
                             </ul>
                         </div>
                     </div>
+                    <!-- Chart -->
+                    {{-- <div class="panel">
+                        <div id="chart-dashboard">
+
+                        </div>
+                        
+                    </div> --}}
                 </div>
             </div>
         </div>

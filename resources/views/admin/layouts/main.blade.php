@@ -5,12 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="csrf-token" content={{ csrf_token() }}>
-    <link href="/css/app.css" rel="stylesheet">
+    <link rel="icon" href="../../../../bk.png">
+    {{-- <link href="/css/app.css" rel="stylesheet"> --}}
     <link rel="stylesheet" href="https://unpkg.com/flowbite@1.5.2/dist/flowbite.min.css" />
     <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
     <link rel="stylesheet"href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css" integrity="sha512-3pIirOrwegjM6erE5gPSwkUzO+3cTjpnV9lexlNZqvupR64iZBnOOTiiLPb9M36zpMScbmUNIcHUqKD47M719g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
     <style type="text/css">
+        .line-4 hr {
+            height: 4px;
+            border: 0;
+            background: black;
+        }
         .preloader {
             position: absolute;
             top: 0;
@@ -36,10 +43,8 @@
             resize: none;
         }
         
-        </style>
+    </style>
     @vite('resources/css/app.css')
-
-    
     <link rel="icon" href="../../../../bk.png">
     <title>{{$title}} - BK SMKN 6 Bandung</title>
 </head>
@@ -55,26 +60,220 @@
             <p>Loading...</p>
         </div>
     </div>
-    
+    <!-- Script jquery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js" integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.27.2/axios.min.js" integrity="sha512-odNmoc1XJy5x1TMVMdC7EMs3IVdItLPlCeL5vSUPN2llYKMJ2eByTTAIiiuqLg+GdNr9hF6z81p27DArRFKT7A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <!-- Toastr Script -->
-    <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js" integrity="sha512-VEd+nq25CkR676O+pLBnDW09R7VQX9Mdiij052gVCp5yVH3jGtH70Ho/UUv4mJDsEdTvqRCFZg0NKGiojGnUCw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <!-- Flowbite Script -->
-    <script src="../path/to/flowbite/dist/flowbite.js"></script>
     <!-- Preloader Script -->
     <script src="https://unpkg.com/flowbite@1.5.2/dist/flowbite.js"></script>
-    <script src=" {{ asset('/sisfo/src/app.js') }}"></script>
     <!-- Preloader JS-->
     <script>
         $(document).ready(function(){
-        $(".preloader").fadeOut(2000);
+        $(".preloader").fadeOut(1000);
         })
     </script>
     <!-- Dropdown -->
     <script src="//unpkg.com/alpinejs" defer></script>
     <!-- Date Picker -->
-    <script src="../path/to/flowbite/dist/datepicker.js"></script>
     <script src="https://unpkg.com/flowbite@1.5.2/dist/datepicker.js"></script>
+    <!-- Selectize -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.12.6/js/standalone/selectize.min.js" integrity="sha256-+C0A5Ilqmu4QcSPxrlGpaZxJ04VjsRjKu+G82kl5UJk=" crossorigin="anonymous"></script>
+    <!-- Jquery Script -->
+    <script>
+        $(document).ready(function() {
+            $('.select2').select2({
+                placeholder: "Pilih siswa",
+                allowClear: true,
+            });
+        });
+
+        $('.modal-close').on('click', function() {
+            $('.modal-close').hide();
+            $('.modal').hide();
+            window.location.reload()
+        });
+        
+        const options = {
+            placement: 'bottom-right',
+            backdropClasses: 'bg-gray-900 bg-opacity-50 dark:bg-opacity-80 fixed inset-0 z-40',
+            onHide: () => {
+                console.log('modal is hidden');
+            },
+            onShow: () => {
+                console.log('modal is shown');
+            },
+            onToggle: () => {
+                console.log('modal has been toggled');
+            }
+        };
+
+        // Jquery  Siswa
+        window.forEditSiswa = (input, evt) => {
+            evt.preventDefault();
+            console.log("masuk")
+            const targetEl = document.getElementById('edit-modal');
+            axios.get('/admin/features/siswa-edit/' + $(input).val()).then(response => {
+                $("#detail-siswa").html(response.data.html.content)
+                const modal = new Modal(targetEl, options);
+                modal.show();
+            })
+            .catch(error => {
+                console.log(error)
+            })
+        }
+
+        window.forShowSiswa = (input, evt) => {
+            evt.preventDefault();
+            const targetEl = document.getElementById('detail-modal-siswa');
+            axios.get('/admin/features/siswa-detail/' + $(input).val()).then(response => {
+                $("#show-siswa").html(response.data.html.content)
+                const modal = new Modal(targetEl, options);
+                modal.show();
+            })
+            .catch(error => {
+                console.log(error)
+            })
+        }
+
+        window.forDestroySiswa = (input, evt) => {
+            evt.preventDefault();
+            axios.delete('/siswa-destroy/' + $(input).val()).then(response => {
+                window.location.reload()
+            })
+            .catch(error => {
+                console.log(error)
+            })
+        }
+
+        // Jquery Jurnal
+        window.forEditJurnal = (input, evt) => {
+            evt.preventDefault();
+            const targetEl = document.getElementById('edit-modal');
+            axios.get('/admin/features/jurnal-edit/' + $(input).val()).then(response => {
+                $("#detail-jurnal").html(response.data.html.content)
+                const modal = new Modal(targetEl, options);
+                modal.show();
+            })
+            .catch(error => {
+                console.log(error)
+            })
+        }
+
+        window.forDestroyJurnal = (input, evt) => {
+            evt.preventDefault();
+            axios.delete('/jurnal-destroy/' + $(input).val()).then(response => {
+                window.location.reload()
+            })
+            .catch(error =>{
+                console.log(error)
+            })
+        }
+
+        // Jquery Visit
+
+        window.forEditVisit = (input, evt) => {
+            evt.preventDefault();
+            const targetEl = document.getElementById('edit-modal');
+            axios.get('/admin/features/visit-edit/' + $(input).val()).then(response => {
+                $("#detail-visit").html(response.data.html.content)
+                const modal = new Modal(targetEl, options);
+                modal.show();
+            })
+            .catch(error=>{
+                console.log(error)
+            })
+        }
+
+        window.forDetailVisit = (input, evt) => {
+            evt.preventDefault();
+            const targetEl = document.getElementById('detail-modal');
+            axios.get('/admin/features/visit-detail/' + $(input).val()).then(response => {
+                $("#show-visit").html(response.data.html.content)
+                const modal = new Modal(targetEl, options);
+                modal.show();
+            })
+            .catch(error=>{
+                console.log(error)
+            })
+        }
+
+        window.forDestroyVisit = (input, evt) => {
+            evt.preventDefault();
+            axios.delete('/visit-destroy/' + $(input).val()).then(response => {
+                window.location.reload() 
+            })
+            .catch(error =>{
+                console.log(error)
+            })
+        }
+
+        // Jquery Individu
+
+        window.forEditIndividual = (input, evt) => {
+            evt.preventDefault();
+            const targetEl = document.getElementById('edit-modal');
+            axios.get('/admin/features/individu-edit/' + $(input).val()).then(response => {
+                $("#detail-individu").html(response.data.html.content)
+                const modal = new Modal(targetEl, options);
+                modal.show();
+            })
+            .catch(error=>{
+                console.log(error)
+            })
+        }
+
+        window.forDetailIndividual = (input, evt) => {
+            evt.preventDefault();
+            const targetEl = document.getElementById('detail-modal');
+            axios.get('/admin/features/individu-detail/' + $(input).val()).then(response => {
+                $("#show-individu").html(response.data.html.content)
+                const modal = new Modal(targetEl, options);
+                modal.show();
+            })
+            .catch(error=>{
+                console.log(error)
+            })
+        }
+
+        window.forDestroyIndividual = (input, evt) => {
+            evt.preventDefault();
+            axios.delete('/individual-destroy/' + $(input).val()).then(response => {
+                window.location.reload() 
+            })
+            .catch(error =>{
+                console.log(error)
+            })
+        }
+        
+        // Jquery Cases
+
+        window.forEditCases = (input, evt) => {
+            evt.preventDefault();
+            const targetEl = document.getElementById('edit-modal');
+            axios.get('/admin/features/cases-edit/' + $(input).val()).then(response => {
+                $("#detail-cases").html(response.data.html.content)
+                const modal = new Modal(targetEl, options);
+                modal.show();
+            })
+            .catch(error=>{
+                console.log(error)
+            })
+        }
+
+        window.forDestroyCases = (input, evt) => {
+            evt.preventDefault();
+            axios.delete('/cases-destroy/' + $(input).val()).then(response => {
+                window.location.reload() 
+            })
+            .catch(error =>{
+                console.log(error)
+            })
+        }
+
+    </script>
     <!-- Live Date -->
     <script>
         const zeroFill = n => {
@@ -98,5 +297,64 @@
             toastr.error('{{ Session::get('error') }}')
         @endif
     </script>
+    <!-- Chart Script  -->
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script>
+        Highcharts.chart('chart-dashboard', {
+        chart: {
+            type: 'column'
+        },
+        title: {
+            text: ' '
+        },
+        xAxis: {
+            categories: [
+                'JAN',
+                'FEB',
+                'MAR',
+                'APR',
+                'MEI',
+                'JUN',
+                'JUL',
+                'AGU',
+                'SEP',
+                'OKT',
+                'NOV',
+                'DES'
+            ],
+            crosshair: true
+        },
+        yAxis: {
+            title: {
+                useHTML: true,
+                text: 'Banyaknya Siswa'
+            }
+        },
+        tooltip: {
+            headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+            pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+                '<td style="padding:0"><b>{point.y:.1f}</b></td></tr>',
+            footerFormat: '</table>',
+            shared: true,
+            useHTML: true
+        },
+        plotOptions: {
+            column: {
+                pointPadding: 0.2,
+                borderWidth: 0
+            }
+        },
+        series: [{
+            name: 'Banyaknya Bimbingan',
+            data: []
+
+        }, {
+            name: 'Banyaknya Kasus',
+            data: [4.35, 4.32, 4.34, 4.39, 4.46, 4.52, 4.58, 4.55,
+                4.53, 4.51, 4.49, 4.57]
+        }]
+    });
+    </script>
+    
 </body>
 </html>

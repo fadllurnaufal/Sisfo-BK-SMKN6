@@ -14,13 +14,14 @@ class IndividualController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index(Request $request){
+        $siswas = Siswa::query()->get();
         if($request->has('search')){
-            $dtsiswa = Siswa::where('nama', 'LIKE', '%' .$request->search. '%')
-            ->orWhere('nis', 'LIKE', '%' .$request->search. '%')->paginate(10);
+            $dtindividu = Individual::where('tanggal', 'LIKE', '%' .$request->search. '%')
+            ->orWhere('nama', 'LIKE', '%' .$request->search. '%')->paginate(10);
         }else{
-            $dtsiswa = Siswa::orderBy('id', 'desc')->paginate(10);
+            $dtindividu = Individual::orderBy('id', 'desc')->paginate(10);
         }
-        return view('/admin/features/individual', compact('dtsiswa'), [
+        return view('/admin/features/individual', compact(['dtindividu','siswas']), [
             'title' => 'Konseling Individu',
             'subtitle' => 'Bimbingan Konseling SMK Negeri 6 Bandung'
         ]);
@@ -34,7 +35,7 @@ class IndividualController extends Controller
      */
     public function create()
     {
-        
+        //
     }
 
     /**
@@ -52,6 +53,7 @@ class IndividualController extends Controller
             'tempat'  => 'required',
             'pendekatan'    => 'required',
             'hasil'    => 'required',
+            'id_siswa'    => 'required',
             'guru'    => 'required',
         ]);
 
@@ -64,6 +66,7 @@ class IndividualController extends Controller
             'tempat'   => $request->tempat,
             'pendekatan'   => $request->pendekatan,
             'hasil'   => $request->hasil,
+            'id_siswa'   => $request->id_siswa,
             'guru'   => $request->guru
         ]);
         return redirect('/admin/features/individual')->with('success', 'Anda berhasil menambahkan data konseling individu!');
@@ -75,9 +78,17 @@ class IndividualController extends Controller
      * @param  \App\Models\Individual  $individual
      * @return \Illuminate\Http\Response
      */
-    public function show(Individual $individual)
+    public function show($id)
     {
-        //
+        $siswas = Siswa::query()->get();
+        $individu = Individual::query()->where('id',$id)->first();
+
+        $folder = "admin.features.inc.detail_individual";
+        $html = view($folder, compact('individu', 'siswas'))->renderSections();
+
+        return response()->json([
+            'html'=> $html,
+        ]);
     }
 
     /**
@@ -86,9 +97,17 @@ class IndividualController extends Controller
      * @param  \App\Models\Individual  $individual
      * @return \Illuminate\Http\Response
      */
-    public function edit(Individual $individual)
+    public function edit($id)
     {
-        //
+        $siswas = Siswa::query()->get();
+        $individu = Individual::query()->where('id',$id)->first();
+
+        $folder = "admin.features.inc.result_individual";
+        $html = view($folder, compact('individu', 'siswas'))->renderSections();
+
+        return response()->json([
+            'html'=> $html,
+        ]);
     }
 
     /**
@@ -98,9 +117,20 @@ class IndividualController extends Controller
      * @param  \App\Models\Individual  $individual
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Individual $individual)
-    {
-        //
+    public function updateIndividual(Request $request){
+        $input = $request->all();
+        $dtindividual = Individual::query()->where('id', $input['id'])->first();
+        $dtindividual->tanggal = $request['tanggal'];
+        $dtindividual->pertemuan = $request['pertemuan'];
+        $dtindividual->waktu = $request['waktu'];
+        $dtindividual->tempat = $request['tempat'];
+        $dtindividual->pendekatan = $request['pendekatan'];
+        $dtindividual->hasil = $request['hasil'];
+        $dtindividual->id_siswa = $request['id_siswa'];
+        $dtindividual->guru = $request['guru'];
+        $dtindividual->save();
+
+        return redirect('/admin/features/Individual')->with('success', 'Anda berhasil merubah data kunjungan rumah');
     }
 
     /**
@@ -109,8 +139,13 @@ class IndividualController extends Controller
      * @param  \App\Models\Individual  $individual
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Individual $individual)
+    public function destroy($id)
     {
-        //
+        $individu =  Individual::query()->where('id', $id)->first();
+
+        if ($individu) {
+            $individu->delete();
+        }
+        return true;
     }
 }
