@@ -42,7 +42,7 @@ class GroupController extends Controller
      */
     public function store(Request $request)
     {
-        $data = $request->validate([
+        $input = $request->validate([
             'tanggal'   => 'required',
             'pertemuan'  => 'required',
             'waktu'  => 'required',
@@ -53,8 +53,12 @@ class GroupController extends Controller
             'guru'    => 'required',
         ]);
 
-        $data['id_siswa'] = json_encode($request->id_siswa);
-        $dtgroup = Group::create($data);
+        $input = $request->all();
+        $id_siswa = $input['id_siswa'];
+        $input['id_siswa'] = implode(',', $id_siswa);
+
+        // $data['id_siswa'] = json_encode($request->id_siswa);
+        Group::create($input);
         
         return redirect('/admin/features/group')->with('success', 'Anda berhasil menambahkan data konseling kelompok!');
     }

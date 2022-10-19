@@ -97,7 +97,6 @@ class SiswaController extends Controller
 
         $siswa->visit()->delete();
         $siswa->individual()->delete();
-        $siswa->group()->delete();
         $siswa->cases()->delete();
         $siswa->delete();
 

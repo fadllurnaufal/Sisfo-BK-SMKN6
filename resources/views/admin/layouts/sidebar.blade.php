@@ -38,12 +38,12 @@
                             <div x-show="openSort" x-transition:enter="transition ease-out duration-100 hidden" x-transition:enter-start="transform opacity-0 scale-95" x-transition:enter-end="transform opacity-100 scale-100" x-transition:leave="transition ease-in duration-75" x-transition:leave-start="transform opacity-100 scale-100" x-transition:leave-end="transform opacity-0 scale-95" class="absolute z-50 w-full  origin-top-right">                                    
                                 <div class="px-2 pt-2 pb-2 bg-tosca-200 rounded-md shadow-lg">
                                     <div class="flex flex-col">
-                                        <a @click="sortType='Jurnal Harian',openSort=!openSort" class="flex flex-row items-start rounded-lg bg-transparent p-2 hover:bg-gray-300 " href="../features/jurnal">
+                                        <a @click="sortType='Jurnal Harian',openSort=!openSort" class="flex flex-row items-start rounded-lg bg-transparent p-2 hover:bg-tosca-300 " href="../features/jurnal">
                                             <div class="">
                                                 <p class="font-semibold">Jurnal Harian</p> 
                                             </div>
                                         </a>            
-                                            <a @click="sortType='Kunjungan Rumah',openSort=!openSort" class="flex flex-row items-start rounded-lg bg-transparent p-2 hover:bg-gray-300 " href="../features/visit">
+                                            <a @click="sortType='Kunjungan Rumah',openSort=!openSort" class="flex flex-row items-start rounded-lg bg-transparent p-2 hover:bg-tosca-300 " href="../features/visit">
                                                 <div class="">
                                                     <p class="font-semibold">Kunjungan Rumah</p>
                                                 </div>
@@ -65,20 +65,20 @@
                             <div x-show="openSort" x-transition:enter="transition ease-out duration-100" x-transition:enter-start="transform opacity-0 scale-95" x-transition:enter-end="transform opacity-100 scale-100" x-transition:leave="transition ease-in duration-75" x-transition:leave-start="transform opacity-100 scale-100" x-transition:leave-end="transform opacity-0 scale-95" class="absolute z-50 w-full origin-top-right">
                                 <div class="px-2 pt-2 pb-2 bg-tosca-200 rounded-md shadow-lg dark-mode:bg-gray-700">
                                     <div class="flex flex-col">
-                                        <a @click="sortType='Individu',openSort=!openSort" class="flex flex-row items-start rounded-lg bg-transparent p-2 hover:bg-gray-300 " href="../features/individual">
+                                        <a @click="sortType='Individu',openSort=!openSort" class="flex flex-row items-start rounded-lg bg-transparent p-2 hover:bg-tosca-300 " href="../features/individual">
                                             
                                             <div class="">
                                                 <p class="font-semibold">Individu</p>
                                             </div>                                            
                                         </a>
-                                        <a @click="sortType='Kelompok',openSort=!openSort" class="flex flex-row items-start rounded-lg bg-transparent p-2 hover:bg-gray-300 " href="../features/group">
+                                        <a @click="sortType='Kelompok',openSort=!openSort" class="flex flex-row items-start rounded-lg bg-transparent p-2 hover:bg-tosca-300 " href="../features/group">
                                                 
                                             <div class="">
                                                 <p class="font-semibold">Kelompok</p>
                                             </div>
                                         </a>
 
-                                        <a @click="sortType='Daftar Kasus',openSort=!openSort" class="flex flex-row items-start rounded-lg bg-transparent p-2 hover:bg-gray-300 " href="../features/cases">
+                                        <a @click="sortType='Daftar Kasus',openSort=!openSort" class="flex flex-row items-start rounded-lg bg-transparent p-2 hover:bg-tosca-300 " href="../features/cases">
                                             
                                             <div class="">
                                                 <p class="font-semibold">Daftar Kasus</p>
