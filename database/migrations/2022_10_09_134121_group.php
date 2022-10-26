@@ -21,7 +21,7 @@ return new class extends Migration
             $table->string('tempat');
             $table->string('pendekatan');
             $table->longtext('hasil');
-            $table->integer('id_siswa');
+            $table->string('id_siswa');
             $table->string('guru');
             $table->timestamps();
         });

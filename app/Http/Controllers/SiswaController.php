@@ -19,7 +19,7 @@ class SiswaController extends Controller
             $dtsiswa = Siswa::where('nama', 'LIKE', '%' .$request->search. '%')
             ->orWhere('nis', 'LIKE', '%' .$request->search. '%')->paginate(10);
         }else{
-            $dtsiswa = Siswa::orderBy('id', 'desc')->paginate(10);
+            $dtsiswa = Siswa::orderBy('created_at', 'desc')->paginate(10);
         }
         return view('/admin/features/siswa', compact('dtsiswa', 'jurusans', 'siswas'), [
             'title' => 'Daftar Siswa',
@@ -30,21 +30,19 @@ class SiswaController extends Controller
         $dtsiswa = Siswa::all();
 
         $pdf = PDF::loadview('admin.features.inc.print_siswa', ['dtsiswa'=>$dtsiswa]);
-        return $pdf->download('laporan-siswa-pdf');
+        return $pdf->stream('laporan-siswa-pdf.pdf',[
+            'title' => 'Laporan'
+        ]);
     }
     
     public function store(Request $request)
     {
-        $messages = [
-            'nis.required' => 'NIS is required!'
-        ];
-
         $this->validate($request, [
             'nis'     => 'required|unique:siswa,nis',
             'nama'     => 'required|unique:siswa,nama',
             'kelas'     => 'required',
             'id_jurusan'     => 'required',
-        ], $messages);
+        ]);
 
         Siswa::create([
             'nis'     => $request->nis,

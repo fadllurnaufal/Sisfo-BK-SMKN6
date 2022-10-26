@@ -16,6 +16,6 @@ class Group extends Model
     ];
 
     public  function siswa(){
-        return $this->belongsTo(Siswa::class, 'id_siswa');
+        return $this->belongsTo(Siswa::class, 'id_siswa', 'id', 'nama');
     }
 }

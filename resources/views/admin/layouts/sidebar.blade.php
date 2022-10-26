@@ -13,7 +13,7 @@
             <ul>
                 <li>
                     <a href="../features/dashboard" class="flex h-16 px-8 py-4 duration-200 w-80 place-items-center hover:bg-tosca-200">
-                        <img src="../../../home.png" class="w-8 h-8 "/>
+                        <img src="{{ asset('home.png') }}" class="w-8 h-8 "/>
                         <span class="ml-8 tracking-wider font-semibold">
                             Dashboard
                         </span>
@@ -21,7 +21,7 @@
                 </li>
                 <li >
                     <a href="../features/siswa" class="flex h-16 px-8 py-4 duration-200 w-80 place-items-center hover:bg-tosca-200 ">
-                        <img src="../../../users.png" class="w-8 h-8"/>
+                        <img src="{{ asset('users.png') }}" class="w-8 h-8"/>
                         <span class="ml-8 tracking-wider font-semibold">
                             Daftar Siswa
                         </span>
@@ -29,7 +29,7 @@
                 </li>
                 <li>
                     <div class="flex h-16 px-16 py-4 duration-200 w-80 place-items-center hover:bg-tosca-200 cursor-pointer tracking-wider">
-                        <img src="../../../copybook.svg" class="absolute -ml-8 w-8 h-8">
+                        <img src="{{ asset ('Copybook.svg') }}" class="absolute -ml-8 w-8 h-8">
                         <div @click.away="openSort = false" class="ml-8 relative -mt-2 mr-2 tracking-wider" x-data="{ openSort: false,sortType:'Laporan Kegiatan' }">
                             <button @click="openSort = !openSort" class="flex  text-white items-center justify-start w-48 py-2 mt-2 text-sm font-semibold text-left bg-transparent rounded-lg tracking-wider">
                                 <span x-text="sortType"></span>
@@ -56,7 +56,7 @@
 				</li>
                 <li>
                     <div class="flex h-16 px-16 py-4 duration-200 w-80 place-items-center hover:bg-tosca-200 cursor-pointer ">
-                        <img src="../../../list.png" class="absolute -ml-8 w-8 h-8">
+                        <img src="{{ asset('list.png') }}" class="absolute -ml-8 w-8 h-8">
                         <div @click.away="openSort = false" class="ml-8 relative -mt-2 mr-2 tracking-wider" x-data="{ openSort: false,sortType:'Evaluasi Siswa' }">
                             <button @click="openSort = !openSort" class="flex  text-white items-center justify-start w-48  py-2 mt-2 text-sm font-semibold text-left bg-transparent rounded-lg tracking-wider">
                                 <span x-text="sortType"></span>
@@ -94,7 +94,7 @@
                 <div class="mt-20">
                     <li>
                         <a href="/admin/features/profile" class="flex h-16 px-8 py-4 duration-200 w-80 place-items-center hover:bg-tosca-200 ">
-                            <img src="../../../user.png" class="w-8 h-8"/>
+                            <img src="{{ asset('user.png') }}" class="w-8 h-8"/>
                             <span class="ml-8 tracking-wider font-semibold">
                                 Profile
                             </span>
@@ -102,7 +102,7 @@
                     </li>
                     <li>
                         <a href="{{ url('logout') }}" class="flex h-16 px-8 py-4 duration-200 w-80 place-items-center hover:bg-tosca-200 ">
-                            <img src="../../../logout.png" class="w-8 h-8"/>
+                            <img src="{{ asset('logout.png') }}" class="w-8 h-8"/>
                             <span class="ml-8 tracking-wider font-semibold">
                                 Logout
                             </span>

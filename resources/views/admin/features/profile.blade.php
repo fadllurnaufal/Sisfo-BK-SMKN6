@@ -24,7 +24,7 @@
                         <hr class="w-80 mx-auto">
                     </div> --}}
                     <div class="mt-14 ">
-                        <button class="w-80 h-12 p-6 rounded-full tracking-wide py-2 text-white bg-orange-100 font-sans font-semibold hover:bg-orange-200 duration-500">
+                        <button class="w-80 h-12 p-6 rounded-full tracking-wide py-2 text-white bg-orange-100 font-sans font-semibold hover:bg-orange-200 duration-500 cursor-not-allowed">
                             Edit Profile
                         </button>
                     </div>

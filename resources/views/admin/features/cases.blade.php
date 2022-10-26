@@ -271,7 +271,7 @@
                             <span class="sr-only">Close modal</span>
                         </button>
                         <div class="py-6 px-6 lg:px-8">
-                            <h3 class="mb-1 mt-5 text-center text-4xl font-medium text-tosca-300 dark:text-white">Tambah Daftar Kasus</h3>
+                            <h3 class="mb-1 mt-5 text-center text-4xl font-medium text-tosca-300 dark:text-white">Edit Data Kasus</h3>
                             <h6 class="mb-4 text-center text-xs font-medium text-gray-400 dark:text-white">Bimbingan Konseling SMK Negeri 6 Bandung</h6>
                             <hr>
                             <div id="detail-cases"></div>

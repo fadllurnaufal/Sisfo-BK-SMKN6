@@ -21,7 +21,7 @@
                 </div>
                 <!-- Filter menu -->
                 <button id="dropdownDefault" data-dropdown-toggle="dropdown" class="h-11 w-48 ml-3 text-tosca-300 bg-white border-2 border-gray-300 rounded-xl hover:bg-gray-100 font-medium px-3 py-2.5 text-center inline-flex items-center duration-200 capitalize" type="button">
-                    <img src="../../../../user-tosca.png" class="w-8 h-8 p-1 mr-3 bg-gray-100 border border-gray-300 rounded-xl" alt="">
+                    <img src="{{ asset('user-tosca.png') }}" class="w-8 h-8 p-1 mr-3 bg-gray-100 border border-gray-300 rounded-xl" alt="">
                     <span class="ml-2 font-medium">
                         {{ auth()->user()->username }}
                     </span>
@@ -37,42 +37,42 @@
                 <ul class="mt-10 ">
                     <li>
                         <a href="../features/siswa" class="box-border inline-flex h-24 duration-200 bg-white border border-gray-300 shadow-md cursor-pointer w-full lg:w-116 rounded-2xl hover:bg-gray-100">
-                            <img src="../../../../Name.svg" class="my-auto ml-4 w-14 h-14">
+                            <img src="{{ asset('Name.svg') }}" class="my-auto ml-4 w-14 h-14">
                             <span class="absolute my-5 text-xl font-bold tracking-wide ml-23 text-black-50">Daftar Siswa</span>
                             <span class="absolute text-sm ml-23 my-13 text-gray-350">SMKN 6 Bandung</span>
                         </a>
                     </li>
                     <li>
                         <a href="../features/jurnal" class="box-border inline-flex h-24 mt-5 duration-200 bg-white border border-gray-300 shadow-md cursor-pointer w-116 rounded-2xl hover:bg-gray-100">
-                            <img src="../../../../Book.svg" class="my-auto ml-4 w-14 h-14">
+                            <img src="{{ asset('Book.svg') }}" class="my-auto ml-4 w-14 h-14">
                             <span class="absolute my-5 text-xl font-bold tracking-wide ml-23 text-black-50">Jurnal Harian</span>
                             <span class="absolute text-sm ml-23 my-13 text-gray-350">Bimbingan Konseling</span>
                         </a>
                     </li>
                     <li>
                         <a href="../features/visit" class="box-border inline-flex h-24 mt-5 duration-200 bg-white border border-gray-300 shadow-md cursor-pointer w-116 rounded-2xl hover:bg-gray-100">
-                            <img src="../../../../Home-page.svg" class="my-auto ml-4 w-14 h-14">
+                            <img src="{{ asset('Home-Page.svg') }}" class="my-auto ml-4 w-14 h-14">
                             <span class="absolute my-5 text-xl font-bold tracking-wide ml-23 text-black-50">Kunjungan Rumah</span>
                             <span class="absolute text-sm ml-23 my-13 text-gray-350">Siswa SMKN 6 Bandung</span>
                         </a>
                     </li>
                     <li>
                         <a href="../features/individual" class="box-border inline-flex h-24 mt-5 duration-200 bg-white border border-gray-300 shadow-md cursor-pointer w-116 rounded-2xl hover:bg-gray-100">
-                            <img src="../../../../Confusion.svg" class="my-auto ml-4 w-14 h-14">
+                            <img src="{{ asset('Confusion.svg') }}" class="my-auto ml-4 w-14 h-14">
                             <span class="absolute my-5 text-xl font-bold tracking-wide ml-23 text-black-50">Konseling Individu</span>
                             <span class="absolute text-sm ml-23 my-13 text-gray-350">Siswa SMKN 6 Bandung</span>
                         </a>
                     </li>
                     <li>
                         <a href="../features/group" class="box-border inline-flex h-24 mt-5 duration-200 bg-white border border-gray-300 shadow-md cursor-pointer w-116 rounded-2xl hover:bg-gray-100">
-                            <img src="../../../../Management.svg" class="my-auto ml-4 w-14 h-14">
+                            <img src="{{ asset('Management.svg') }}" class="my-auto ml-4 w-14 h-14">
                             <span class="absolute my-5 text-xl font-bold tracking-wide ml-23 text-black-50">Konseling Kelompok</span>
                             <span class="absolute text-sm ml-23 my-13 text-gray-350">Siswa SMKN 6 Bandung</span>
                         </a>
                     </li>
                     <li>
                         <a href="../features/cases" class="box-border inline-flex h-24 mt-5 duration-200 bg-white border border-gray-300 shadow-md cursor-pointer w-116 rounded-2xl hover:bg-gray-100">
-                            <img src="../../../../No-entry.svg" class="my-auto ml-4 w-14 h-14">
+                            <img src="{{ asset('No-Entry.svg') }}" class="my-auto ml-4 w-14 h-14">
                             <span class="absolute my-5 text-xl font-bold tracking-wide ml-23 text-black-50">Daftar Kasus</span>
                             <span class="absolute text-sm ml-23 my-13 text-gray-350">Siswa SMKN 6 Bandung</span>
                         </a>
@@ -109,7 +109,7 @@
                 <div class="float-right mt-8 px-5 border-2 border-gray-300 rounded-lg chart w-157 h-121 bg-white mb-10">
                     <div class="flex justify-between pt-8">
                         <span class="text-2xl font-semibold tracking-wider cursor-default text-black-50">Counseling Chart</span>
-                        <button id="filterChart" data-dropdown-toggle="filter" class="inline-flex items-center px-4 text-center duration-200 bg-white border-2 border-gray-300 h-9 w-38 text-tosca-300 rounded-xl hover:bg-gray-100" type="button">
+                        {{-- <button id="filterChart" data-dropdown-toggle="filter" class="inline-flex items-center px-4 text-center duration-200 bg-white border-2 border-gray-300 h-9 w-38 text-tosca-300 rounded-xl hover:bg-gray-100" type="button">
                             <span class="text-sm">
                                 1-6 Month
                             </span>
@@ -126,7 +126,7 @@
                                     </a>
                                 </li>
                             </ul>
-                        </div>
+                        </div> --}}
                     </div>
                     <!-- Chart -->
                     {{-- <div class="panel">

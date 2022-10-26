@@ -16,8 +16,9 @@ class IndividualController extends Controller
     public function index(Request $request){
         $siswas = Siswa::query()->get();
         if($request->has('search')){
-            $dtindividu = Individual::where('tanggal', 'LIKE', '%' .$request->search. '%')
-            ->orWhere('nama', 'LIKE', '%' .$request->search. '%')->paginate(10);
+            $dtindividu = Siswa::whereHas('siswa', function ($query) use ($request) {
+                $query->where('nama', 'like', "%{$request->nama}%")->paginate(10);
+            });
         }else{
             $dtindividu = Individual::orderBy('id', 'desc')->paginate(10);
         }
@@ -126,11 +127,10 @@ class IndividualController extends Controller
         $dtindividual->tempat = $request['tempat'];
         $dtindividual->pendekatan = $request['pendekatan'];
         $dtindividual->hasil = $request['hasil'];
-        $dtindividual->id_siswa = $request['id_siswa'];
         $dtindividual->guru = $request['guru'];
         $dtindividual->save();
 
-        return redirect('/admin/features/Individual')->with('success', 'Anda berhasil merubah data kunjungan rumah');
+        return redirect('/admin/features/Individual')->with('success', 'Anda berhasil merubah data konseling individu');
     }
 
     /**

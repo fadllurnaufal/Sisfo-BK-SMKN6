@@ -16,9 +16,9 @@ class GroupController extends Controller
     public function index()
     {
         $siswas = Siswa::query()->get();
-        $dataJSON = Group::orderBy('id', 'desc')->paginate(10);
+        $dtgroup = Group::orderBy('id', 'desc')->paginate(10);
 
-        return view('/admin/features/group', compact('siswas', 'dataJSON'),[
+        return view('/admin/features/group', compact('siswas', 'dtgroup'),[
             'title' => 'Konseling Kelompok',
             'subtitle' => 'Bimbingan Konseling SMK Negeri 6 Bandung'
         ]);
@@ -55,10 +55,12 @@ class GroupController extends Controller
 
         $input = $request->all();
         $id_siswa = $input['id_siswa'];
-        $input['id_siswa'] = implode(',', $id_siswa);
+        $input['id_siswa'] = implode(', ', $id_siswa);
+
+        Group::create($input);
 
         // $data['id_siswa'] = json_encode($request->id_siswa);
-        Group::create($input);
+
         
         return redirect('/admin/features/group')->with('success', 'Anda berhasil menambahkan data konseling kelompok!');
     }
@@ -69,9 +71,17 @@ class GroupController extends Controller
      * @param  \App\Models\Group  $group
      * @return \Illuminate\Http\Response
      */
-    public function show(Group $group)
+    public function show($id)
     {
-        //
+        $siswas = Siswa::query()->get();
+        $group = Group::query()->where('id',$id)->first();
+
+        $folder = "admin.features.inc.detail_group";
+        $html = view($folder, compact('group', 'siswas'))->renderSections();
+
+        return response()->json([
+            'html'=> $html,
+        ]);
     }
 
     /**
@@ -80,9 +90,17 @@ class GroupController extends Controller
      * @param  \App\Models\Group  $group
      * @return \Illuminate\Http\Response
      */
-    public function edit(Group $group)
+    public function edit($id)
     {
-        //
+        $siswas = Siswa::query()->get();
+        $group = Group::query()->where('id',$id)->first();
+
+        $folder = "admin.features.inc.result_group";
+        $html = view($folder, compact('group', 'siswas'))->renderSections();
+
+        return response()->json([
+            'html'=> $html,
+        ]);
     }
 
     /**
@@ -92,9 +110,20 @@ class GroupController extends Controller
      * @param  \App\Models\Group  $group
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Group $group)
+    public function updateGroup(Request $request)
     {
-        //
+        $input = $request->all();
+        $dtgroup = Group::query()->where('id', $input['id'])->first();
+        $dtgroup->tanggal = $request['tanggal'];
+        $dtgroup->pertemuan = $request['pertemuan'];
+        $dtgroup->waktu = $request['waktu'];
+        $dtgroup->tempat = $request['tempat'];
+        $dtgroup->pendekatan = $request['pendekatan'];
+        $dtgroup->hasil = $request['hasil'];
+        $dtgroup->guru = $request['guru'];
+        $dtgroup->save();
+
+        return redirect('/admin/features/group')->with('success', 'Anda berhasil merubah data konseling kelompok!');
     }
 
     /**
@@ -103,8 +132,13 @@ class GroupController extends Controller
      * @param  \App\Models\Group  $group
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Group $group)
+    public function destroy($id)
     {
-        //
+        $group =  Group::query()->where('id', $id)->first();
+
+        if ($group) {
+            $group->delete();
+        }
+        return true;
     }
 }

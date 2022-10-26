@@ -93,10 +93,13 @@ Route::middleware(['auth'])->group(function () {
 
     /* Route Group Page */
     Route::get('/admin/features/group', [GroupController::class, 'index'])->name('group.index');
+    Route::get('/admin/features/group-edit/{id}', [GroupController::class, 'edit']);
+    Route::get('/admin/features/group-detail/{id}', [GroupController::class, 'show']);
+    Route::delete('/group-destroy/{id}', [GroupController::class, 'destroy']);
     Route::prefix('group')->group(function () {
         Route::name('group.')->group(function () {
             Route::post('create', [GroupController::class, 'store'])->name('store.group');
-            // Route::post('/update', [IndividualController::class, 'updateIndividual'])->name('update.individual');
+            Route::post('/update', [GroupController::class, 'updateGroup'])->name('update.group');
         });
     });
 

@@ -59,7 +59,7 @@ class JurnalController extends Controller{
         $dtjurnal->guru = $request['guru'];
         $dtjurnal->save();
 
-        return redirect('/admin/features/jurnal')->with('success', 'Anda berhasil merubah data jurnal');
+        return redirect('/admin/features/jurnal')->with('success', 'Anda berhasil merubah data jurnal harian');
     }
 
     public function destroy($id){

@@ -5,8 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="csrf-token" content={{ csrf_token() }}>
-    <link rel="icon" href="../../../../bk.png">
-    {{-- <link href="/css/app.css" rel="stylesheet"> --}}
+    <link rel="icon" href="{{ asset('icon/bk.png') }}">
     <link rel="stylesheet" href="https://unpkg.com/flowbite@1.5.2/dist/flowbite.min.css" />
     <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
     <link rel="stylesheet"href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
@@ -45,7 +44,6 @@
         
     </style>
     @vite('resources/css/app.css')
-    <link rel="icon" href="../../../../bk.png">
     <title>{{$title}} - BK SMKN 6 Bandung</title>
 </head>
 <body>
@@ -247,6 +245,44 @@
                 console.log(error)
             })
         }
+
+        // Jquery Group
+
+        window.forEditGroup = (input, evt) => {
+            evt.preventDefault();
+            const targetEl = document.getElementById('edit-modal');
+            axios.get('/admin/features/group-edit/' + $(input).val()).then(response => {
+                $("#detail-group").html(response.data.html.content)
+                const modal = new Modal(targetEl, options);
+                modal.show();
+            })
+            .catch(error=>{
+                console.log(error)
+            })
+        }
+
+        window.forDetailGroup = (input, evt) => {
+            evt.preventDefault();
+            const targetEl = document.getElementById('detail-modal');
+            axios.get('/admin/features/group-detail/' + $(input).val()).then(response => {
+                $("#show-group").html(response.data.html.content)
+                const modal = new Modal(targetEl, options);
+                modal.show();
+            })
+            .catch(error=>{
+                console.log(error)
+            })
+        }
+
+        window.forDestroyGroup = (input, evt) => {
+            evt.preventDefault();
+            axios.delete('/group-destroy/' + $(input).val()).then(response => {
+                window.location.reload() 
+            })
+            .catch(error =>{
+                console.log(error)
+            })
+        }
         
         // Jquery Cases
 
@@ -296,64 +332,6 @@
         @if (Session::has('error'))
             toastr.error('{{ Session::get('error') }}')
         @endif
-    </script>
-    <!-- Chart Script  -->
-    <script src="https://code.highcharts.com/highcharts.js"></script>
-    <script>
-        Highcharts.chart('chart-dashboard', {
-        chart: {
-            type: 'column'
-        },
-        title: {
-            text: ' '
-        },
-        xAxis: {
-            categories: [
-                'JAN',
-                'FEB',
-                'MAR',
-                'APR',
-                'MEI',
-                'JUN',
-                'JUL',
-                'AGU',
-                'SEP',
-                'OKT',
-                'NOV',
-                'DES'
-            ],
-            crosshair: true
-        },
-        yAxis: {
-            title: {
-                useHTML: true,
-                text: 'Banyaknya Siswa'
-            }
-        },
-        tooltip: {
-            headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
-            pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
-                '<td style="padding:0"><b>{point.y:.1f}</b></td></tr>',
-            footerFormat: '</table>',
-            shared: true,
-            useHTML: true
-        },
-        plotOptions: {
-            column: {
-                pointPadding: 0.2,
-                borderWidth: 0
-            }
-        },
-        series: [{
-            name: 'Banyaknya Bimbingan',
-            data: []
-
-        }, {
-            name: 'Banyaknya Kasus',
-            data: [4.35, 4.32, 4.34, 4.39, 4.46, 4.52, 4.58, 4.55,
-                4.53, 4.51, 4.49, 4.57]
-        }]
-    });
     </script>
     
 </body>
